@@ -1,0 +1,243 @@
+/* Estilos para campos de formulario inválidos y válidos */
+input:invalid {
+    border: red solid 3px;
+  }
+  input:valid {
+    border: #ddffdd solid 3px;
+  }
+  
+  /* Estilos para todos los campos de entrada */
+  input {
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Estilos generales */
+  /* Contenedor principal del calendario */
+  #calendario {
+    border: 4px double black;
+    max-width: 1024px;
+    background-color: #fffafa;
+    text-align: center;
+    margin: auto;
+  }
+  
+  /* Tabla del calendario */
+  #diasc {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 4px;
+  }
+  #diasc th,
+  #diasc td {
+    font: normal 14pt arial;
+    width: 140px;
+    height: 30px;
+  }
+  #diasc th {
+    color: #990099;
+    background-color: #5ecdec;
+  }
+  #diasc td {
+    color: #492736;
+    background-color: #9bf5ff;
+  }
+  
+  /* Línea de fecha actual */
+  #fechaactual {
+    font: bold 12pt arial;
+    padding: 0.4em;
+  }
+  #fechaactual i {
+    cursor: pointer;
+  }
+  #fechaactual i:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  /* Formulario de búsqueda de fechas */
+  #buscafecha {
+    background-color: #663366;
+    color: #9bf5ff;
+    padding: 5px;
+  }
+  #buscafecha select,
+  #buscafecha input {
+    background-color: #9bf5ff;
+    color: #990099;
+    font: bold 10pt arial;
+  }
+  #buscafecha [type="text"] {
+    text-align: center;
+  }
+  #buscafecha [type="button"] {
+    cursor: pointer;
+  }
+  
+  /* Cabecera del calendario */
+  #anterior {
+    float: left;
+    width: 100px;
+    font: bold 12pt arial;
+    padding: 0.5em 0.1em;
+    cursor: pointer;
+  }
+  #posterior {
+    float: right;
+    width: 100px;
+    font: bold 12pt arial;
+    padding: 0.5em 0.1em;
+    cursor: pointer;
+  }
+  #anterior:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #posterior:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #titulos {
+    font: normal 20pt "arial black";
+    padding: 0.2em;
+  }
+  
+  /* Cálculo de horas semana */
+  #Semana {
+    border: 4px double black;
+    max-width: 1024px;
+    background-color: #fffafa;
+    text-align: center;
+    margin: auto;
+  }
+  
+  /* Tabla del calendario */
+  #diassemana {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 4px;
+  }
+  #diassemana th {
+    font: normal 14pt arial;
+    width: 140px;
+    height: 30px;
+    color: #990099;
+    background-color: #5ecdec;
+  }
+  #diassemana td {
+    font: normal 14pt arial;
+    width: 70px;
+    height: 30px;
+    color: #492736;
+    background-color: #
+  }
+
+  /* calculo horas semana */
+
+#Semana {
+    border: 4px double black;
+    max-width: 1024px;
+    background-color: #fffafa;
+    text-align: center;
+    margin: auto;
+    }
+    
+    /* tabla del calendario */
+    #diassemana {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 4px;
+    }
+    #diassemana th {
+    font: normal 14pt arial;
+    width: 140px;
+    height: 30px;
+    color: #990099;
+    background-color: #5ecdec;
+    }
+    #diassemana td {
+    font: normal 14pt arial;
+    width: 70px;
+    height: 30px;
+    color: #492736;
+    background-color: #9bf5ff;
+    }
+    
+    #buscafechasemana {
+    background-color: #663366;
+    color: #9bf5ff;
+    padding: 5px;
+    }
+    #buscafechasemana select,
+    #buscafechasemana input {
+    background-color: #9bf5ff;
+    color: #990099;
+    font: bold 10pt arial;
+    }
+    #buscafechasemana [type=text] {
+    text-align: center;
+    }
+    #buscafechasemana [type=button] {
+    cursor: pointer;
+    }
+    
+    #retenciones {
+    background-color: #663366;
+    color: #9bf5ff;
+    padding: 5px;
+    text-align: center;
+    max-width: 256px;
+    border: 4px double black;
+    float: left;
+    }
+    
+    #resultados {
+    border: 4px double black;
+    max-width: 256px;
+    background-color: #fffafa;
+    text-align: center;
+    float: right;
+    vertical-align: middle;
+    }
+    
+    #Horasdia {
+    background-color: #663366;
+    color: #9bf5ff;
+    padding: 5px;
+    text-align: center;
+    max-width: 256px;
+    border: 4px double black;
+    margin: 0 auto;
+    }
+    
+    #calcula {
+    max-width: 1030px;
+    margin: 0 auto;
+    }
+    
+    #horasdinero {
+    background-color: #663366;
+    color: #9bf5ff;
+    padding: 5px;
+    text-align: center;
+    max-width: 384px;
+    border: 4px double black;
+    float: left;
+    }
+    
+    #horatotales th {
+    font: normal 14pt arial;
+    width: 70px;
+    height: 30px;
+    color: #492736;
+    background-color: #9bf5ff;
+    }
+    
+    #eurototales th {
+    font: normal 14pt arial;
+    width: 70px;
+    height: 30px;
+    color: #492736;
+    background-color: #9bf5ff;
+    }

@@ -42,7 +42,9 @@ position: relative;
 #diasc th,#diasc td { 
   font: normal 1.4em arial; 
   width: 14em; 
-  height: 30px; 
+  height: 30px;
+
+text-overflow: ellipsis;
 }
 #diasc th { 
   color: #990099; 
@@ -54,11 +56,15 @@ position: relative;
 }
 
 /* Media queries */
-@media (max-width: 768px) {
-  #diasc th,#diasc td {
+@media (max-width: 600px) {
+  #diasc td {
     font-size: 1.2em;
     width: 12em;
     height: 30px;
+    
+  }
+  #diasc th{
+    font-size: 12px;
   }
 }
 
@@ -87,10 +93,16 @@ position: relative;
 
 /* calculo horas semana */
 
+
+/*
 #Semana { border: 4px double black ; max-width: 1024px; 
           background-color:#fffafa; text-align: center;
           margin: auto;  }
+
+
 /*tabla del calendario*/
+
+/*
 #diassemana { border: 1px solid black; border-collapse: 
      separate; border-spacing: 4px; }
 #diassemana th { font: normal 14pt arial; width: 140px; height: 30px; }
@@ -102,6 +114,87 @@ position: relative;
         color: #990099; font: bold 10pt arial;  }
 #buscafechasemana [type=text]  { text-align: center; }
 #buscafechasemana  [type=button] { cursor: pointer; }
+
+*/
+
+/*prueba*/
+
+#Semana {
+  border: 4px double black;
+  max-width: 1024px;
+  background-color: #fffafa;
+  text-align: center;
+  margin: auto;
+}
+
+/* tabla del calendario */
+#diassemana {
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+#diassemana th {
+  font: normal 1.4em arial;
+  width: 14%;
+  height: 30px;
+}
+
+#diassemana th {
+  color: #990099;
+  background-color: #5ecdec;
+}
+
+#diassemana td {
+  color: #492736;
+  background-color: #9bf5ff;
+  font: normal 1.4em arial;
+  width: 7%;
+  height: 30px;
+}
+
+#buscafechasemana {
+  background-color: #663366;
+  color: #9bf5ff;
+  padding: 5px;
+}
+
+#buscafechasemana select,
+#buscafechasemana input {
+  background-color: #9bf5ff;
+  color: #990099;
+  font: bold 10pt arial;
+}
+
+#buscafechasemana [type=text] {
+  text-align: center;
+}
+
+#buscafechasemana [type=button] {
+  cursor: pointer;
+}
+
+/* media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+  #Semana {
+    max-width: 100%;
+  }
+  
+  #diassemana th {
+    font-size: 12px;
+    width: 12em;
+    height: 30px;
+  }
+  
+  #diassemana td {
+    font-size: 1.2em;
+    width: 12em;
+    height: 30px;
+    text-overflow: ellipsis;
+  }
+}
+
+/*fin prueba*/
 
 #retenciones { background-color: #663366;
 color: #9bf5ff;

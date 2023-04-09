@@ -21,7 +21,7 @@ position: relative;
           
 @media only screen and (max-width: 600px) {
   #calendario {
-    max-width: 90%;
+    max-width: 100%;
     border-width: 2px;
     font-size: 14px;
   }
@@ -107,9 +107,9 @@ position: relative;
 color: #9bf5ff;
 padding: 5px;
 text-align: center;
-max-width: 256px;
+max-width: 100%;
 border: 4px double black ;
-float: left;
+/*float: left;*/
 
 }
 

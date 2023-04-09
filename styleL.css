@@ -18,13 +18,49 @@ position: relative;
 #calendario { border: 4px double black ; max-width: 1024px; 
           background-color:#fffafa; text-align: center; margin: auto;}
 
+          
+@media only screen and (max-width: 600px) {
+  #calendario {
+    max-width: 90%;
+    border-width: 2px;
+    font-size: 14px;
+  }
+}
   /*tabla del calendario*/
 
-#diasc { border: 1px solid black; border-collapse: 
+/*#diasc { border: 1px solid black; border-collapse: 
      separate; border-spacing: 4px; }
 #diasc th,#diasc td { font: normal 14pt arial; width: 140px; height: 30px; }
 #diasc th { color: #990099; background-color: #5ecdec }
-#diasc td { color: #492736; background-color: #9bf5ff }
+#diasc td { color: #492736; background-color: #9bf5ff }*/
+
+#diasc { 
+  border: 1px solid black; 
+  border-collapse: separate; 
+  border-spacing: 0.4em; 
+}
+#diasc th,#diasc td { 
+  font: normal 1.4em arial; 
+  width: 14em; 
+  height: 30px; 
+}
+#diasc th { 
+  color: #990099; 
+  background-color: #5ecdec; 
+}
+#diasc td { 
+  color: #492736; 
+  background-color: #9bf5ff; 
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  #diasc th,#diasc td {
+    font-size: 1.2em;
+    width: 12em;
+    height: 30px;
+  }
+}
 
 /*línea de la fecha actual*/
 
@@ -77,14 +113,17 @@ float: left;
 
 }
 
-#resultados { border: 4px double black ;
- max-width: 256px; 
-background-color:#fffafa;
-text-align: center;
-float: right;
-vertical-align: middle;
+#resultados {
+
+  border: 4px double black;
+    max-width: 100%;
+    background-color: #fffafa;
+    text-align: center;
+   /* float: right;*/
+    vertical-align: middle;
 
 }
+
 
 #Horasdia { background-color: #663366;
 color: #9bf5ff;

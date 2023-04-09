@@ -2,12 +2,12 @@
 <head>
 <meta charset="utf-8">
 <title>puta vida tete</title>
-<!--<link rel="stylesheet" type="text/css" href="styleL.css"> -->
-<link rel="stylesheet" type="text/css" href="stylechatgpt.css">
+<link rel="stylesheet" type="text/css" href="styleL.css">
+<!--<link rel="stylesheet" type="text/css" href="stylechatgpt.css"> -->
 <h4>Siberia Now Leticia</h4>
 <br><br>
 
-<div id="calendario">
+	<div id="calendario">
 	<div id="anterior" onclick="mesantes()"></div>
 	<div id="posterior" onclick="mesdespues()"></div>
 	<h2 id="titulos"></h2>
@@ -56,11 +56,26 @@
 		... 
 		  <input type="button" value="BUSCAR" onclick="mifecha()" />
 		</p>
+		
 	  </form>
+	  
 	</div>
-</div>
+	<div id="resultados">
+		<!-- <label id="pluses"></label>-->
+		<img src=bicicleta-de-reparto.png width="25"+ height="25">Transporte
+		<img src=madrugador.png width="25"+ height="25">Transporte Madrugue
+		<img src=amanecer.png width="25"+ height="25">Madrugue
+		<img src=superman3.png width="25"+ height="25">SuperMadrugue
+		<img src=media-luna.png width="25"+ height="25">Nocturnidad
+		<img src=signo-menos.png width="25"+ height="25">Partido de 2 o menos horas
+		<img src=mas.png width="25"+ height="25">Partido de mas de 2 horas
+		<img src=desayuno.png width="25"+ height="25">Dieta desayuno
+		<img src=comiendo.png width="25"+ height="25">Dieta comida o cena
+		<img src=calendario.png width="25"+ height="25">Error horas introducidas
+	</div>
+	</div>
 
-<div id="Semana">
+	<div id="Semana">
 	<table id="diassemana">
     	<tr id="fila0"><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
 		<tr id="fila1"><th>Hora inicio</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -100,22 +115,10 @@
       	</p>
  	   </form>
   	</div>
-</div>
-
-<div id="calcula">
-	<div id="resultados">
-		<!-- <label id="pluses"></label>-->
-		<img src=bicicleta-de-reparto.png width="25"+ height="25">Transporte<br>
-		<img src=madrugador.png width="25"+ height="25">Transporte Madrugue<br>
-		<img src=amanecer.png width="25"+ height="25">Madrugue<br>
-		<img src=superman3.png width="25"+ height="25">SuperMadrugue<br>
-		<img src=media-luna.png width="25"+ height="25">Nocturnidad<br>
-		<img src=signo-menos.png width="25"+ height="25">Partido de 2 o menos horas<br>
-		<img src=mas.png width="25"+ height="25">Partido de mas de 2 horas<br>
-		<img src=desayuno.png width="25"+ height="25">Dieta desayuno<br>
-		<img src=comiendo.png width="25"+ height="25">Dieta comida o cena<br>
-		<img src=calendario.png width="25"+ height="25">Error horas introducidas<br>
 	</div>
+
+	<div id="calcula">
+	
 
 	<div id="retenciones">
 		<input type="number"  placeholder="IRPF" id="IRPF" min="2" max="47" size="5">% IRPF
@@ -151,8 +154,8 @@
 
 	</div>
 
-</div>
-<div id="horasdinero">
+	</div>
+	<div id="horasdinero">
 	<p>Horas semana 
 		<table id="horatotales">
 		<tr id="filahoras"><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th></tr>
@@ -194,7 +197,7 @@
 	<p><input type="number" placeholder="partido 2 horas o menos" id="partido2horasmenos" maxlength="7" size="7"> partido2horasmenos € <span id="partido2horasmenosdebido"></span></p>
 	
 	<input type="button" value="Comprobar" onclick="comprobarnomina()" />
-</div>
+	</div>
 
 </head>
 

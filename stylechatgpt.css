@@ -1,3 +1,27 @@
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+    /* Estilos para el calendario */
+    #calendario { max-width: 100%; }
+    #diasc th, #diasc td { width: 60px; height: 20px; font-size: 10pt; }
+    
+    /* Estilos para el formulario de búsqueda de fechas */
+    #buscafecha select, #buscafecha input { font-size: 8pt; }
+    
+    /* Estilos para el cálculo de horas semanales */
+    #Semana { max-width: 100%; }
+    #diassemana th, #diassemana td { width: 60px; height: 20px; font-size: 10pt; }
+    #buscafechasemana select, #buscafechasemana input { font-size: 8pt; }
+    
+    /* Estilos para las secciones de retenciones y resultados */
+    #retenciones, #resultados { max-width: 100%; }
+    
+    /* Estilos para la sección de horas por día */
+    #Horasdia { max-width: 100%; }
+    
+    /* Estilos para la sección de horas y dinero */
+    #horasdinero { max-width: 100%; }
+    #horatotales th, #eurototales th { width: 60px; height: 20px; font-size: 10pt; }
+  }
 /* Estilos para campos de formulario inválidos y válidos */
 input:invalid {
     border: red solid 3px;
@@ -13,6 +37,8 @@ input:invalid {
   }
   
   /* Estilos generales */
+
+ 
   /* Contenedor principal del calendario */
   #calendario {
     border: 4px double black;

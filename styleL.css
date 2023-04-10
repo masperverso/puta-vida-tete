@@ -206,8 +206,8 @@ margin: 0 auto;
 
 }
 
-#horasdinero input[type="text"] {
-  width: 200px;
+#horasdinero input[type="number"] {
+  width: 50px;
 }
 
 

@@ -206,6 +206,11 @@ margin: 0 auto;
 
 }
 
+#horasdinero input[type="text"] {
+  width: 200px;
+}
+
+
 #horatotales th { color: #492736;
    background-color: #9bf5ff;
    font: normal 14pt arial;

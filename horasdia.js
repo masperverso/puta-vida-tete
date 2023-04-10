@@ -487,14 +487,14 @@ function eurosemana () {
 						celda.innerHTML=f1.getElementsByTagName("td")[i].innerHTML;
 					
 						if (f1.getElementsByTagName("td")[i].innerHTML!=="DL" ) {
-							celda.innerHTML+="/";
+							celda.innerHTML+="<br>-<br>";
 							celda.innerHTML+=f2.getElementsByTagName("td")[i].innerHTML;
 							
 						
 							if (f3.getElementsByTagName("td")[i].innerHTML!=="0:00" ) {
 								celda.innerHTML+="<br>";
 								celda.innerHTML+=f3.getElementsByTagName("td")[i].innerHTML;
-								celda.innerHTML+="/";
+								celda.innerHTML+="<br>-<br>";
 								celda.innerHTML+=f4.getElementsByTagName("td")[i].innerHTML;
 							}
 						}

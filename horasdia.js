@@ -185,12 +185,19 @@ function horitas() {
 			pa036=plusarea/30*unidades;
 			pa036= parseFloat(pa036.toFixed(2));
 
-			nocturnas=horabase[i]*40/100;
-			nocturnas=nocturnas+nocturnas*86.45/100;
-			nocturnas=parseFloat(nocturnas.toFixed(2));
+			for (j=0;j<4;j++){
 
-            festivas=horabase[i]*134.75/100;
-            festivas=parseFloat(festivas.toFixed(2));
+				if (trienios.value==j){
+
+					nocturnas=(horabase[i]+(trieniohorabase[j]*j))*40/100;
+					nocturnas=nocturnas+nocturnas*86.45/100;
+					nocturnas=parseFloat(nocturnas.toFixed(2));
+
+            		festivas=(horabase[i]+(trieniohorabase[j]*j))*134.75/100;
+            		festivas=parseFloat(festivas.toFixed(2));
+			
+				}
+			}
 
 			horasc =sb001 + pp033 + ct010 + pa009 + pcdsa321 + pa036 ;
 

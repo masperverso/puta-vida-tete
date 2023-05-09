@@ -3,6 +3,7 @@
 input:invalid {
   border: red solid 3px;
 }
+
 input:valid {
 border:  #ddffdd 3px;
 }
@@ -155,6 +156,7 @@ text-overflow: ellipsis;
   }
   
   #diassemana td {
+    
     font-size: 10px;
     width: 12em;
     height: 30px;
@@ -208,21 +210,30 @@ margin: 0 auto;
 
 #horasdinero input[type="number"] {
   width: 50px;
+  
 }
 
+#totalesmes  {
+  text-align: center;
+  margin: 0 auto;
+  
+}
 
 #horatotales th { color: #492736;
    background-color: #9bf5ff;
    font: normal 14pt arial;
-   text-align: center;
-   width: 70px;
-   height: 30px; }
+   
+   width: 12em;
+   height: 30px;
+    }
+
 
 #eurototales th { color: #492736;
     background-color: #9bf5ff;
     font: normal 14pt arial;
-    text-align: center;
-    width: 70px;
-    height: 30px; }
+    
+    width: 12em;
+    height: 30px; 
+    }
 
 </style>

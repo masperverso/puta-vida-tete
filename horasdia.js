@@ -165,7 +165,7 @@ function horitas() {
 	//alert ("unidades"+unidades);
     // calculo variables en funcion rango
 
-	for(i=0;i<3;i++) {
+	for(i=0;i<4;i++) {
 				
 		if (nivelsalarial.value==i){
 			

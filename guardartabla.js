@@ -24,7 +24,7 @@
     }
   
     var blob = new Blob([contenidoCSV], {type: "text/csv;charset=utf-8"});
-    saveAs(blob, "mi_tabla.csv");
+    saveAs(blob, tit.innerHTML + ".csv");
   });
   
   

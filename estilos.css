@@ -1,0 +1,55 @@
+.container {
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+  
+  .container.active .sidebar {
+    transform: translateX(-320px);
+  }
+  
+  .content {
+    padding: 20px;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .container.active .content {
+    margin-left: 220px;
+  }
+  
+  .toggle-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .toggle-button span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #663366;
+    margin-bottom: 6px;
+  }
+  
+  .sidebar-content {
+    /*display: none;*/
+  }
+  
+  

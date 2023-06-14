@@ -13,20 +13,21 @@
     padding: 20px;
     transition: transform 0.3s ease-in-out;
     z-index: 999;
+    transform: translateX(-320px);
   }
   
   .container.active .sidebar {
-    transform: translateX(-320px);
+    transform: translateX(0);
   }
   
   .content {
     padding: 20px;
-    margin-left: 0;
+    margin-left: 220px;
     transition: margin-left 0.3s ease-in-out;
   }
   
   .container.active .content {
-    margin-left: 220px;
+    margin-left: 0;
   }
   
   .toggle-button {

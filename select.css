@@ -1,0 +1,37 @@
+ /* Estilos personalizados para el objeto select */
+
+    /* Estilo para el objeto select en sí */
+    select.custom-select {
+        /* Estilos de fondo */
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        /* Estilos de fuente */
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #333;
+        /* Otros estilos */
+        padding: 8px;
+        width: 50px;
+        /* Personaliza más estilos según tus necesidades */
+      }
+  
+      /* Estilo para las opciones del select */
+      select.custom-select option {
+        /* Estilos de fondo */
+        background-color: #f9f9f9;
+        /* Estilos de fuente */
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #333;
+        /* Otros estilos */
+        padding: 8px;
+        /* Personaliza más estilos según tus necesidades */
+      }
+  
+      /* Estilo para la opción seleccionada del select */
+      select.custom-select option:checked {
+        /* Estilos para la opción seleccionada */
+        background-color: #ccc;
+        color: #fff;
+        /* Personaliza más estilos según tus necesidades */
+      }

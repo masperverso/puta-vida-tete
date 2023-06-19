@@ -35,8 +35,5 @@ for (let i = 0; i <= 23; i++) {
     option.value = i;
     option.text = i;
     selectfinal2.appendChild(option);
-    
-}
+} 
 
- 
-  

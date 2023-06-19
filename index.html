@@ -101,8 +101,8 @@
 	  </form>
 	  
 	</div>
-	<div id="resultados">
-		<!-- <label id="pluses"></label>-->
+	<!-- <div id="resultados">
+		 <label id="pluses"></label>
 		<img src=bicicleta-de-reparto.png width="25"+ height="25">Transporte
 		<img src=madrugador.png width="25"+ height="25">Transporte Madrugue
 		<img src=amanecer.png width="25"+ height="25">Madrugue
@@ -113,7 +113,7 @@
 		<img src=desayuno.png width="25"+ height="25">Dieta desayuno
 		<img src=comiendo.png width="25"+ height="25">Dieta comida o cena
 		<img src=calendario.png width="25"+ height="25">Error horas introducidas
-	</div>
+	</div>-->
 	</div>
 
 	<div id="Semana">
@@ -187,16 +187,22 @@
 
 	<div id="Horasdia">
 
-		Hora de inicio<br><input type="number"  placeholder="hora inicio" id="inicio" min="0" max="23" size="5">
+		<!--Hora de inicio<br><input type="number"  placeholder="hora inicio" id="inicio" min="0" max="23" size="5">-->
+
+		Hora de inicio<br><select id="inicio"></select>
+
+		
+
 		<input type="number"  placeholder="minutos" id="mininicio" min="0" max="45" step="15" size="5"><br><br>
-		Hora final <br><input type="number"  placeholder="hora final" id="final" min="0" max="23"size="5">
+		Hora final <br><select id="final"></select>
 		<input type="number"  placeholder="minutos" id="minfinal"  min="0" max="45" step="15" size="5"><br><br>
 		<input type="checkbox" id="check_festivo" onclick="festivo();">Festivo
 		<input type="checkbox" id="check_turno_partido" onclick="partido();">Turno partido<br><br>
 
-		<input type="number" placeholder="hora inicio" id="inicio2" min="0" max="23" size="5" style="display:none">
+		<select id="inicio2" style="display:none"></select>
+
 		<input type="number" placeholder="minutos" id="mininicio2" min="0" max="45" step="15" size="5" style="display:none"><br><br>
-		<input type="number" placeholder="hora final" id="final2" min="0" max="23" size="5" style="display:none">
+		<select id="final2"></select>
 		<input type="number" placeholder="minutos" id="minfinal2" min="0" max="45" size="5" step="15" style="display:none"><br><br>
 		<input type="button" name="kaka" value="calcula horas" onclick="horitas();horascsemana();mifechasemana();">
 		<input type="button" name="euros" value="cobrare?" onclick="eurosemana(); cuentapluses();">
@@ -277,6 +283,8 @@
 	<script type="text/javascript" Languaje="javascript" SRC="guardarinfo.js">
     </script>
 	<script type="text/javascript" Languaje="javascript" SRC="efectos.js">
+    </script>
+	<script type="text/javascript" Languaje="javascript" SRC="introhoras.js">
     </script>
 
 </body>

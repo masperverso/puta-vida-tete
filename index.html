@@ -192,18 +192,23 @@
 
 	<div id="Horasdia">
 
-		<!--Hora de inicio<br><input type="number"  placeholder="hora inicio" id="inicio" min="0" max="23" size="5">-->
+		
 
-		Hora de inicio<br><select id="inicio" class="custom-select"></select>
+		Hora de inicio<br><input type="number" placeholder="hora inicio" id="inicio" min="0" max="23" size="5" onkeydown="return false" >
+
+		<!--Hora de inicio<br><select id="inicio" class="custom-select"></select>-->
 
 	
-	
+		
+		
 		
 
 
-		<input type="number"  placeholder="minutos" id="mininicio" min="0" max="45" step="15" size="5"><br><br>
-		Hora final <br><select id="final"></select>
-		<input type="number"  placeholder="minutos" id="minfinal"  min="0" max="45" step="15" size="5"><br><br>
+		<input type="number"  placeholder="minutos" id="mininicio" min="0" max="45" step="15" size="5" onkeydown="return false" ><br><br>
+
+		Hora final <br><input type="number"  placeholder="hora final" id="final" min="0" max="23" size="5" onkeydown="return false">
+		<!--Hora final <br><select id="final"></select>-->
+		<input type="number"  placeholder="minutos" id="minfinal"  min="0" max="45" step="15" size="5" onkeydown="return false"><br><br>
 		<input type="checkbox" id="check_festivo" onclick="festivo();">Festivo
 		<input type="checkbox" id="check_turno_partido" onclick="partido();">Turno partido<br><br>
 

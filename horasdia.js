@@ -101,25 +101,20 @@ function funcion_inicial(){
 
 function partido()
 {
-	document.getElementById("inicio2").value = "0";
-	document.getElementById("final2").value = "0";
-	document.getElementById("mininicio2").value = "0";
-	document.getElementById("minfinal2").value = "0";
 
     if(check_turno_partido.checked) {
-		document.getElementById('inicio2').style.display = 'inline';
-		document.getElementById('mininicio2').style.display = 'inline';
-		document.getElementById('final2').style.display = 'inline';
-		document.getElementById('minfinal2').style.display = 'inline';
+		
+		document.getElementById('timepickerinicio2').style.display = 'inline';
+		document.getElementById('timepickerfinal2').style.display = 'inline';
+
 		document.getElementById("fila3").style.visibility = "visible"; 
 		document.getElementById("fila4").style.visibility = "visible";
 	}
 	else 
 	{
-		document.getElementById('inicio2').style.display = 'none';
-		document.getElementById('mininicio2').style.display = 'none';
-		document.getElementById('final2').style.display = 'none';
-		document.getElementById('minfinal2').style.display = 'none';
+		document.getElementById('timepickerinicio2').style.display = 'none';
+		document.getElementById('timepickerfinal2').style.display = 'none';
+
 		document.getElementById("fila3").style.visibility = "collapse";
 		document.getElementById("fila4").style.visibility = "collapse";
 	}
@@ -138,25 +133,35 @@ function horitas() {
     var	pa036=0;
 
 // leer variables de pantalla
-	var horai1=parseInt(document.getElementById('inicio').value);
-	var horaf1=parseInt(document.getElementById('final').value);
-	var horai2=parseInt(document.getElementById('inicio2').value);
-	var horaf2=parseInt(document.getElementById('final2').value);
-	var mini1=parseInt(document.getElementById('mininicio').value);
-	var mint1=parseInt(document.getElementById('minfinal').value);
-	var mini2=parseInt(document.getElementById('mininicio2').value);
-	var mint2=parseInt(document.getElementById('minfinal2').value);
 
-	horaf1=horaf1 + (mint1/60);
-	horai1=horai1 + (mini1/60);
-	horaf2=horaf2 + (mint2/60);
-	horai2=horai2 + (mini2/60);
+	const tiempoinicio = selectedTimeinicio.selectedDates[0];
+	var selecthorai1 = parseInt(tiempoinicio.getHours());
+	var mini1 = parseInt(tiempoinicio.getMinutes());
+
+	const tiempofinal = selectedTimefinal.selectedDates[0];
+	var selecthoraf1 = parseInt(tiempofinal.getHours());
+	var mint1 = parseInt(tiempofinal.getMinutes());
+
+	const tiempoinicio2 = selectedTimeinicio2.selectedDates[0];
+	var selecthorai2 = parseInt(tiempoinicio2.getHours());
+	var mini2 = parseInt(tiempoinicio2.getMinutes());
+
+	const tiempofinal2 = selectedTimefinal2.selectedDates[0];
+	var selecthoraf2 = parseInt(tiempofinal2.getHours());
+	var mint2 = parseInt(tiempofinal2.getMinutes());
+
+	var horaf1=selecthoraf1 + (mint1/60);
+	var horai1=selecthorai1 + (mini1/60);
+	var horaf2=selecthoraf2 + (mint2/60);
+	var horai2=selecthorai2 + (mini2/60);
 
 	if (horai1 > 12 && horaf1 < 12 && horaf1+24-horai1 >2 ) {
 		horaf1=horaf1+24;	
 	}
                          
 	var horast=horaf1-horai1+horaf2-horai2;
+
+	//alert ("horas totales"+horast +"<br>"+ horai1+" "+horaf1+" "+horai2+" "+horaf2);
 
 	var unidades=horast*106.69/100*0.175;
 
@@ -402,40 +407,39 @@ function horitas() {
 				}
 			}
 	}
-}
 
-function mifechasemana () {
 	for(i=0;i<7;i++) {
 		if (buscadia.value==i){
 			//alert(i);
 			celda1=f1.getElementsByTagName("td")[i];
-			if (mininicio.value==0){
-			celda1.innerHTML=inicio.value + ":0" + mininicio.value;
+
+			if (mini1==0){
+			celda1.innerHTML=selecthorai1 + ":0" + mini1;
 			}
 			else {
-			celda1.innerHTML=inicio.value + ":" + mininicio.value;
+			celda1.innerHTML=selecthorai1 + ":" + mini1;
 			}
 			celda2=f2.getElementsByTagName("td")[i];
-			if (minfinal.value==0){
-			celda2.innerHTML=final.value + ":0" + minfinal.value;
+			if (mint1==0){
+			celda2.innerHTML=selecthoraf1 + ":0" + mint1;
 			}
 			else {
-			celda2.innerHTML=final.value + ":" + minfinal.value;
+			celda2.innerHTML=selecthoraf1 + ":" + mint1;
 			}
 			celda3=f3.getElementsByTagName("td")[i];
-			if (mininicio2.value==0){
-			celda3.innerHTML=inicio2.value + ":0" + mininicio2.value;
+			if (mini2==0){
+			celda3.innerHTML=selecthorai2 + ":0" + mini2;
 			//celda3.innerHTML=null;
 			}
 			else {
-			celda3.innerHTML=inico2.value + ":" + mininicio2.value;
+			celda3.innerHTML=selecthorai2 + ":" + mini2;
 			}
 			celda4=f4.getElementsByTagName("td")[i];
-			if (minfinal2.value==0){
-			celda4.innerHTML=final2.value + ":0" + minfinal2.value;
+			if (mint2==0){
+			celda4.innerHTML=selecthoraf2 + ":0" + mint2;
 			}
 			else {
-			celda4.innerHTML=final2.value + ":" + minfinal2.value;
+			celda4.innerHTML=selecthoraf2 + ":" + mint2;
 			}	
 		}
 	}

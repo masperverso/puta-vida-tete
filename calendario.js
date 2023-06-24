@@ -1,12 +1,3 @@
-document.getElementById("inicio").value = "0";
-document.getElementById("final").value = "0";
-document.getElementById("inicio2").value = "0";
-document.getElementById("final2").value = "0";
-
-document.getElementById("mininicio").value = "0";
-document.getElementById("minfinal").value = "0";
-document.getElementById("mininicio2").value = "0";
-document.getElementById("minfinal2").value = "0";
 
 lasemana=[" ","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
 meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];

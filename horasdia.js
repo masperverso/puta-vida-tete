@@ -104,8 +104,9 @@ function partido()
 
     if(check_turno_partido.checked) {
 		
-		document.getElementById('timepickerinicio2').style.display = 'inline';
-		document.getElementById('timepickerfinal2').style.display = 'inline';
+		document.getElementById('timepickerinicio2').style.visibility = 'visible';
+    	document.getElementById('timepickerfinal2').style.visibility = 'visible';
+
 
 		document.getElementById("fila3").style.visibility = "visible"; 
 		document.getElementById("fila4").style.visibility = "visible";

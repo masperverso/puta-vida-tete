@@ -170,7 +170,14 @@ function comprobarnomina (){
 	alert ("dias trabajados"+diastrabajados);
 		//sumar arrays para computo
 
-	if (diastrabajados>28) {	
+	if (diastrabajados>28) {
+		
+		var unidadesmes=0;
+		var nochesmestotal=0;
+		var festivasmestotal=0;
+		var madruguestotales=0;
+		var transportestotales=0;
+		var supermadruguestotal=0;
 
 		for (i=0;i<unidadesmeslimpio.length; i++) {
 			unidadesmes +=parseFloat(unidadesmeslimpio[i]);

@@ -146,15 +146,15 @@ function partido() {
         document.getElementById('timepickerfinal2').style.visibility = 'hidden';
 
         // Reiniciar valores a 0:00
-        selectedTimeinicio2.setDate("00:00", true);
-        selectedTimefinal2.setDate("00:00", true);
+       /* selectedTimeinicio2.setDate("00:00", true);
+        selectedTimefinal2.setDate("00:00", true);*/
 
         document.getElementById("fila3").style.visibility = "collapse";
         document.getElementById("fila4").style.visibility = "collapse";
 
         // Destruir instancia del timepicker
-        selectedTimeinicio2.destroy();
-        selectedTimefinal2.destroy();
+       /* selectedTimeinicio2.destroy();
+        selectedTimefinal2.destroy();*/
 
         // Restablecer el HTML original
         document.getElementById('timepickerinicio2').value = "";

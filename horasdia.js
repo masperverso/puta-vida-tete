@@ -116,6 +116,9 @@ function partido() {
   
 	  document.getElementById("fila3").style.visibility = "collapse";
 	  document.getElementById("fila4").style.visibility = "collapse";
+
+	  selectedTimeinicio2.set("enableTime", false);
+      selectedTimefinal2.set("enableTime", false);
 	}
   }
   

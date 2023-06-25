@@ -27,6 +27,7 @@ const selectedTimeinicio2 = flatpickr(timepickerinicio2, {
   defaultDate: "00:00", // Establece el valor inicial en "0:00"
 });
 
+
 const timepickerfinal2 = document.getElementById("timepickerfinal2");
 const selectedTimefinal2 = flatpickr(timepickerfinal2, {
   enableTime: true,

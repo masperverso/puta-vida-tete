@@ -112,9 +112,14 @@ function partido()
 	}
 	else 
 	{
+		
 		document.getElementById('timepickerinicio2').style.display = 'none';
 		document.getElementById('timepickerfinal2').style.display = 'none';
 
+		// Reinicia el valor a 0:00
+		selectedTimeinicio2.setDate("00:00", true);
+		selectedTimefinal2.setDate("00:00", true);
+		
 		document.getElementById("fila3").style.visibility = "collapse";
 		document.getElementById("fila4").style.visibility = "collapse";
 	}

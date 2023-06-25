@@ -32,7 +32,8 @@ function initializeTimePickers() {
         defaultDate: "00:00",
         onChange: function(selectedDates, dateStr, instance) {
             // Lógica adicional si es necesario
-        }
+        },
+        disableMobile: true,
     });
 
     const timepickerfinal2 = document.getElementById("timepickerfinal2");
@@ -45,7 +46,8 @@ function initializeTimePickers() {
         defaultDate: "00:00",
         onChange: function(selectedDates, dateStr, instance) {
             // Lógica adicional si es necesario
-        }
+        },
+        disableMobile: true,
     });
 }
 
@@ -60,46 +62,72 @@ function resetTimePickers() {
 }
 
 function partido() {
-  if (check_turno_partido.checked) {
-      // Checkbox marcado
-      document.getElementById('timepickerinicio2').style.display = 'inline';
-      document.getElementById('timepickerfinal2').style.display = 'inline';
+    if (check_turno_partido.checked) {
+        // Checkbox marcado
+        document.getElementById('timepickerinicio2').style.display = 'inline';
+        document.getElementById('timepickerfinal2').style.display = 'inline';
 
-      document.getElementById("fila3").style.visibility = "visible";
-      document.getElementById("fila4").style.visibility = "visible";
+        document.getElementById("fila3").style.visibility = "visible";
+        document.getElementById("fila4").style.visibility = "visible";
 
-      if (!selectedTimeinicio2 || !selectedTimefinal2) {
-          selectedTimeinicio2 = flatpickr("#timepickerinicio2", {
-              enableTime: true,
-              noCalendar: true,
-              dateFormat: "H:i",
-              time_24hr: true,
-              minuteIncrement: 15,
-              defaultDate: "00:00"
-          });
+        if (!selectedTimeinicio2 || !selectedTimefinal2) {
+            selectedTimeinicio2 = flatpickr("#timepickerinicio2", {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15,
+                defaultDate: "00:00",
+                disableMobile: false,
+            });
 
-          selectedTimefinal2 = flatpickr("#timepickerfinal2", {
-              enableTime: true,
-              noCalendar: true,
-              dateFormat: "H:i",
-              time_24hr: true,
-              minuteIncrement: 15,
-              defaultDate: "00:00"
-          });
-      }
-  } else {
-      // Checkbox desmarcado
-      document.getElementById('timepickerinicio2').style.display = 'none';
-      document.getElementById('timepickerfinal2').style.display = 'none';
+            selectedTimefinal2 = flatpickr("#timepickerfinal2", {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15,
+                defaultDate: "00:00",
+                disableMobile: false,
+            });
+        }
+    } else {
+        // Checkbox desmarcado
+        document.getElementById('timepickerinicio2').style.display = 'none';
+        document.getElementById('timepickerfinal2').style.display = 'none';
 
-      selectedTimeinicio2.setDate("00:00", true);
-      selectedTimefinal2.setDate("00:00", true);
+        selectedTimeinicio2.setDate("00:00", true);
+        selectedTimefinal2.setDate("00:00", true);
 
-      document.getElementById("fila3").style.visibility = "collapse";
-      document.getElementById("fila4").style.visibility = "collapse";
-  }
+        document.getElementById("fila3").style.visibility = "collapse";
+        document.getElementById("fila4").style.visibility = "collapse";
+        
+        if (selectedTimeinicio2 && selectedTimefinal2) {
+            selectedTimeinicio2.destroy();
+            selectedTimefinal2.destroy();
+        }
+        
+        selectedTimeinicio2 = flatpickr("#timepickerinicio2", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+            minuteIncrement: 15,
+            defaultDate: "00:00",
+            disableMobile: true,
+        });
+
+        selectedTimefinal2 = flatpickr("#timepickerfinal2", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+            minuteIncrement: 15,
+            defaultDate: "00:00",
+            disableMobile: true,
+        });
+    }
 }
-
 
 // Ocultar los timepickers al cargar la página
 hideTimePickers();

@@ -72,6 +72,7 @@ primeralinea();
 partido();
 ultimalinea();
 
+
 function primeralinea() {
 	for (i=0;i<8;i++) {
 		celda0=f0.getElementsByTagName("th")[i];

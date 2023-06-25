@@ -99,32 +99,26 @@ function funcion_inicial(){
 	}
 }
 
-function partido()
-{
-
-    if(check_turno_partido.checked) {
-		
-		document.getElementById('timepickerinicio2').style.display = 'inline';
-		document.getElementById('timepickerfinal2').style.display = 'inline';
-
-		document.getElementById("fila3").style.visibility = "visible"; 
-		document.getElementById("fila4").style.visibility = "visible";
+function partido() {
+	if (check_turno_partido.checked) {
+	  document.getElementById('timepickerinicio2').style.visibility = 'visible';
+	  document.getElementById('timepickerfinal2').style.visibility = 'visible';
+  
+	  document.getElementById("fila3").style.visibility = "visible";
+	  document.getElementById("fila4").style.visibility = "visible";
+	} else {
+	  document.getElementById('timepickerinicio2').style.visibility = 'hidden';
+	  document.getElementById('timepickerfinal2').style.visibility = 'hidden';
+  
+	  // Reinicia el valor a 0:00
+	  selectedTimeinicio2.setDate("00:00", true);
+	  selectedTimefinal2.setDate("00:00", true);
+  
+	  document.getElementById("fila3").style.visibility = "collapse";
+	  document.getElementById("fila4").style.visibility = "collapse";
 	}
-	else 
-	{
-		
-		document.getElementById('timepickerinicio2').style.display = 'none';
-		document.getElementById('timepickerfinal2').style.display = 'none';
-
-		// Reinicia el valor a 0:00
-		selectedTimeinicio2.setDate("00:00", true);
-		selectedTimefinal2.setDate("00:00", true);
-
-		document.getElementById("fila3").style.visibility = "collapse";
-		document.getElementById("fila4").style.visibility = "collapse";
-	}
-}
-
+  }
+  
 function horitas() {
     
 // variables en funcion rango salarial

@@ -99,66 +99,6 @@ function funcion_inicial(){
 	}
 }
 
-var selectedTimeinicio2; // Declarar la variable fuera de la función
-
-var selectedTimeinicio2; // Declarar la variable fuera de la función
-
-var selectedTimeinicio2; // Declarar la variable fuera de la función
-var selectedTimefinal2; // Declarar la variable fuera de la función
-
-function partido() {
-    if (check_turno_partido.checked) {
-        // Checkbox marcado
-        document.getElementById('timepickerinicio2').style.visibility = 'visible';
-        document.getElementById('timepickerfinal2').style.visibility = 'visible';
-
-        document.getElementById("fila3").style.visibility = "visible";
-        document.getElementById("fila4").style.visibility = "visible";
-
-        // Crear instancia del timepicker si no existe
-        if (!selectedTimeinicio2) {
-            const timepickerinicio2 = document.getElementById("timepickerinicio2");
-            selectedTimeinicio2 = flatpickr(timepickerinicio2, {
-                enableTime: true,
-                noCalendar: true,
-                dateFormat: "H:i",
-                time_24hr: true,
-                minuteIncrement: 15,
-                defaultDate: "00:00",
-            });
-        }
-
-        // Crear instancia del timepicker si no existe
-        if (!selectedTimefinal2) {
-            const timepickerfinal2 = document.getElementById("timepickerfinal2");
-            selectedTimefinal2 = flatpickr(timepickerfinal2, {
-                enableTime: true,
-                noCalendar: true,
-                dateFormat: "H:i",
-                time_24hr: true,
-                minuteIncrement: 15,
-                defaultDate: "00:00",
-            });
-        }
-    } else {
-        // Checkbox desmarcado
-        document.getElementById('timepickerinicio2').style.visibility = 'hidden';
-        document.getElementById('timepickerfinal2').style.visibility = 'hidden';
-
-        document.getElementById("fila3").style.visibility = "collapse";
-        document.getElementById("fila4").style.visibility = "collapse";
-
-        // Restablecer el HTML original
-        document.getElementById('timepickerinicio2').value = "";
-        document.getElementById('timepickerfinal2').value = "";
-
-        selectedTimeinicio2 = null; // Establecer la variable a null
-        selectedTimefinal2 = null; // Establecer la variable a null
-    }
-}
-
-
-
 function horitas() {
     
 // variables en funcion rango salarial

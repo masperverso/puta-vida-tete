@@ -17,9 +17,9 @@ const selectedTimefinal = flatpickr(timepickerfinal, {
   minuteIncrement: 15, // Establecer incremento de minutos a 15
 });
 
-const timepickerinicio2 = document.getElementById("timepickerinicio2");
+/*const timepickerinicio2 = document.getElementById("timepickerinicio2");
 const selectedTimeinicio2 = flatpickr(timepickerinicio2, {
-  enableTime: false,
+  enableTime: true,
   noCalendar: true,
   dateFormat: "H:i",
   time_24hr: true,
@@ -30,13 +30,13 @@ const selectedTimeinicio2 = flatpickr(timepickerinicio2, {
 
 const timepickerfinal2 = document.getElementById("timepickerfinal2");
 const selectedTimefinal2 = flatpickr(timepickerfinal2, {
-  enableTime: false,
+  enableTime: true,
   noCalendar: true,
   dateFormat: "H:i",
   time_24hr: true,
   minuteIncrement: 15, // Establecer incremento de minutos a 15
   defaultDate: "00:00", // Establece el valor inicial en "0:00"
-});
+});*/
 
 
 

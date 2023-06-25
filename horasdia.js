@@ -99,33 +99,74 @@ function funcion_inicial(){
 	}
 }
 
+var selectedTimeinicio2; // Declarar la variable fuera de la función
+
+var selectedTimeinicio2; // Declarar la variable fuera de la función
+
+var selectedTimeinicio2; // Declarar la variable fuera de la función
+var selectedTimefinal2; // Declarar la variable fuera de la función
+
 function partido() {
-	if (check_turno_partido.checked) {
+    if (check_turno_partido.checked) {
+        // Checkbox marcado
+        document.getElementById('timepickerinicio2').style.visibility = 'visible';
+        document.getElementById('timepickerfinal2').style.visibility = 'visible';
 
-	  selectedTimeinicio2.set("enableTime", true);
-      selectedTimefinal2.set("enableTime", true);
+        document.getElementById("fila3").style.visibility = "visible";
+        document.getElementById("fila4").style.visibility = "visible";
 
-	  document.getElementById('timepickerinicio2').style.visibility = 'visible';
-	  document.getElementById('timepickerfinal2').style.visibility = 'visible';
-  
-	  document.getElementById("fila3").style.visibility = "visible";
-	  document.getElementById("fila4").style.visibility = "visible";
-	} else {
-	  document.getElementById('timepickerinicio2').style.visibility = 'hidden';
-	  document.getElementById('timepickerfinal2').style.visibility = 'hidden';
-  
-	  // Reinicia el valor a 0:00
-	  selectedTimeinicio2.setDate("00:00", true);
-	  selectedTimefinal2.setDate("00:00", true);
-  
-	  document.getElementById("fila3").style.visibility = "collapse";
-	  document.getElementById("fila4").style.visibility = "collapse";
+        // Crear instancia del timepicker si no existe
+        if (!selectedTimeinicio2) {
+            const timepickerinicio2 = document.getElementById("timepickerinicio2");
+            selectedTimeinicio2 = flatpickr(timepickerinicio2, {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15,
+                defaultDate: "00:00",
+            });
+        }
 
-	  selectedTimeinicio2.set("enableTime", false);
-      selectedTimefinal2.set("enableTime", false);
-	}
-  }
-  
+        // Crear instancia del timepicker si no existe
+        if (!selectedTimefinal2) {
+            const timepickerfinal2 = document.getElementById("timepickerfinal2");
+            selectedTimefinal2 = flatpickr(timepickerfinal2, {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15,
+                defaultDate: "00:00",
+            });
+        }
+    } else {
+        // Checkbox desmarcado
+        document.getElementById('timepickerinicio2').style.visibility = 'hidden';
+        document.getElementById('timepickerfinal2').style.visibility = 'hidden';
+
+        // Reiniciar valores a 0:00
+        selectedTimeinicio2.setDate("00:00", true);
+        selectedTimefinal2.setDate("00:00", true);
+
+        document.getElementById("fila3").style.visibility = "collapse";
+        document.getElementById("fila4").style.visibility = "collapse";
+
+        // Destruir instancia del timepicker
+        selectedTimeinicio2.destroy();
+        selectedTimefinal2.destroy();
+
+        // Restablecer el HTML original
+        document.getElementById('timepickerinicio2').value = "";
+        document.getElementById('timepickerfinal2').value = "";
+
+        selectedTimeinicio2 = null; // Establecer la variable a null
+        selectedTimefinal2 = null; // Establecer la variable a null
+    }
+}
+
+
+
 function horitas() {
     
 // variables en funcion rango salarial

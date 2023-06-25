@@ -1,1 +1,6 @@
-
+@media (max-width: 767px) {
+  #timepickerinicio2,
+  #timepickerfinal2 {
+    display: none;
+  }
+}

@@ -162,6 +162,11 @@ text-overflow: ellipsis;
     height: 30px;
 
   }
+
+  #buscaanno input[type="number"] {
+    width: 200px;
+    
+  }
 }
 
 #retenciones { background-color: #663366;
@@ -235,5 +240,7 @@ margin: 0 auto;
     width: 12em;
     height: 30px; 
     }
+
+
 
 </style>

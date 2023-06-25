@@ -101,6 +101,10 @@ function funcion_inicial(){
 
 function partido() {
 	if (check_turno_partido.checked) {
+
+	  selectedTimeinicio2.set("enableTime", true);
+      selectedTimefinal2.set("enableTime", true);
+
 	  document.getElementById('timepickerinicio2').style.visibility = 'visible';
 	  document.getElementById('timepickerfinal2').style.visibility = 'visible';
   

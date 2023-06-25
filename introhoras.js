@@ -19,7 +19,7 @@ const selectedTimefinal = flatpickr(timepickerfinal, {
 
 const timepickerinicio2 = document.getElementById("timepickerinicio2");
 const selectedTimeinicio2 = flatpickr(timepickerinicio2, {
-  enableTime: true,
+  enableTime: false,
   noCalendar: true,
   dateFormat: "H:i",
   time_24hr: true,
@@ -30,7 +30,7 @@ const selectedTimeinicio2 = flatpickr(timepickerinicio2, {
 
 const timepickerfinal2 = document.getElementById("timepickerfinal2");
 const selectedTimefinal2 = flatpickr(timepickerfinal2, {
-  enableTime: true,
+  enableTime: false,
   noCalendar: true,
   dateFormat: "H:i",
   time_24hr: true,

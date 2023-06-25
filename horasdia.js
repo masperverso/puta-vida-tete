@@ -104,8 +104,8 @@ function partido()
 
     if(check_turno_partido.checked) {
 		
-		document.getElementById('timepickerinicio2').style.display = 'visible';
-		document.getElementById('timepickerfinal2').style.display = 'visible';
+		document.getElementById('timepickerinicio2').style.display = 'inline';
+		document.getElementById('timepickerfinal2').style.display = 'inline';
 
 		document.getElementById("fila3").style.visibility = "visible"; 
 		document.getElementById("fila4").style.visibility = "visible";
@@ -113,8 +113,8 @@ function partido()
 	else 
 	{
 		
-		document.getElementById('timepickerinicio2').style.display = 'hidden';
-		document.getElementById('timepickerfinal2').style.display = 'hidden';
+		document.getElementById('timepickerinicio2').style.display = 'none';
+		document.getElementById('timepickerfinal2').style.display = 'none';
 
 		// Reinicia el valor a 0:00
 		selectedTimeinicio2.setDate("00:00", true);

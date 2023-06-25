@@ -177,9 +177,9 @@
      	     			<option value="6">Domingo</option>
     	    
 					</select>
-			
-					<!--<input type="button" value="Aceptar" onclick="mifechasemana();eurosemana();">-->
-      	
+					
+					<input type="button" name="euros" value="cobrare?" onclick="eurosemana(); cuentapluses();">
+
 				</p>
  	   
 			</form>
@@ -221,34 +221,60 @@
 	
 		<div id="Horasdia">
 
-			Hora inicio - Hora final<br>
-<div>
-<label for="timepickerinicio">Hora de inicio:</label><br>
-
-			<input type="text" id="timepickerinicio" placeholder="hora inicio">
+			<div class="timers">
+			
+				<div class="timerinicio">
+	
+					<label for="timepickerinicio">Hora inicio</label><br>
+				
+					<input type="text" id="timepickerinicio" placeholder="hora inicio">
+		
+				</div>
+		
+				<div class="timerfinal">
+				
+					<label for="timepickerfinal">Hora final</label><br>
+				
+					<input type="text" id="timepickerfinal" placeholder="hora final">
+			
+				</div>
 		
 			</div>
+
+			<input type="checkbox" id="check_festivo" onclick="festivo();">Festivo<br>
+
+			<div class="turnopartido">
+
+				<label for="check_turno_partido">Turno partido</label>
+
+				<input type="checkbox" id="check_turno_partido" onclick="partido();">
+			
+			</div>
 		
-			<input type="text" id="timepickerfinal" placeholder="hora final"><br><br>
 
-			<input type="checkbox" id="check_festivo" onclick="festivo();">Festivo
+			<div class="timers">
+
+				<div class="timerinicio2" >
+	
+					<label for="timepickerinicio2">Hora reinicio</label><br>
+				
+					<input type="text" id="timepickerinicio2" placeholder="Hora reinicio" style="display:none;">
 		
-			<input type="checkbox" id="check_turno_partido" onclick="partido();">Turno partido<br><br>
+				</div>
+		
+				<div class="timerfinal2" >
+				
+					<label for="timepickerfinal2">Hora final</label><br>
+				
+					<input type="text" id="timepickerfinal2" placeholder="Hora final" style="display:none;">
+			
+				</div>
+		
+			</div>
 
-			<input type="text" id="timepickerinicio2" placeholder="Hora inicio" style="display:none;"><br><br>
-
-			<input type="text" id="timepickerfinal2" placeholder="Hora final" style="display:none;"><br><br>
-
-			<input type="button" name="kaka" value="calcula horas" onclick="horitas();horascsemana();">
-
-			<input type="button" name="euros" value="cobrare?" onclick="eurosemana(); cuentapluses();">
+			<input type="button" name="kaka" value="calcula horas" onclick="horitas();horascsemana();">	
 
 			<input type="button" name="fiesta" value="Poner dl" onclick="ponerdl();">
-
-			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
-
-			<input type="button" name="guardararray" value="guardar arrays " onclick="guardarArraysEnArchivo();">
-
 
 		</div>	
 	
@@ -322,6 +348,10 @@
 			<input type="button" value="Comprobar" onclick="comprobarnomina()" />
 
 			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo()" />
+
+			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
+
+			<input type="button" name="guardararray" value="guardar arrays " onclick="guardarArraysEnArchivo();">
 	
 		</div>
 

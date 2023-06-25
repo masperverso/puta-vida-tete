@@ -169,6 +169,41 @@ text-overflow: ellipsis;
   }
 }
 
+.timerinicio {
+  float: left;
+}
+
+.timerfinal {
+  float: left;
+}
+
+.timerinicio2 {
+  float: left;
+}
+
+.timerfinal2 {
+  float: left;
+}
+
+/*.turnopartido {
+  float: left;
+}*/
+
+.timers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timerinicio, .timerfinal {
+  margin: 10px;
+}
+
+.timerinicio2, .timerfinal2 {
+  margin: 10px;
+}
+
+
 #retenciones { background-color: #663366;
 color: #9bf5ff;
 padding: 5px;

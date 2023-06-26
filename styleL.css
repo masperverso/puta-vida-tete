@@ -276,6 +276,9 @@ margin: 0 auto;
     height: 30px; 
     }
 
-
+#timers input[type="text"] {
+      width: 200px;
+    }
+    
 
 </style>

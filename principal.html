@@ -1,0 +1,415 @@
+<!doctype html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>puta vida tete</title>
+
+	<link rel="stylesheet" type="text/css" href="styleL.css">
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<script src="script.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="select.css">
+
+	<link rel="stylesheet" href="flatpickr.min.css">
+	<script src="flatpickr.js"></script>
+	<br><br>
+
+</head>
+
+<body>
+
+	<!--<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+		  apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
+		  authDomain: "siberia-now.firebaseapp.com",
+		  projectId: "siberia-now",
+		  storageBucket: "siberia-now.appspot.com",
+		  messagingSenderId: "1010746424515",
+		  appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
+		  measurementId: "G-PYZTDMM5LH"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	  </script>-->
+
+	<div class="container">
+		<div class="sidebar">
+		  <!-- Contenido de la barra lateral -->
+		  	<div class="sidebar-content" id="sidebarContent">
+				<br><br>
+				<img id="iconotransporte" src=bicicleta-de-reparto.png width="25"+ height="25" title="">Transporte <br>
+				<img id="iconomadrugador" src=madrugador.png width="25"+ height="25" title="">Transporte Madrugue<br>
+				<img id="iconoamanecer" src=amanecer.png width="25"+ height="25" title="">Madrugue<br>
+				<img id="iconosuperman3" src=superman3.png width="25"+ height="25" title="">SuperMadrugue<br>
+				<img id="iconomedia-luna" src=media-luna.png width="25"+ height="25" title="">Nocturnidad<br>
+				<img id="iconosigno-menos" src=signo-menos.png width="25"+ height="25" title="">Partido de 2 o menos horas<br>
+				<img id="iconomas" src=mas.png width="25"+ height="25" title="">Partido de mas de 2 horas<br>
+				<img id="iconodesayuno" src=desayuno.png width="25"+ height="25" title="">Dieta desayuno<br>
+				<img id="iconocomiendo" src=comiendo.png width="25"+ height="25" title="">Dieta comida o cena<br>
+				<img id="iconocalendario" src=calendario.png width="25"+ height="25" title="">Error horas introducidas<br>
+			</div>
+		</div>
+
+		<div class="content">
+		  <!-- Contenido principal -->
+		 	<div class="main-content" id="mainContent">
+			
+				<h4><img id="siberiaico" src=siberia.png width="25"+ height="25" title="">Siberia Now Leticia</h4>
+
+		 	</div>
+		</div>
+	</div>
+
+	<button class="toggle-button" onclick="toggleSidebar()">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+	  
+
+	<div id="calendario">
+
+		<div id="anterior" onclick="mesantes()"></div>
+		<div id="posterior" onclick="mesdespues()"></div>
+	
+		<h2 id="titulos"></h2>
+	
+		<table id="diasc">
+
+	  		<tr id="fila9"><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+	  		<tr id="fila10"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>	  
+	  		<tr id="fila11"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila30"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila12"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila13"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila31"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila14"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila15"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila32"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila16"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila17"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila33"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila18"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila19"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila34"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila20"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila21"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila35"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+		</table>
+
+		<div id="fechaactual"><i onclick="actualizar()">HOY: </i></div>
+
+		<div id="buscafecha">
+
+	  		<form action="#" name="elegirmes">
+
+				<p>MES
+		  	
+					<select name="buscames">
+
+						<option value="0">Enero</option>
+						<option value="1">Febrero</option>
+						<option value="2">Marzo</option>
+						<option value="3">Abril</option>
+						<option value="4">Mayo</option>
+						<option value="5">Junio</option>
+						<option value="6">Julio</option>
+						<option value="7">Agosto</option>
+						<option value="8">Septiembre</option>
+						<option value="9">Octubre</option>
+						<option value="10">Noviembre</option>
+						<option value="11">Diciembre</option>
+
+		  			</select>
+
+					... AÑO ...
+
+		  			<input type="number" id="buscaanno" maxlength="4" size="4" />
+		
+					... 
+		  
+					<input type="button" value="BUSCAR" onclick="mifecha()" />
+		
+					...
+		
+					<button id="guardarTabla">Guardar Tabla</button>
+		
+				</p>
+		
+			</form>
+	  
+		</div>
+	
+	</div>
+
+	<div id="Semana">
+
+		<table id="diassemana">
+    	
+			<tr id="fila0"><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+			<tr id="fila1"><th>Hora inicio</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="fila2"><th>Hora final</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="fila3"><th>Hora reinicio</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="fila4"><th>Hora final</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="fila5"><th>Total horas</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="fila6"><th>Horas nocturnas</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="fila7"><th>Pluses</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="filaunidades"><th>Unidades</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr id="fila8"><th></th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+		</table>
+
+		<div id="buscafechasemana">
+
+  	  		<form action="#" name="buscarsemana">
+
+				<p>Elige semana
+
+					<select name="selectsemana" id="selectsemana">
+
+						<option value="0">Primera</option>
+						<option value="1">Segunda</option>
+						<option value="2">Tercera</option>
+						<option value="3">Cuarta</option>
+						<option value="4">Quinta</option>
+						<option value="5">Sexta</option>			
+			
+					</select>
+     	
+					Elige dia
+     	
+					<select name="buscadia" id="buscadia">
+     	
+						<option value="0">Lunes</option>
+     				    <option value="1">Martes</option>
+     	     			<option value="2">Miercoles</option>
+     	     			<option value="3">Jueves</option>
+     	     			<option value="4">Viernes</option>
+    	      			<option value="5">Sabado</option>
+     	     			<option value="6">Domingo</option>
+    	    
+					</select>
+					
+					<input type="button" name="euros" value="cobrare?" onclick="eurosemana(); cuentapluses();">
+
+				</p>
+ 	   
+			</form>
+  	
+		</div>
+    
+	
+	</div>
+
+	<div id="calcula">
+	
+		<div id="Horasdia">
+
+			<div class="timers">
+			
+				<div class="timerinicio">
+	
+					<label for="timepickerinicio">Hora inicio</label><br>
+				
+					<input type="text" id="timepickerinicio" placeholder="hora inicio" size="7">
+		
+				</div>
+		
+				<div class="timerfinal">
+				
+					<label for="timepickerfinal">Hora final</label><br>
+				
+					<input type="text" id="timepickerfinal" placeholder="hora final" size="7">
+			
+				</div>
+		
+			</div>
+
+			<input type="checkbox" id="check_festivo" onclick="festivo();">Festivo<br>
+
+			<div class="turnopartido">
+
+				<label for="check_turno_partido">Turno partido</label>
+
+				<input type="checkbox" id="check_turno_partido" onclick="partido();">
+			
+			</div>
+		
+
+			<div class="timers">
+
+				<div class="timerinicio2" >
+	
+					<label for="timepickerinicio2">Hora reinicio</label><br>
+				
+					<input type="text" id="timepickerinicio2" placeholder="Hora reinicio" style="display:none;" size="7">
+		
+				</div>
+		
+				<div class="timerfinal2" >
+				
+					<label for="timepickerfinal2">Hora final</label><br>
+				
+					<input type="text" id="timepickerfinal2" placeholder="Hora final" style="display:none;" size="7">
+			
+				</div>
+		
+			</div>
+
+			<input type="button" name="kaka" value="calcula horas" onclick="horitas();horascsemana();">	
+
+			<input type="button" name="fiesta" value="Poner dl" onclick="ponerdl();">
+
+		</div>	
+	
+		<div id="horasdinero">
+
+		
+		
+	
+			<p>Horas semana 
+	
+				<table id="horatotales">
+	
+					<tr id="filahoras"><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th></tr>
+	
+				</table>
+	
+			</p>
+  
+			<p>€ semana 
+	
+				<table id="eurototales">
+	
+					<tr id="filaeuros"><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th></tr>
+	
+				</table>
+	
+			</p>
+
+			<div id="retenciones">
+	
+				<input type="number"  placeholder="IRPF" id="IRPF" min="2" max="47" size="5">% IRPF 
+		
+				<form action="#" name="niveles"> Elige nivel
+		
+					<select name="nivelsalarial" id="nivelsalarial">
+		
+						<option value="0">1F</option>
+						<option value="1">1D</option>
+						  <option value="2">1B</option>
+						  <option value="3">1</option>
+				 
+					  </select>
+			
+				</form>
+			
+				Trienios
+			
+				<select name="numerodetrienios" id="trienios">
+			
+					<option value="0">0</option>
+					  <option value="1">1</option>
+					  <option value="2">2</option>
+			  
+				</select>		
+		
+			</div>
+
+			<p>Horas mes <span id="horasmes"></span>.</p>
+
+			<p>€ mes <span id="nominames"></span>.</p>
+
+			<p><input type="number" placeholder="nomina" id="nominacobrada" maxlength="7" size="7"> Nomina cobrada en bruto <br>
+
+				<span id="nominadebida"></span> Se nos adeuda
+			</p>
+
+			<p><input type="number" placeholder="Unidades" id="unidadescobrada" maxlength="7" size="7"> Unidades cobradas <span id="unidadesdebida"></span></p>
+
+			<p><input type="number" placeholder="plus nocturnidad" id="nocturnidadcobrada" maxlength="7" size="7"> Nocturnidad € <br>
+
+				<span id="nocturnidadevida"></span> nocturnas a cobrar
+			
+			</p>
+	
+			<p><input type="number" placeholder="plus festividad" id="festividadcobrada" maxlength="7" size="7"> Festividad € <br>
+		
+				<span id="festividadebida"></span> festivas a cobrar
+			
+			</p>
+
+			<p><input type="number" placeholder="plus transportemadrugue" id="transportemadruguecobrada" maxlength="7" size="7"> Transporte madrugue € <br>
+		
+				<span id="madruguedebido"></span> Madrugue por cobrar
+		
+			</p>
+
+			<p><input type="number" placeholder="plus transporte" id="transportecobrada" maxlength="7" size="7"> Transporte €<br>
+		
+				<span id="transportedebido"></span> Transporte debido
+			
+			</p>
+
+			<p><input type="number" placeholder="plus dietas" id="dietacobrada" maxlength="7" size="7"> Dietas y desayumos € <span id="dietadebido"></span> y <span id="desayunodebido"></span> </p>
+
+			<p><input type="number" placeholder="plus dietamadrugue" id="dietamadruguecobrada" maxlength="7" size="7"> Dieta madrugue €<br>
+		
+				<span id="dietadebidomadrugue"> Supermadrugue por cobrar</span>
+			
+			</p>
+
+			<p><input type="number" placeholder="partido 2 horas o menos" id="partido2horasmenos" maxlength="7" size="7"> partido2horasmenos € <span id="partido2horasmenosdebido"></span></p>
+	
+			<input type="button" value="Comprobar" onclick="comprobarnomina()" />
+
+			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo()" />
+
+			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
+
+			<input type="button" name="guardararray" value="guardar arrays " onclick="guardarArraysEnArchivo();">
+	
+		</div>
+
+	</div>
+
+</body>
+
+<body onload = "funcion_inicial();">
+
+	<script type="text/javascript" Languaje="javascript" SRC="calendario.js"></script>
+
+    <script type="text/javascript" Languaje="javascript" SRC="horasdia.js"></script>
+
+    <script type="text/javascript" Languaje="javascript" SRC="horasdinero.js"></script>
+   
+  	<script type="text/javascript" Languaje="javascript" SRC="conceptoseconomicos.js"></script>
+	
+	<script type="text/javascript" Languaje="javascript" SRC="FileSaver.min.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="guardartabla.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="guardarinfo.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="efectos.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="introhoras.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="flatpickr.js"></script>
+
+
+
+</body>
+</html>

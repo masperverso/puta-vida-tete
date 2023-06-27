@@ -1,0 +1,38 @@
+body {
+    background-color: #663366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #container {
+    background-color: #663366;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #5ecdec;
+  }
+  
+  p {
+    color: #5ecdec;
+  }
+
+  #enter {
+
+    background-color: #ffffff;
+
+    padding: 15px;
+  }
+
+  a {
+
+    color: #663366;
+    
+  }
+  

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Sign In y Login</title>
+  <!-- Agrega el SDK de Firebase -->
+  <script type="module">
+    // Importa las funciones que necesitas de los SDK que necesitas
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+    // Tu configuración de Firebase
+    const firebaseConfig = {
+      // Aquí van tus datos de configuración de Firebase
+          apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
+		  authDomain: "siberia-now.firebaseapp.com",
+		  projectId: "siberia-now",
+		  storageBucket: "siberia-now.appspot.com",
+		  messagingSenderId: "1010746424515",
+		  appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
+		  measurementId: "G-PYZTDMM5LH"
+    };
+
+    // Inicializa Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+
+    // Define los métodos login() y register() en el ámbito global
+    window.login = function() {
+      var email = document.getElementById('login-email').value;
+      var password = document.getElementById('login-password').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Inicio de sesión exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
+          console.log('Usuario autenticado:', userCredential.user);
+          // Redirigir al usuario al contenido principal
+          window.location.href = 'principal.html';
+        })
+        .catch((error) => {
+          // Ocurrió un error durante el inicio de sesión, maneja el error apropiadamente
+          console.error('Error de inicio de sesión:', error);
+        });
+    }
+
+    window.register = function() {
+      var email = document.getElementById('register-email').value;
+      var password = document.getElementById('register-password').value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
+          console.log('Usuario registrado:', userCredential.user);
+          // Redirigir al usuario al contenido principal
+          window.location.href = 'principal.html';
+        })
+        .catch((error) => {
+          // Ocurrió un error durante el registro, maneja el error apropiadamente
+          console.error('Error de registro:', error);
+        });
+    }
+  </script>
+</head>
+<body>
+  <h1>Registro Usuario</h1>
+
+  <h2>Iniciar sesión</h2>
+  <form>
+    <label for="login-email">Correo electrónico:</label>
+    <input type="email" id="login-email" required><br>
+
+    <label for="login-password">Contraseña:</label>
+    <input type="password" id="login-password" required><br>
+
+    <button type="button" onclick="login()">Iniciar sesión</button>
+  </form>
+
+  <h2>Crear una cuenta</h2>
+  <form>
+    <label for="register-email">Correo electrónico:</label>
+    <input type="email" id="register-email" required><br>
+
+    <label for="register-password">Contraseña:</label>
+    <input type="password" id="register-password" required><br>
+
+    <button type="button" onclick="register()">Registrarse</button>
+  </form>
+
+  <script>
+    // Puedes agregar más código JavaScript aquí si es necesario
+  </script>
+</body>
+</html>

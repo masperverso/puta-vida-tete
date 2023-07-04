@@ -11,23 +11,25 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
     // Tu configuración de Firebase
     const firebaseConfig = {
       // Aquí van tus datos de configuración de Firebase
-          apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
-		  authDomain: "siberia-now.firebaseapp.com",
-		  projectId: "siberia-now",
-		  storageBucket: "siberia-now.appspot.com",
-		  messagingSenderId: "1010746424515",
-		  appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
-		  measurementId: "G-PYZTDMM5LH"
+      apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
+      authDomain: "siberia-now.firebaseapp.com",
+      projectId: "siberia-now",
+      storageBucket: "siberia-now.appspot.com",
+      messagingSenderId: "1010746424515",
+      appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
+      measurementId: "G-PYZTDMM5LH"
     };
 
     // Inicializa Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
+    const firestore = getFirestore(app);
 
     // Define los métodos login() y register() en el ámbito global
     window.login = function() {
@@ -55,8 +57,19 @@
         .then((userCredential) => {
           // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
           console.log('Usuario registrado:', userCredential.user);
-          // Redirigir al usuario al contenido principal
-          window.location.href = 'principal.html';
+          
+          // Crear la carpeta del usuario en Firestore
+          const userFolder = userCredential.user.email;
+          const folderRef = doc(firestore, "users", userFolder);
+          setDoc(folderRef, {})
+            .then(() => {
+              console.log('Carpeta del usuario creada');
+              // Redirigir al usuario al contenido principal
+              window.location.href = 'principal.html';
+            })
+            .catch((error) => {
+              console.error('Error al crear la carpeta del usuario:', error);
+            });
         })
         .catch((error) => {
           // Ocurrió un error durante el registro, maneja el error apropiadamente
@@ -66,35 +79,36 @@
   </script>
 </head>
 <body>
+  <div id="container">
+    <h1>Registro Usuario</h1>
+    <form>
+      <label for="login-email">Correo electrónico:</label>
+      <input type="email" id="login-email" required><br>
 
-    <div id="container">
-  <h1>Registro Usuario</h1>
+      <label for="login-password">Contraseña:</label>
+      <input type="password" id="login-password" required><br>
 
-  
-  <form>
-    <label for="login-email">Correo electrónico:</label>
-    <input type="email" id="login-email" required><br>
+      <button type="button" onclick="login()">Entrar</button>
+    </form>
+  </div>
 
-    <label for="login-password">Contraseña:</label>
-    <input type="password" id="login-password" required><br>
+  <div id="container">
+    <h1>Crear una cuenta</h1>
+    <form>
+      <label for="register-email">Correo electrónico:</label>
+      <input type="email" id="register-email" required><br>
 
-    <button type="button" onclick="login()">Entrar</button>
-  </form>
+      <label for="register-password">Contraseña:</label>
+      <input type="password" id="register-password" required><br>
 
-</div>
-  <!--<h2>Crear una cuenta</h2>
-  <form>
-    <label for="register-email">Correo electrónico:</label>
-    <input type="email" id="register-email" required><br>
-
-    <label for="register-password">Contraseña:</label>
-    <input type="password" id="register-password" required><br>
-
-    <button type="button" onclick="register()">Registrarse</button>
-  </form>-->
+      <button type="button" onclick="register()">Registrarse</button>
+    </form>
+  </div>
 
   <script>
     // Puedes agregar más código JavaScript aquí si es necesario
   </script>
 </body>
 </html>
+
+

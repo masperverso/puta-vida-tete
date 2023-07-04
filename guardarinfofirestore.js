@@ -3,35 +3,44 @@ const db = firebase.firestore();
 const collection = db.collection("arrays mes");
 
 function guardarArraysEnFirestore() {
-    var arrays = {
-      // Tus arrays aquí
-      horasnochemes: horasnochemes,
-	  horasdiarias: horasdiarias,
-	  eurosdiarios: eurosdiarios,
-	  unidadesdiarias: unidadesdiarias,
-	  festivasmes: festivasmes,
-	  transportemes: transportemes,
+  var arrays = {
+    // Tus arrays aquí
+    horasnochemes: horasnochemes,
+    horasdiarias: horasdiarias,
+    eurosdiarios: eurosdiarios,
+    unidadesdiarias: unidadesdiarias,
+    festivasmes: festivasmes,
+    transportemes: transportemes,
 
-	  dietasemana: dietasemana,
-	  madruguesemana: madruguesemana,
-	  supermadruguesemana: supermadruguesemana,
-	  turnopartidosemana: turnopartidosemana,
+    dietasemana: dietasemana,
+    madruguesemana: madruguesemana,
+    supermadruguesemana: supermadruguesemana,
+    turnopartidosemana: turnopartidosemana,
 
-	  dietames: dietames,
-	  madruguemes: madruguemes,
-	  supermadruguemes: supermadruguemes,
-	  turnopartidomes: turnopartidomes,
-    };
-  
-    // Guarda los datos en Firestore
-    collection.doc(tit.innerHTML).set(arrays)
-      .then(function() {
-        console.log("Datos guardados en Firestore");
-      })
-      .catch(function(error) {
-        console.error("Error al guardar los datos en Firestore:", error);
-      });
-  }
+    dietames: dietames,
+    madruguemes: madruguemes,
+    supermadruguemes: supermadruguemes,
+    turnopartidomes: turnopartidomes,
+  };
+
+  // Obtén el ID del usuario autenticado actualmente
+  const userId = firebase.auth().currentUser.uid;
+
+  // Define la ruta de la carpeta específica para el usuario
+  const userFolderPath = `users/${userId}`;
+
+  // Guarda los datos en Firestore dentro de la carpeta del usuario
+  db.collection(userFolderPath)
+    .doc("arrays_mes")
+    .set(arrays)
+    .then(function() {
+      console.log("Datos guardados en Firestore");
+    })
+    .catch(function(error) {
+      console.error("Error al guardar los datos en Firestore:", error);
+    });
+}
+
 
   function cargarValoresDesdeFirestore() {
     // Obtiene los datos desde Firestore

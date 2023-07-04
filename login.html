@@ -40,6 +40,8 @@
         .then((userCredential) => {
           // Inicio de sesión exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
           console.log('Usuario autenticado:', userCredential.user);
+          // Guardar el estado de autenticación en el almacenamiento local
+          localStorage.setItem('userLoggedIn', 'true');
           // Redirigir al usuario al contenido principal
           window.location.href = 'principal.html';
         })
@@ -64,6 +66,8 @@
           setDoc(folderRef, {})
             .then(() => {
               console.log('Carpeta del usuario creada');
+               // Guardar el estado de autenticación en el almacenamiento local
+              localStorage.setItem('userLoggedIn', 'true');
               // Redirigir al usuario al contenido principal
               window.location.href = 'principal.html';
             })

@@ -142,6 +142,10 @@
 
 					<button onclick="cargarTablaDesdeHTML()">Cargar desde HTML</button>
 
+					<button id="guardarTablaenfirestore">Guardar Tabla en firestore</button>
+
+					<button onclick="cargarTablaDesdeFirestore()">Cargar desde Firestore</button>
+
 
 		
 				</p>
@@ -371,17 +375,23 @@
 
 			<p><input type="number" placeholder="partido 2 horas o menos" id="partido2horasmenos" maxlength="7" size="7"> partido2horasmenos € <span id="partido2horasmenosdebido"></span></p>
 	
+			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
+			
 			<input type="button" value="Comprobar" onclick="comprobarnomina()" />
+
+			<input type="button" name="guardararray" value="descargar arrays" onclick="guardarArraysEnArchivo();">
 
 			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo();" />
 
+			<input type="button" name="guardararrayfirestore" value="guardar arrays en Firestore" onclick="guardarArraysEnFirestore();">
+
 			<button onclick="cargarValoresDesdeFirestore()">Cargar desde Firestore</button>
 
-			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
+			
 
-			<input type="button" name="guardararray" value="descargar arrays " onclick="guardarArraysEnArchivo();">
+			
 
-			<input type="button" name="guardararray" value="guardar arrays " onclick="guardarArraysEnFirestore();">
+			
 	
 		</div>
 
@@ -412,6 +422,8 @@
 	<script type="text/javascript" Languaje="javascript" SRC="flatpickr.js"></script>
 
 	<script type="text/javascript" Languaje="javascript" SRC="guardarinfofirestore.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="guardartablaenfirestore.js"></script>
 
 </body>
 </html>

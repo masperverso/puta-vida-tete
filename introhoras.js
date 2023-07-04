@@ -135,6 +135,8 @@ hideTimePickers();
 // Inicializar los timepickers
 initializeTimePickers();
 
+partido();
+
 // Llamar a la función partido en el evento change de la casilla de verificación
 check_turno_partido.addEventListener("change", partido);
 

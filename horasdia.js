@@ -69,7 +69,7 @@ var supermadruguestotal=0;
 var festivasmestotal=0;
 
 primeralinea();
-partido();
+
 ultimalinea();
 
 

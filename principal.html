@@ -1,47 +1,41 @@
 <!doctype html>
 <head>
-
 	<meta charset="utf-8">
-
 	<title>puta vida tete</title>
-
 	<link rel="stylesheet" type="text/css" href="styleL.css">
 	<link rel="stylesheet" type="text/css" href="estilos.css">
 	<script src="script.js"></script>
-
 	<link rel="stylesheet" type="text/css" href="select.css">
-
 	<link rel="stylesheet" href="flatpickr.min.css">
 	<script src="flatpickr.js"></script>
-	<br><br>
 
-</head>
+	<!-- Agrega las etiquetas de script de Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 
-<body>
-
-	<!--<script type="module">
-		// Import the functions you need from the SDKs you need
-		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-		// TODO: Add SDKs for Firebase products that you want to use
-		// https://firebase.google.com/docs/web/setup#available-libraries
-	  
+	<script>
 		// Your web app's Firebase configuration
 		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 		const firebaseConfig = {
-		  apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
-		  authDomain: "siberia-now.firebaseapp.com",
-		  projectId: "siberia-now",
-		  storageBucket: "siberia-now.appspot.com",
-		  messagingSenderId: "1010746424515",
-		  appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
-		  measurementId: "G-PYZTDMM5LH"
+			apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
+			authDomain: "siberia-now.firebaseapp.com",
+			projectId: "siberia-now",
+			storageBucket: "siberia-now.appspot.com",
+			messagingSenderId: "1010746424515",
+			appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
+			measurementId: "G-PYZTDMM5LH"
 		};
-	  
+
 		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
-		const analytics = getAnalytics(app);
-	  </script>-->
+		firebase.initializeApp(firebaseConfig);
+		
+	</script>
+
+	<br><br>
+</head>
+
+
+<body>
 
 	<div class="container">
 		<div class="sidebar">
@@ -375,11 +369,15 @@
 	
 			<input type="button" value="Comprobar" onclick="comprobarnomina()" />
 
-			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo()" />
+			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo();" />
+
+			<button onclick="cargarValoresDesdeFirestore()">Cargar desde Firestore</button>
 
 			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
 
-			<input type="button" name="guardararray" value="guardar arrays " onclick="guardarArraysEnArchivo();">
+			<input type="button" name="guardararray" value="descargar arrays " onclick="guardarArraysEnArchivo();">
+
+			<input type="button" name="guardararray" value="guardar arrays " onclick="guardarArraysEnFirestore();">
 	
 		</div>
 
@@ -409,7 +407,7 @@
 
 	<script type="text/javascript" Languaje="javascript" SRC="flatpickr.js"></script>
 
-
+	<script type="text/javascript" Languaje="javascript" SRC="guardarinfofirestore.js"></script>
 
 </body>
 </html>

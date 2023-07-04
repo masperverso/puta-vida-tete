@@ -4,7 +4,7 @@ function guardarArraysEnArchivo() {
       //array1: [1, 2, 3],
       //array2: ["a", "b", "c"],
       // Agrega aquí todos los arrays que deseas guardar
-      horasnochemes: horasnochemes,
+    horasnochemes: horasnochemes,
 	  horasdiarias: horasdiarias,
 	  eurosdiarios: eurosdiarios,
 	  unidadesdiarias: unidadesdiarias,
@@ -126,6 +126,6 @@ function cargarValoresDesdeArchivo() {
   
   // Ejemplo de uso
   // Guardar los arrays en un archivo
-  guardarArraysEnArchivo();
+  
 
   

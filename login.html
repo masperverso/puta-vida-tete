@@ -51,35 +51,58 @@
         });
     }
 
-    window.register = function() {
-      var email = document.getElementById('register-email').value;
-      var password = document.getElementById('register-password').value;
+   window.register = function() {
+  var email = document.getElementById('register-email').value;
+  var password = document.getElementById('register-password').value;
 
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
-          console.log('Usuario registrado:', userCredential.user);
-          
-          // Crear la carpeta del usuario en Firestore
-          const userFolder = userCredential.user.email;
-          const folderRef = doc(firestore, "users", userFolder, "data", "nominas");
-          setDoc(folderRef, {})
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
+      console.log('Usuario registrado:', userCredential.user);
+      
+      // Crear la carpeta del usuario en Firestore
+      const userFolder = userCredential.user.email;
+      const folderRef = doc(firestore, 'users', userFolder);
+      setDoc(folderRef, {})
+        .then(() => {
+          console.log('Carpeta del usuario creada');
+
+          // Crear la carpeta 'data' dentro de la carpeta del usuario
+          const dataRef = doc(firestore, 'users', userFolder, 'data');
+          setDoc(dataRef, {})
             .then(() => {
-              console.log('Carpeta del usuario creada');
-               // Guardar el estado de autenticación en el almacenamiento local
-              localStorage.setItem('userLoggedIn', 'true');
-              // Redirigir al usuario al contenido principal
-              window.location.href = 'principal.html';
+              console.log('Carpeta "data" creada');
+
+              // Crear la carpeta 'nominas' dentro de la carpeta 'data'
+              const nominasRef = doc(firestore, 'users', userFolder, 'data', 'nominas');
+              setDoc(nominasRef, {})
+                .then(() => {
+                  console.log('Carpeta "nominas" creada');
+
+                  // Guardar el estado de autenticación en el almacenamiento local
+                  localStorage.setItem('userLoggedIn', 'true');
+
+                  // Redirigir al usuario al contenido principal
+                  window.location.href = 'principal.html';
+                })
+                .catch((error) => {
+                  console.error('Error al crear la carpeta "nominas":', error);
+                });
             })
             .catch((error) => {
-              console.error('Error al crear la carpeta del usuario:', error);
+              console.error('Error al crear la carpeta "data":', error);
             });
         })
         .catch((error) => {
-          // Ocurrió un error durante el registro, maneja el error apropiadamente
-          console.error('Error de registro:', error);
+          console.error('Error al crear la carpeta del usuario:', error);
         });
-    }
+    })
+    .catch((error) => {
+      // Ocurrió un error durante el registro, maneja el error apropiadamente
+      console.error('Error de registro:', error);
+    });
+}
+
   </script>
 </head>
 <body>

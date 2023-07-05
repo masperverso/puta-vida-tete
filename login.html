@@ -61,13 +61,13 @@ window.register = function() {
       console.log('Usuario registrado:', userCredential.user);
 
       // Obtener el nombre de la carpeta del usuario
-      const userFolder = email;
+      const userFolder = email.split('@')[0]; // Obtiene el nombre de usuario antes del símbolo '@'
 
-      // Crear la colección 'users' en Firestore (si no existe)
-      const usersRef = collection(firestore, 'users');
-      addDoc(usersRef, { email: userFolder })
+      // Crear la carpeta del usuario en Firebase Storage
+      const storageRef = ref(storage, 'users/' + userFolder);
+      uploadString(storageRef, '')
         .then(() => {
-          console.log('Carpeta de usuarios creada');
+          console.log('Carpeta de usuario creada');
 
           // Guardar el estado de autenticación en el almacenamiento local
           localStorage.setItem('userLoggedIn', 'true');
@@ -76,7 +76,7 @@ window.register = function() {
           window.location.href = 'principal.html';
         })
         .catch((error) => {
-          console.error('Error al crear la carpeta de usuarios:', error);
+          console.error('Error al crear la carpeta de usuario:', error);
         });
     })
     .catch((error) => {
@@ -84,7 +84,6 @@ window.register = function() {
       console.error('Error de registro:', error);
     });
 }
-
 
   </script>
 </head>

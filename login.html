@@ -61,35 +61,25 @@ window.register = function() {
       console.log('Usuario registrado:', userCredential.user);
 
       // Obtener el nombre de la carpeta del usuario
-      const userFolder = email;
+      const userFolder = email.replace(/[.,#$[\]]/g, "_");
 
-      // Crear la carpeta 'users' en Firestore (si no existe)
-      const usersRef = doc(firestore, 'users', userFolder);
-      setDoc(usersRef, {})
+      // Crear la colección 'users' en Firestore (si no existe)
+      const usersRef = collection(firestore, 'users');
+      addDoc(usersRef, { [userFolder]: {} })
         .then(() => {
           console.log('Carpeta de usuarios creada');
 
-          // Crear la carpeta 'data' dentro de la carpeta del usuario
-          const dataRef = doc(firestore, 'users', userFolder, 'data');
-          setDoc(dataRef, {})
+          // Crear la colección 'data' dentro de la carpeta del usuario
+          const userDataRef = collection(firestore, 'users', userFolder, 'data');
+          addDoc(userDataRef, { nominas: {} })
             .then(() => {
               console.log('Carpeta "data" creada');
 
-              // Crear la carpeta 'nominas' dentro de la carpeta 'data'
-              const nominasRef = doc(firestore, 'users', userFolder, 'data', 'nominas');
-              setDoc(nominasRef, {})
-                .then(() => {
-                  console.log('Carpeta "nominas" creada');
+              // Guardar el estado de autenticación en el almacenamiento local
+              localStorage.setItem('userLoggedIn', 'true');
 
-                  // Guardar el estado de autenticación en el almacenamiento local
-                  localStorage.setItem('userLoggedIn', 'true');
-
-                  // Redirigir al usuario al contenido principal
-                  window.location.href = 'principal.html';
-                })
-                .catch((error) => {
-                  console.error('Error al crear la carpeta "nominas":', error);
-                });
+              // Redirigir al usuario al contenido principal
+              window.location.href = 'principal.html';
             })
             .catch((error) => {
               console.error('Error al crear la carpeta "data":', error);

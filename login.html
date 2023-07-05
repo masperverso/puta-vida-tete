@@ -64,9 +64,9 @@ window.register = function() {
       const userFolder = email;
 
       // Crear la colección 'users' en Firestore (si no existe)
-      const usersRef = collection(firestore, userFolder);
-      
-        then(() => {
+      const usersRef = collection(firestore, 'users');
+      addDoc(usersRef, { email: userFolder })
+        .then(() => {
           console.log('Carpeta de usuarios creada');
 
           // Guardar el estado de autenticación en el almacenamiento local
@@ -84,6 +84,7 @@ window.register = function() {
       console.error('Error de registro:', error);
     });
 }
+
 
   </script>
 </head>

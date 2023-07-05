@@ -28,12 +28,11 @@ function guardarArraysEnFirestore() {
   const userId = firebase.auth().currentUser.uid;
 
   // Define la ruta de la carpeta específica para el usuario
-  const userFolderPath = `users/${userId}`;
+  const userFolderPath = `users/${userId}/arrays_mes`; // Agrega "/arrays_mes" al final para especificar un nombre de documento
 
   // Guarda los datos en Firestore dentro de la carpeta del usuario
   db.collection(userFolderPath)
-    .doc("arrays_mes")
-    .set(arrays)
+    .set(arrays) // Elimina .doc("arrays_mes") ya que especificamos el nombre de documento en la ruta
     .then(function() {
       console.log("Datos guardados en Firestore");
     })
@@ -41,6 +40,7 @@ function guardarArraysEnFirestore() {
       console.error("Error al guardar los datos en Firestore:", error);
     });
 }
+
 
 
   function cargarValoresDesdeFirestore() {

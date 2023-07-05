@@ -61,7 +61,7 @@ window.register = function() {
       console.log('Usuario registrado:', userCredential.user);
 
       // Obtener el nombre de la carpeta del usuario
-      const userFolder = email.replace(/[.,#$[\]]/g, "_");
+      const userFolder = email;
 
       // Crear la colección 'users' en Firestore (si no existe)
       const usersRef = collection(firestore, 'users');

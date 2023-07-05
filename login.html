@@ -12,6 +12,7 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
     import { getFirestore, doc, setDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+    import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
     // Tu configuración de Firebase
     const firebaseConfig = {
@@ -30,6 +31,8 @@
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
     const firestore = getFirestore(app);
+    // Inicializar Firebase Storage
+    const storage = getStorage(app);
 
     // Define los métodos login() y register() en el ámbito global
     window.login = function() {

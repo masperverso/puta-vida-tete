@@ -8,11 +8,11 @@
   <!-- Agrega el SDK de Firebase -->
   <script type="module">
     // Importa las funciones que necesitas de los SDK que necesitas
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-import { ref, uploadString } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+    import firebase from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+
 
 
     // Tu configuración de Firebase
@@ -28,15 +28,19 @@ import { ref, uploadString } from "https://www.gstatic.com/firebasejs/9.23.0/fir
     };
 
     // Inicializa Firebase
-    const app = initializeApp(firebaseConfig);
+/*    const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
     const firestore = getFirestore(app);
     // Inicializar Firebase Storage
-    const storage = getStorage(app);
+    const storage = getStorage(app);*/
+
+    const auth = firebase.auth();
+    const firestore = firebase.firestore();
+    const storage = firebase.storage();
 
     // Define los métodos login() y register() en el ámbito global
-    window.login = function() {
+ /*   window.login = function() {
       var email = document.getElementById('login-email').value;
       var password = document.getElementById('login-password').value;
 
@@ -53,13 +57,13 @@ import { ref, uploadString } from "https://www.gstatic.com/firebasejs/9.23.0/fir
           // Ocurrió un error durante el inicio de sesión, maneja el error apropiadamente
           console.error('Error de inicio de sesión:', error);
         });
-    }
+    }*/
 
 window.register = function() {
   var email = document.getElementById('register-email').value;
   var password = document.getElementById('register-password').value;
 
-  createUserWithEmailAndPassword(auth, email, password)
+  auth.createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
       console.log('Usuario registrado:', userCredential.user);
@@ -68,8 +72,8 @@ window.register = function() {
       const userFolder = email.split('@')[0]; // Obtiene el nombre de usuario antes del símbolo '@'
 
       // Crear la carpeta del usuario en Firebase Storage
-      const storageRef = ref(storage, 'users/' + userFolder);
-      uploadString(storageRef, '')
+      const storageRef = storage.ref('users/' + userFolder);
+      storageRef.putString('')
         .then(() => {
           console.log('Carpeta de usuario creada');
 
@@ -88,7 +92,6 @@ window.register = function() {
       console.error('Error de registro:', error);
     });
 }
-
   </script>
 </head>
 <body>

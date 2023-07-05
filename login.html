@@ -62,7 +62,7 @@
           
           // Crear la carpeta del usuario en Firestore
           const userFolder = userCredential.user.email;
-          const folderRef = doc(firestore, "users", userFolder);
+          const folderRef = doc(firestore, userFolder);
           setDoc(folderRef, {})
             .then(() => {
               console.log('Carpeta del usuario creada');

@@ -1,4 +1,3 @@
-
 const db = firebase.firestore();
 
 function guardarArraysEnFirestore() {
@@ -25,15 +24,11 @@ function guardarArraysEnFirestore() {
   // Obtén el ID del usuario autenticado actualmente
   const userId = firebase.auth().currentUser.uid;
 
-  // Define la ruta de la colección específica para el usuario
-  const userCollectionPath = `users/${userId}`; // Ruta de la colección
+  // Define la ruta de la carpeta específica para el usuario
+  const userFolderPath = `users/${userId}`; // Elimina "/arrays_mes" de la ruta
 
-  // Define el nombre del documento
-  const documentName = "arrays_mes";
-
-  // Guarda los datos en Firestore dentro de la colección del usuario y el documento especificado
-  db.collection(userCollectionPath)
-    .doc(documentName)
+  // Guarda los datos en Firestore dentro de la carpeta del usuario
+  db.doc(userFolderPath) // Utiliza doc en lugar de collection
     .set(arrays)
     .then(function() {
       console.log("Datos guardados en Firestore");
@@ -42,6 +37,7 @@ function guardarArraysEnFirestore() {
       console.error("Error al guardar los datos en Firestore:", error);
     });
 }
+
 
 
 

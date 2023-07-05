@@ -8,56 +8,26 @@
   <!-- Agrega el SDK de Firebase -->
   <script type="module">
     // Importa las funciones que necesitas de los SDK que necesitas
-    import firebase from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+   import firebase from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 import "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
+// ...
 
+const firebaseConfig = {
+  // Aquí va la configuración de tu proyecto de Firebase (apiKey, authDomain, etc.)
+};
 
-    // Tu configuración de Firebase
-    const firebaseConfig = {
-      // Aquí van tus datos de configuración de Firebase
-      apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
-      authDomain: "siberia-now.firebaseapp.com",
-      projectId: "siberia-now",
-      storageBucket: "siberia-now.appspot.com",
-      messagingSenderId: "1010746424515",
-      appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
-      measurementId: "G-PYZTDMM5LH"
-    };
+// Inicializar Firebase App
+firebase.initializeApp(firebaseConfig);
 
-    // Inicializa Firebase
-/*    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-    const firestore = getFirestore(app);
-    // Inicializar Firebase Storage
-    const storage = getStorage(app);*/
+// Obtener las instancias necesarias
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+const storage = firebase.storage();
 
-    const auth = firebase.auth();
-    const firestore = firebase.firestore();
-    const storage = firebase.storage();
-
-    // Define los métodos login() y register() en el ámbito global
- /*   window.login = function() {
-      var email = document.getElementById('login-email').value;
-      var password = document.getElementById('login-password').value;
-
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Inicio de sesión exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
-          console.log('Usuario autenticado:', userCredential.user);
-          // Guardar el estado de autenticación en el almacenamiento local
-          localStorage.setItem('userLoggedIn', 'true');
-          // Redirigir al usuario al contenido principal
-          window.location.href = 'principal.html';
-        })
-        .catch((error) => {
-          // Ocurrió un error durante el inicio de sesión, maneja el error apropiadamente
-          console.error('Error de inicio de sesión:', error);
-        });
-    }*/
+// ...
 
 window.register = function() {
   var email = document.getElementById('register-email').value;
@@ -92,6 +62,7 @@ window.register = function() {
       console.error('Error de registro:', error);
     });
 }
+
   </script>
 </head>
 <body>

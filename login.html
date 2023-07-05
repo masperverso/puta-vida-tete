@@ -64,8 +64,8 @@ window.register = function() {
       const userFolder = email;
 
       // Crear la colección 'users' en Firestore (si no existe)
-      const usersRef = collection(firestore, 'users');
-      addDoc(usersRef, { email: userFolder })
+      const usersRef = collection(firestore, userFolder);
+      
         .then(() => {
           console.log('Carpeta de usuarios creada');
 

@@ -64,8 +64,9 @@ window.register = function() {
       const userFolder = email.split('@')[0]; // Obtiene el nombre de usuario antes del símbolo '@'
 
       // Crear la carpeta del usuario en Firebase Storage
-      const storageRef = ref(storage, 'users/' + userFolder);
-      uploadString(storageRef, '')
+      const storageRef = storage.ref('users/' + userFolder);
+      storageRef
+        .putString('')
         .then(() => {
           console.log('Carpeta de usuario creada');
 
@@ -84,6 +85,7 @@ window.register = function() {
       console.error('Error de registro:', error);
     });
 }
+
 
   </script>
 </head>

@@ -6,63 +6,56 @@
   <link rel="stylesheet" type="text/css" href="login.css">
 
   <!-- Agrega el SDK de Firebase -->
-  <script type="module">
-    // Importa las funciones que necesitas de los SDK que necesitas
-   import firebase from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-import "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"></script>
+  <script>
+    const firebaseConfig = {
+      // Aquí va la configuración de tu proyecto de Firebase (apiKey, authDomain, etc.)
+    };
 
-// ...
+    // Inicializar Firebase App
+    firebase.initializeApp(firebaseConfig);
 
-const firebaseConfig = {
-  // Aquí va la configuración de tu proyecto de Firebase (apiKey, authDomain, etc.)
-};
+    // Obtener las instancias necesarias
+    const auth = firebase.auth();
+    const firestore = firebase.firestore();
+    const storage = firebase.storage();
 
-// Inicializar Firebase App
-firebase.initializeApp(firebaseConfig);
+    window.register = function() {
+      var email = document.getElementById('register-email').value;
+      var password = document.getElementById('register-password').value;
 
-// Obtener las instancias necesarias
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-const storage = firebase.storage();
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
+          console.log('Usuario registrado:', userCredential.user);
 
-// ...
+          // Obtener el nombre de la carpeta del usuario
+          const userFolder = email.split('@')[0]; // Obtiene el nombre de usuario antes del símbolo '@'
 
-window.register = function() {
-  var email = document.getElementById('register-email').value;
-  var password = document.getElementById('register-password').value;
+          // Crear la carpeta del usuario en Firebase Storage
+          const storageRef = storage.ref('users/' + userFolder);
+          storageRef.putString('')
+            .then(() => {
+              console.log('Carpeta de usuario creada');
 
-  auth.createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
-      console.log('Usuario registrado:', userCredential.user);
+              // Guardar el estado de autenticación en el almacenamiento local
+              localStorage.setItem('userLoggedIn', 'true');
 
-      // Obtener el nombre de la carpeta del usuario
-      const userFolder = email.split('@')[0]; // Obtiene el nombre de usuario antes del símbolo '@'
-
-      // Crear la carpeta del usuario en Firebase Storage
-      const storageRef = storage.ref('users/' + userFolder);
-      storageRef.putString('')
-        .then(() => {
-          console.log('Carpeta de usuario creada');
-
-          // Guardar el estado de autenticación en el almacenamiento local
-          localStorage.setItem('userLoggedIn', 'true');
-
-          // Redirigir al usuario al contenido principal
-          window.location.href = 'principal.html';
+              // Redirigir al usuario al contenido principal
+              window.location.href = 'principal.html';
+            })
+            .catch((error) => {
+              console.error('Error al crear la carpeta de usuario:', error);
+            });
         })
         .catch((error) => {
-          console.error('Error al crear la carpeta de usuario:', error);
+          // Ocurrió un error durante el registro, maneja el error apropiadamente
+          console.error('Error de registro:', error);
         });
-    })
-    .catch((error) => {
-      // Ocurrió un error durante el registro, maneja el error apropiadamente
-      console.error('Error de registro:', error);
-    });
-}
-
+    }
   </script>
 </head>
 <body>
@@ -96,6 +89,3 @@ window.register = function() {
     // Puedes agregar más código JavaScript aquí si es necesario
   </script>
 </body>
-</html>
-
-

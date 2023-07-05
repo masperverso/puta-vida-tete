@@ -60,21 +60,23 @@
       // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
       console.log('Usuario registrado:', userCredential.user);
       
+      // Obtener el UID del usuario
+      const userId = userCredential.user.uid;
+
       // Crear la carpeta del usuario en Firestore
-      const userFolder = userCredential.user.email;
-      const folderRef = doc(firestore, 'users', userFolder);
-      setDoc(folderRef, {})
+      const userFolderRef = doc(firestore, 'users', userId);
+      setDoc(userFolderRef, {})
         .then(() => {
           console.log('Carpeta del usuario creada');
 
           // Crear la carpeta 'data' dentro de la carpeta del usuario
-          const dataRef = doc(firestore, 'users', userFolder, 'data');
+          const dataRef = doc(firestore, 'users', userId, 'data');
           setDoc(dataRef, {})
             .then(() => {
               console.log('Carpeta "data" creada');
 
               // Crear la carpeta 'nominas' dentro de la carpeta 'data'
-              const nominasRef = doc(firestore, 'users', userFolder, 'data', 'nominas');
+              const nominasRef = doc(firestore, 'users', userId, 'data', 'nominas');
               setDoc(nominasRef, {})
                 .then(() => {
                   console.log('Carpeta "nominas" creada');
@@ -102,6 +104,7 @@
       console.error('Error de registro:', error);
     });
 }
+
 
   </script>
 </head>

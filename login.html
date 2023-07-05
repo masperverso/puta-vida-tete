@@ -65,25 +65,15 @@ window.register = function() {
 
       // Crear la colección 'users' en Firestore (si no existe)
       const usersRef = collection(firestore, 'users');
-      addDoc(usersRef, { [userFolder]: {} })
+      addDoc(usersRef, { email: userFolder })
         .then(() => {
           console.log('Carpeta de usuarios creada');
 
-          // Crear la colección 'data' dentro de la carpeta del usuario
-          const userDataRef = collection(firestore, 'users', userFolder, 'data');
-          addDoc(userDataRef, { nominas: {} })
-            .then(() => {
-              console.log('Carpeta "data" creada');
+          // Guardar el estado de autenticación en el almacenamiento local
+          localStorage.setItem('userLoggedIn', 'true');
 
-              // Guardar el estado de autenticación en el almacenamiento local
-              localStorage.setItem('userLoggedIn', 'true');
-
-              // Redirigir al usuario al contenido principal
-              window.location.href = 'principal.html';
-            })
-            .catch((error) => {
-              console.error('Error al crear la carpeta "data":', error);
-            });
+          // Redirigir al usuario al contenido principal
+          window.location.href = 'principal.html';
         })
         .catch((error) => {
           console.error('Error al crear la carpeta de usuarios:', error);

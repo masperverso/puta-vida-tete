@@ -25,7 +25,7 @@ function guardarArraysEnFirestore() {
 
 
   // Define la ruta de la carpeta específica para el usuario
-  const userFolderPath = `users/${userId}`; // Elimina "/arrays_mes" de la ruta
+  const userFolderPath = `users/${userEmail}`; // Elimina "/arrays_mes" de la ruta
 
   // Guarda los datos en Firestore dentro de la carpeta del usuario
   db.doc(userFolderPath) // Utiliza doc en lugar de collection

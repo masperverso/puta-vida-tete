@@ -21,7 +21,8 @@ function guardarArraysEnFirestore() {
   };
 
   // Obtén el ID del usuario autenticado actualmente
-  const userId = firebase.auth().currentUser.uid;
+  const userEmail = firebase.auth().currentUser.email;
+
 
   // Define la ruta de la carpeta específica para el usuario
   const userFolderPath = `users/${userId}`; // Elimina "/arrays_mes" de la ruta

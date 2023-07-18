@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .custom-select {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .custom-select .select-selected {
+      background-color: #f2f2f2;
+      color: #333;
+      padding: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border: 1px solid #ccc;
+    }
+
+    .custom-select .select-items {
+      position: absolute;
+      background-color: #f9f9f9;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      max-height: 50px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .custom-select .select-items div {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .custom-select .select-items div:hover {
+      background-color: #ccc;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var customSelect = document.querySelector(".custom-select");
+      var selectSelected = customSelect.querySelector(".select-selected");
+      var selectItems = customSelect.querySelector(".select-items");
+      var selectOptions = customSelect.querySelectorAll(".select-items div");
+
+      selectSelected.addEventListener("click", function() {
+        selectItems.style.display = "block";
+      });
+
+      for (var i = 0; i < selectOptions.length; i++) {
+        selectOptions[i].addEventListener("click", function() {
+          selectSelected.textContent = this.textContent;
+          selectItems.style.display = "none";
+        });
+      }
+
+      document.addEventListener("click", function(event) {
+        if (!customSelect.contains(event.target)) {
+          selectItems.style.display = "none";
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Contenido de la aplicación -->
+
+  <div class="custom-select">
+    <div class="select-selected">Opción 1</div>
+    <div class="select-items">
+      <div>Opción 1</div>
+      <div>Opción 2</div>
+      <div>Opción 3</div>
+      <div>Opción 4</div>
+      <div>Opción 5</div>
+      <div>Opción 6</div>
+      <div>Opción 7</div>
+      <div>Opción 8</div>
+      <div>Opción 9</div>
+      <div>Opción 10</div>
+      <div>Opción 11</div>
+      <div>Opción 12</div>
+      <div>Opción 13</div>
+      <div>Opción 14</div>
+      <div>Opción 15</div>
+    </div>
+  </div>
+
+</body>
+</html>

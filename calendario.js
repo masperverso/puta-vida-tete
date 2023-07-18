@@ -33,6 +33,7 @@ window.onload = function() {
 	cabecera();
 	primeralineacalendario();
 	escribirdias();
+   
 }
 
 //FUNCIONES de creación del calendario:

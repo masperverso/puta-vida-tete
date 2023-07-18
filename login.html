@@ -5,41 +5,47 @@
 
   <link rel="stylesheet" type="text/css" href="login.css">
 
-  <!-- Agrega las etiquetas de script de Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <!-- Agrega el SDK de Firebase -->
+  <script type="module">
+    // Importa las funciones que necesitas de los SDK que necesitas
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+    import { collection, doc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-  <script>
+
+
+
     // Tu configuración de Firebase
     const firebaseConfig = {
-      apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
-      authDomain: "siberia-now.firebaseapp.com",
-      projectId: "siberia-now",
-      storageBucket: "siberia-now.appspot.com",
-      messagingSenderId: "1010746424515",
-      appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
-      measurementId: "G-PYZTDMM5LH"
+      // Aquí van tus datos de configuración de Firebase
+          apiKey: "AIzaSyDdWvMlu-r9eMNRgZLcQzx8sbx_VbkfuKg",
+		  authDomain: "siberia-now.firebaseapp.com",
+		  projectId: "siberia-now",
+		  storageBucket: "siberia-now.appspot.com",
+		  messagingSenderId: "1010746424515",
+		  appId: "1:1010746424515:web:6adf4fc10bcef56501b676",
+		  measurementId: "G-PYZTDMM5LH"
     };
 
     // Inicializa Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    // Obtén las instancias de autenticación y Firestore
-    const auth = firebase.auth();
-    const firestore = firebase.firestore();
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
 
     // Define los métodos login() y register() en el ámbito global
     window.login = function() {
       var email = document.getElementById('login-email').value;
       var password = document.getElementById('login-password').value;
 
-      firebase.auth().signInWithEmailAndPassword(email, password)
+      signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Inicio de sesión exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
           console.log('Usuario autenticado:', userCredential.user);
-          // Guardar el estado de autenticación en el almacenamiento local
-          localStorage.setItem('userLoggedIn', 'true');
+           // Guardar el correo electrónico en el almacenamiento local
+           const userFolder = userCredential.user.email;
+      localStorage.setItem('userEmail', userFolder);
           // Redirigir al usuario al contenido principal
           window.location.href = 'principal.html';
         })
@@ -50,64 +56,65 @@
     }
 
     window.register = function() {
-      var email = document.getElementById('register-email').value;
-      var password = document.getElementById('register-password').value;
+  var email = document.getElementById('register-email').value;
+  var password = document.getElementById('register-password').value;
 
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
-          console.log('Usuario registrado:', userCredential.user);
-          
-          // Crear la carpeta del usuario en Firestore
-          const userFolder = userCredential.user.email;
-          const folderRef = firestore.collection("users").doc(userFolder).collection("arrays mes").doc();
+  const firestore = getFirestore(app); // Obtén una referencia a Firestore
 
-          folderRef.set({})
-            .then(() => {
-              console.log('Carpeta del usuario creada');
-               // Guardar el estado de autenticación en el almacenamiento local
-              localStorage.setItem('userLoggedIn', 'true');
-              // Redirigir al usuario al contenido principal
-              window.location.href = 'principal.html';
-            })
-            .catch((error) => {
-              console.error('Error al crear la carpeta del usuario:', error);
-            });
-        })
-        .catch((error) => {
-          // Ocurrió un error durante el registro, maneja el error apropiadamente
-          console.error('Error de registro:', error);
-        });
-    }
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
+      console.log('Usuario registrado:', userCredential.user);
+
+      // Crear la carpeta del usuario en Firestore
+      const userFolder = userCredential.user.email;
+      const folderRef = doc(collection(firestore, "users", userFolder, "arrays mes"));
+
+      // Guardar el correo electrónico en el almacenamiento local
+      localStorage.setItem('userEmail', userFolder);
+
+      // Redirigir al usuario al contenido principal
+      window.location.href = 'principal.html';
+    })
+    .catch((error) => {
+      // Ocurrió un error durante el registro, maneja el error apropiadamente
+      console.error('Error de registro:', error);
+    });
+}
+
+
   </script>
 </head>
 <body>
+
   <div>
-  <div id="login-container">
-    <h1>Registro Usuario</h1>
-    <form>
-      <label for="login-email">Correo electrónico:</label>
-      <input type="email" id="login-email" required><br>
+    <div id="login-container">
+  <h1>Registro Usuario</h1>
 
-      <label for="login-password">Contraseña:</label>
-      <input type="password" id="login-password" required><br>
+  
+  <form>
+    <label for="login-email">Correo electrónico:</label>
+    <input type="email" id="login-email" required><br>
 
-      <button type="button" onclick="login()">Entrar</button>
-    </form>
-  </div>
+    <label for="login-password">Contraseña:</label>
+    <input type="password" id="login-password" required><br>
 
-  <div id="register-container">
-    <h1>Crear una cuenta</h1>
-    <form>
-      <label for="register-email">Correo electrónico:</label>
-      <input type="email" id="register-email" required><br>
+    <button type="button" onclick="login()">Entrar</button>
+  </form>
 
-      <label for="register-password">Contraseña:</label>
-      <input type="password" id="register-password" required><br>
+</div>
+<div id="register-container">
+  <h1>Crear una cuenta</h1>
+  <form>
+    <label for="register-email">Correo electrónico:</label>
+    <input type="email" id="register-email" required><br>
 
-      <button type="button" onclick="register()">Registrarse</button>
-    </form>
-  </div>
+    <label for="register-password">Contraseña:</label>
+    <input type="password" id="register-password" required><br>
+
+    <button type="button" onclick="register()">Registrarse</button>
+  </form>
+</div>
 </div>
 
   <script>
@@ -115,5 +122,3 @@
   </script>
 </body>
 </html>
-
-

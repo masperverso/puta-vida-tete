@@ -153,12 +153,7 @@ function comprobarnomina (){
 	var dietacobrada1=parseInt(document.getElementById('dietacobrada').value);
 	var dietamadruguec=parseInt(document.getElementById('dietamadruguecobrada').value);
 
-	var nominadebida=nominamensual-nominacobrada1;
-	var transportedebido=transportestotales-transportec;
-	var transportemadruguedebido=madruguestotales-transportemadruguec;
-	var nocturnidadebido=nochesmestotal-nocturnidadc;
-	var festividadebido=festivasmestotal-festividadc;
-	var supermadruguedebido=supermadruguestotal-dietamadruguec;
+	
 
 	let unidadesmeslimpio = unidadesdiarias.filter(function (element) {
 		return element != null;
@@ -234,6 +229,13 @@ function comprobarnomina (){
 		console.log ("madrugues mensuales",madruguestotales);
 		console.log ("transportes mensuales",transportestotales);
 		console.log ("supermadrugues mensuales",supermadruguestotal);
+
+		var nominadebida=nominamensual-nominacobrada1;
+		var transportedebido=transportestotales-transportec;
+		var transportemadruguedebido=madruguestotales-transportemadruguec;
+		var nocturnidadebido=nochesmestotal-nocturnidadc;
+		var festividadebido=festivasmestotal-festividadc;
+		var supermadruguedebido=supermadruguestotal-dietamadruguec;
 	
 		document.getElementById('nominadebida').innerHTML = nominadebida.toFixed(2);
 		//document.getElementById('unidadesdebida').innerHTML = unidadesmes.toFixed(2);

@@ -33,3 +33,7 @@
   document.getElementById("iconocomiendo").addEventListener("mouseover", function() {
     this.title = dietacomida.toString();
   });
+
+  editarperfil.addEventListener('click', () => {
+    zonausuario.style.display = 'block';
+  });

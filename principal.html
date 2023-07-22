@@ -23,6 +23,23 @@
 		<div class="sidebar">
 		  <!-- Contenido de la barra lateral -->
 		  	<div class="sidebar-content" id="sidebarContent">
+
+				<br><br>
+
+				<button id="editarperfil">Editar Perfil</button>
+
+				<div id="zonausuario" style="display: none;">
+					<h2>¡Bienvenido!</h2>
+					<form id="user-form">
+					  <label for="name">Nombre:</label>
+					  <input type="text" id="name" required>
+					  
+					  <label for="email">Correo electrónico:</label>
+					  <input type="email" id="email" required>
+					  
+					  <button type="submit">Guardar</button>
+					</form>
+				  </div>
 				<br><br>
 				<img id="iconotransporte" src=bicicleta-de-reparto.png width="25"+ height="25" title="">Transporte <br>
 				<img id="iconomadrugador" src=madrugador.png width="25"+ height="25" title="">Transporte Madrugue<br>
@@ -358,6 +375,8 @@
 			<input type="button" name="descargararray" value="guardar arrays " onclick="guardarArraysEnArchivo();">
 
 			<button id="guardararray">guardar arrays en firestore</button>
+
+			<button id="cargararray">cargar arrays en firestore</button>
 
 		</div>
 

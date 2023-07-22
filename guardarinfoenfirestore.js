@@ -34,9 +34,6 @@ const userEmail = localStorage.getItem('userEmail');
 function guardarArraysEnFirestore() {
 
 if (userEmail) {
-  
-  // Resto del código...
-
 
 // Referencia a la colección en Firestore donde se guardarán los arrays
 const userFolder = userEmail;
@@ -76,10 +73,29 @@ const colección = collection(firestore, "users", userFolder, "arrays mes");
     });
 }
 
-// Función para cargar los valores desde Firestore
-/*function cargarValoresDesdeFirestore() {
+
+
+//window.addEventListener('load', function() {
+  // Aquí asegúrate de que el elemento con el id "titulos" ya tenga un valor
+
+  else {
+    // El correo electrónico no está disponible
+    console.error('Correo electrónico no encontrado en el almacenamiento local.');
+ }
+}
+
+ //Función para cargar los valores desde Firestore
+ function cargarValoresDesdeFirestore() {
   // Obtiene los arrays guardados en Firestore
-  getDoc(doc(colección, "nombre_del_documento"))
+
+  var tit=0;
+
+  tit=document.getElementById("titulos"); 
+
+  const userFolder = userEmail;
+const colección = collection(firestore, "users", userFolder, "arrays mes");
+
+  getDoc(doc(colección, tit.innerHTML))
   .then(function (documento) {
     if (documento.exists) {
       var valores = documento.data();
@@ -136,20 +152,17 @@ const colección = collection(firestore, "users", userFolder, "arrays mes");
     .catch(function (error) {
       console.error("Error al cargar los valores desde Firestore: ", error);
     });
-}*/
-
-//window.addEventListener('load', function() {
-  // Aquí asegúrate de que el elemento con el id "titulos" ya tenga un valor
-
-  else {
-    // El correo electrónico no está disponible
-    console.error('Correo electrónico no encontrado en el almacenamiento local.');
- }
 }
 
 const miBoton = document.getElementById('guardararray');
 miBoton.addEventListener('click', function() {
   guardarArraysEnFirestore();
+
+});
+
+const miBoton2 = document.getElementById('cargararray');
+miBoton2.addEventListener('click', function() {
+  cargarValoresDesdeFirestore();
 
 });
    //cargarValoresDesdeFirestore();

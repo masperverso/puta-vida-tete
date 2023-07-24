@@ -512,6 +512,8 @@ function eurosemana () {
 				alert ("esta semana cobraras:"+totaleuros+" €"+"\n"+"y trabajas"+totalhoras+"horas.");
 				totalhorasemana [selectsemana.value]=totalhoras;
 				totaleurosemana [selectsemana.value]=totaleuros;
+				totalhorasemanatabla [selectsemana.value]=totalhoras;
+				totaleurosemanatabla [selectsemana.value]=totaleuros;
 				var celdahoras=0;
 				var celdaeuros=0;
 				for(i=0;i<7;i++) {
@@ -530,8 +532,8 @@ function eurosemana () {
 				alert ("tienes"+totalhoras+" horas"+"\n"+"el maximo son 36 horas.");
 			}
 
-			console.log ("totalhorassemana",totalhorasemana);
-			console.log ("totaleurossemana",totaleurosemana);
+			console.log ("totalhorassemana en tabla",totalhorasemanatabla);
+			console.log ("totaleurossemana en tabla",totaleurosemanatabla);
 
 
 			alert (selectsemana.value);
@@ -585,11 +587,13 @@ function eurosemana () {
 							dietames[h-j]=dietasemana[j];
 							turnopartidomes[h-j]=turnopartidosemana[j];
 
-							totaleuros1semana=primerasemana;
-							totalhoras1semana=primerasemanah;
+							totaleurosemana[0]=primerasemana;
+							totalhorasemana[0]=primerasemanah;
+
+							
 						}
 						
-						alert (totaleuros1semana+" y "+totalhoras1semana);
+						alert ("euros mes 1era semana"+totaleurosemana[0]+" y horas mes primera semana "+totalhorasemana[0]);
 					}						
 				}
 			}

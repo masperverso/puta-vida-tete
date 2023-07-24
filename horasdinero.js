@@ -1,8 +1,8 @@
 
 function salario () {
 	const plusasistencia=62.82;
-	nominamensual=totaleuros1semana+plusasistencia;
-	horasmensual=totalhoras1semana;
+	nominamensual=totaleurosemana[0]+plusasistencia;
+	horasmensual=totalhorasemana[0];
 	celda18=0;
 	
 	for(i=1;i<4;i++) {

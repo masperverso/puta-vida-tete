@@ -6,6 +6,9 @@ Horascsemanales=["€ por dia","0","0","0","0","0","0","0"];
 totaleurosemana=[0,0,0,0,0,0];
 totalhorasemana=[0,0,0,0,0,0];
 
+totaleurosemanatabla=[0,0,0,0,0,0];
+totalhorasemanatabla=[0,0,0,0,0,0];
+
 window.onload = function() {
 //fecha actual
 	hoy=new Date(); //objeto fecha actual

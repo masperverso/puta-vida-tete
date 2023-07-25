@@ -20,6 +20,9 @@ function guardarArraysEnArchivo() {
 	  madruguemes: madruguemes,
 	  supermadruguemes: supermadruguemes,
 	  turnopartidomes: turnopartidomes,
+
+    totalhorasemana: totalhorasemana,
+      totaleurosemana: totaleurosemana,
     };
   
     var contenido = JSON.stringify(arrays);
@@ -95,6 +98,14 @@ function cargarValoresDesdeArchivo() {
 
       if (valores.turnopartidomes) {
         turnopartidomes = valores.turnopartidomes;
+      }
+
+      if (valores.totalhorasemana) {
+        totalhorasemana = valores.totalhorasemana;
+      }
+
+      if (valores.totaleurosemana) {
+        totaleurosemana = valores.totaleurosemana;
       }
 
    

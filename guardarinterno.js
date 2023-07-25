@@ -18,6 +18,8 @@ function guardarArraysEnLocalStorage() {
 	  madruguemes: madruguemes,
 	  supermadruguemes: supermadruguemes,
 	  turnopartidomes: turnopartidomes,
+	  totalhorasemana: totalhorasemana,
+      totaleurosemana: totaleurosemana,
     // Agrega aquí todos los arrays que deseas guardar
   };
 
@@ -46,6 +48,9 @@ function cargarArraysDesdeLocalStorage() {
 	  madruguemes = arrays.madruguemes;
 	  supermadruguemes = arrays.supermadruguemes;
 	  turnopartidomes = arrays.turnopartidomes;
+
+	  totalhorasemana= arrays.totalhorasemana,
+      totaleurosemana= arrays.totaleurosemana,
     // Agrega aquí la asignación para todos los arrays que deseas cargar
   }
 }

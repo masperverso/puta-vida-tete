@@ -55,14 +55,14 @@
         });
     }
 
-    window.register = function() {
+window.register = function() {
   var email = document.getElementById('register-email').value;
   var password = document.getElementById('register-password').value;
 
   const firestore = getFirestore(app); // Obtén una referencia a Firestore
 
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       // Registro exitoso, puedes realizar acciones adicionales o redirigir al usuario a otra página
       console.log('Usuario registrado:', userCredential.user);
 
@@ -72,6 +72,21 @@
 
       // Guardar el correo electrónico en el almacenamiento local
       localStorage.setItem('userEmail', userFolder);
+
+      // Crea más carpetas dentro de la ruta base "users/userFolder/"
+      const basePath = "users/" + userFolder + "/";
+      const folderNames = ["carpeta1", "carpeta2", "carpeta3"];
+
+      // Recorre el array de nombres de carpetas y crea cada una de ellas en Firestore
+      for (const folderName of folderNames) {
+        const subFolderRef = doc(collection(firestore, basePath + folderName));
+        try {
+          await set(subFolderRef, {}); // Puedes pasar un objeto vacío o algún dato inicial si lo deseas
+          console.log(`Carpeta "${folderName}" creada con éxito.`);
+        } catch (error) {
+          console.error(`Error al crear la carpeta "${folderName}":`, error);
+        }
+      }
 
       // Redirigir al usuario al contenido principal
       window.location.href = 'principal.html';

@@ -12,7 +12,7 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-    import { collection, doc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+    import { collection, doc, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 
 
@@ -57,9 +57,12 @@
 
 
 
-window.register = function() {
+    window.register = function() {
   var email = document.getElementById('register-email').value;
   var password = document.getElementById('register-password').value;
+  var firstName = document.getElementById('first-name').value; // Agrega los ID de los campos del cuestionario aquí
+  var lastName = document.getElementById('last-name').value;
+  var startDate = document.getElementById('start-date').value;
 
   const firestore = getFirestore(app); // Obtén una referencia a Firestore
 
@@ -79,6 +82,20 @@ window.register = function() {
       // Guardar el correo electrónico en el almacenamiento local
       localStorage.setItem('userEmail', userFolder);
 
+      // Crear un objeto con los datos del usuario
+      const userData = {
+        firstName: firstName,
+        lastName: lastName,
+        startDate: startDate,
+        // Agrega más campos de datos del usuario aquí si los añades más adelante
+      };
+
+      // Referencia a la colección "datos usuario" dentro de la carpeta del usuario
+      const userDataCollectionRef = collection(firestore, "users", userFolder, "datos usuario");
+
+      // Agregar los datos del usuario a la colección "datos usuario"
+      await addDoc(userDataCollectionRef, userData);
+
       // Redirigir al usuario al contenido principal
       window.location.href = 'principal.html';
     })
@@ -88,7 +105,31 @@ window.register = function() {
     });
 }
 
+
   </script>
+
+<script>
+  // Lee el parámetro "action" de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const action = urlParams.get('action');
+
+  // Función para mostrar u ocultar las secciones adecuadas
+  function toggleSections() {
+    const loginContainer = document.getElementById('login-container');
+    const registerContainer = document.getElementById('register-container');
+
+    if (action === 'login') {
+      // Si se seleccionó "entrar", ocultar la sección de registrarse
+      registerContainer.style.display = 'none';
+    } else if (action === 'register') {
+      // Si se seleccionó "registrarse", ocultar la sección de entrar
+      loginContainer.style.display = 'none';
+    }
+  }
+
+  // Ejecutar la función al cargar la página
+  window.onload = toggleSections;
+</script>
 </head>
 <body>
 
@@ -117,9 +158,21 @@ window.register = function() {
     <label for="register-password">Contraseña:</label>
     <input type="password" id="register-password" required><br>
 
+    <!-- Campos adicionales para el cuestionario -->
+    <label for="first-name">Nombre:</label>
+    <input type="text" id="first-name" required><br>
+
+    <label for="last-name">Apellidos:</label>
+    <input type="text" id="last-name" required><br>
+
+    <label for="start-date">Fecha de inicio de primer contrato:</label>
+    <input type="date" id="start-date" required><br>
+    <!-- Fin de los campos del cuestionario -->
+
     <button type="button" onclick="register()">Registrarse</button>
   </form>
 </div>
+
 </div>
 
   <script>

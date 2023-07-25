@@ -39,7 +39,7 @@ hr {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],input[type="text"], input[type="date"] {
   background-color: #fff;
   border: 1px solid #663366;
   border-radius: 5px;

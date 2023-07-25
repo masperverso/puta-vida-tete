@@ -1,38 +1,45 @@
 body {
-    background-color: #663366;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #container {
-    background-color: #663366;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: #5ecdec;
-  }
-  
-  p {
-    color: #5ecdec;
-  }
+  background-color: #663366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
-  #enter {
+#container {
+  background-color: #663366;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff; /* Cambiar el color del texto a blanco */
+}
 
-    background-color: #ffffff;
+h2 {
+  color: #5ecdec;
+}
 
-    padding: 15px;
-  }
+p {
+  color: #5ecdec;
+}
 
-  a {
+#enter,
+#register {
+  /* Cambiar el estilo del div contenedor de las opciones */
+  display: inline-block; /* Para que ocupen solo el espacio necesario */
+  margin: 10px; /* Margen entre las opciones */
+}
 
-    color: #663366;
-    
-  }
-  
+a {
+  color: #ffffff; /* Cambiar el color del texto de los enlaces a blanco */
+  text-decoration: none; /* Eliminar el subrayado de los enlaces */
+  padding: 10px 20px; /* Agregar espacio alrededor de los enlaces */
+  background-color: #663366; /* Cambiar el color de fondo de los enlaces */
+  border-radius: 5px; /* Agregar bordes redondeados */
+}
+
+a:hover {
+  background-color: #5ecdec; /* Cambiar el color de fondo cuando se pase el mouse */
+  color: #663366; /* Cambiar el color del texto cuando se pase el mouse */
+}

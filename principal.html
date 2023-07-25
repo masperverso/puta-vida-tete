@@ -23,6 +23,10 @@
 
 	<div class="container">
 		<div class="sidebar">
+
+			
+			  
+
 		  <!-- Contenido de la barra lateral -->
 		  	<div class="sidebar-content" id="sidebarContent">
 
@@ -60,17 +64,28 @@
 		  <!-- Contenido principal -->
 		 	<div class="main-content" id="mainContent">
 			
-				<h4><img id="siberiaico" src=siberia.png width="25"+ height="25" title="">Siberia Now Leticia</h4>
+				<span><img id="siberiaico" src="siberia.png" width="25" height="25" title="" style="vertical-align: middle;"> ¡Hola <span id="usuario">!</span></span>
+
+
+
 
 		 	</div>
 		</div>
 	</div>
 
-	<button class="toggle-button" onclick="toggleSidebar()">
-		<span></span>
-		<span></span>
-		<span></span>
-	</button>
+	<div id="cabecerapp">
+
+		<div class="top-bar">
+			<button class="toggle-button" onclick="toggleSidebar()">
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			</button>
+			<h1 class="title">Siberia Now</h1>
+		  </div>
+		  
+
+	</div>
 	  
 
 	<div id="calendario">
@@ -411,8 +426,6 @@
 	<script type="module" Languaje="javascript" SRC="guardarinfoenfirestore.js"></script>
 
 	<script type="text/javascript" Languaje="javascript" SRC="sweetalert2.all.min.js"></script>
-
-	
 
 	<script type="text/javascript" Languaje="javascript" SRC="alertpersonales.js"></script>
 

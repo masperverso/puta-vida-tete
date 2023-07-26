@@ -46,6 +46,7 @@ input[type="password"],input[type="text"], input[type="date"] {
   padding: 10px;
   margin-bottom: 10px;
   width: 100%;
+  text-align: center;
 }
 
 button[type="button"] {
@@ -55,4 +56,15 @@ button[type="button"] {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  
 }
+
+#botonescontainer {
+  text-align: center; /* Centra los botones horizontalmente */
+}
+
+#botonescontainer button {
+  visibility: initial; /* Permite que los botones aparezcan en la misma línea */
+}
+
+

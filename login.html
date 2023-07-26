@@ -108,33 +108,36 @@
 
   </script>
 
-<script>
-  // Lee el parámetro "action" de la URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const action = urlParams.get('action');
+   <script>
+    // Lee el parámetro "action" de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const action = urlParams.get('action');
 
-  // Función para mostrar u ocultar las secciones adecuadas
-  function toggleSections() {
-    const loginContainer = document.getElementById('login-container');
-    const registerContainer = document.getElementById('register-container');
+    // Función para mostrar u ocultar las secciones adecuadas
+    function toggleSections() {
+      const loginContainer = document.getElementById('login-container');
+      const registerContainer = document.getElementById('register-container');
 
-    if (action === 'login') {
-      // Si se seleccionó "entrar", ocultar la sección de registrarse
-      registerContainer.style.display = 'none';
-    } else if (action === 'register') {
-      // Si se seleccionó "registrarse", ocultar la sección de entrar
-      loginContainer.style.display = 'none';
+      if (action === 'login') {
+        // Si se seleccionó "entrar", ocultar la sección de registrarse
+        registerContainer.style.display = 'none';
+      } else if (action === 'register') {
+        // Si se seleccionó "registrarse", ocultar la sección de entrar
+        loginContainer.style.display = 'none';
+      }
     }
-  }
 
-  // Ejecutar la función al cargar la página
-  window.onload = toggleSections;
-</script>
+    // Ejecutar la función al cargar la página
+    window.onload = toggleSections;
+  </script>
 </head>
 <body>
 
   <div>
     <div id="login-container">
+
+      <a  class="button" href="login.html?action=register">Eres nuevo en Siberia now?</a><br>
+
   <h1>Registro Usuario</h1>
 
   
@@ -150,33 +153,81 @@
 
 </div>
 <div id="register-container">
+
+  <a  class="button" href="login.html?action=login">Ya tienes cuenta en siberia now?</a>
+
   <h1>Crear una cuenta</h1>
   <form>
-    <label for="register-email">Correo electrónico:</label>
-    <input type="email" id="register-email" required><br>
+    <div id="primero">
 
-    <label for="register-password">Contraseña:</label>
-    <input type="password" id="register-password" required><br>
+      <label for="register-email">Correo electrónico:</label>
+      <input type="email" id="register-email" required><br>
+
+      <label for="register-password">Contraseña:</label>
+      <input type="password" id="register-password" required><br>
+
+    </div>
 
     <!-- Campos adicionales para el cuestionario -->
-    <label for="first-name">Nombre:</label>
-    <input type="text" id="first-name" required><br>
 
-    <label for="last-name">Apellidos:</label>
-    <input type="text" id="last-name" required><br>
+    <div id="segundo" style="display: none">
 
-    <label for="start-date">Fecha de inicio de primer contrato:</label>
-    <input type="date" id="start-date" required><br>
-    <!-- Fin de los campos del cuestionario -->
+      <label for="first-name">Nombre:</label>
+      <input type="text"  id="first-name" required><br>
 
-    <button type="button" onclick="register()">Registrarse</button>
+      <label for="last-name">Apellidos:</label>
+      <input type="text" id="last-name" required><br>
+
+      <label for="start-date">Fecha de inicio de primer contrato:</label>
+      <input type="date"  id="start-date" required><br>
+      <!-- Fin de los campos del cuestionario -->
+
+    </div>
+
+    
+  
   </form>
+  <p id="botonescontainer"><button type="button" id="botonatras" onclick="siguiente() "style="display: none">Atras</button> 
+    <button type="button" id="botonregistro" onclick="register()" style="display: none">Registrarse</button></p>
+
+  <button type="button" id="botonsiguiente" onclick="siguiente()">Siguiente</button>
+    
 </div>
 
 </div>
 
   <script>
-    // Puedes agregar más código JavaScript aquí si es necesario
+    function siguiente() {
+  // Obtener los elementos por su ID
+  const elemento0 = document.getElementById('primero');
+  const elemento1 = document.getElementById('segundo');
+
+  const elemento3 = document.getElementById('botonregistro');
+  const elemento4 = document.getElementById('botonsiguiente');
+  const elemento5 = document.getElementById('botonatras');
+
+  // Verificar el estado actual de visibilidad y cambiarlo
+  if (elemento0.style.display === 'none') {
+
+    elemento0.style.display = 'inline-block'; // Hacer visible
+    elemento1.style.display = 'none'; // Ocultar
+
+    elemento3.style.display = 'none'; // Ocultar
+    elemento4.style.display = 'inline-block'; // Hacer visible
+    elemento5.style.display = 'none'; // Ocultar
+
+  } else {
+
+    elemento0.style.display = 'none'; // Ocultar
+    elemento1.style.display = 'inline-block'; // Hacer visible
+
+    elemento3.style.display = 'inline-block'; // Hacer visible
+    elemento4.style.display = 'none' // Ocultar
+    elemento5.style.display = 'inline-block'; // Hacer visible
+  }
+}
+
+    
   </script>
 </body>
 </html>

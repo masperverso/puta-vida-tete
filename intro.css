@@ -28,7 +28,7 @@ p {
 #register {
   /* Cambiar el estilo del div contenedor de las opciones */
   display: inline-block; /* Para que ocupen solo el espacio necesario */
-  margin: 10px; /* Margen entre las opciones */
+  margin: 5px; /* Margen entre las opciones */
 }
 
 a {
@@ -43,3 +43,4 @@ a:hover {
   background-color: #5ecdec; /* Cambiar el color de fondo cuando se pase el mouse */
   color: #663366; /* Cambiar el color del texto cuando se pase el mouse */
 }
+

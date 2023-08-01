@@ -15,6 +15,8 @@
 	<script src="flatpickr.js"></script>
 
 	<link rel="stylesheet" href="sweetalert2.min.css">
+
+	<link rel="stylesheet" href="menusuperior.css">
 	<br><br>
 
 </head>
@@ -22,10 +24,7 @@
 <body>
 
 	<div class="container">
-		<div class="sidebar">
-
-			
-			  
+		<div class="sidebar">	  
 
 		  <!-- Contenido de la barra lateral -->
 		  	<div class="sidebar-content" id="sidebarContent">
@@ -84,8 +83,17 @@
 			<h1 class="title">Siberia Now</h1>
 		  </div>
 		  
-
 	</div>
+
+	<div class="menu">
+		<div class="contenidomenu">
+        	<img src="fecha-limite.png" alt="Calendario" class="menu-image" width="25"+ height="25" onclick="toggleDiv('calendario')">
+       		<img src="calculadora.png" alt="Semana" class="menu-image" width="25"+ height="25" onclick="toggleDiv('Semana')">
+        	<img src="calculador.png" alt="Imagen 3" class="menu-image" width="25"+ height="25" onclick="toggleDiv('calcula')">
+		</div>
+	
+		</div>
+    </div>
 	  
 
 	<div id="calendario">
@@ -428,6 +436,8 @@
 	<script type="text/javascript" Languaje="javascript" SRC="sweetalert2.all.min.js"></script>
 
 	<script type="text/javascript" Languaje="javascript" SRC="alertpersonales.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="menusuperior.js"></script>
 
 </body>
 </html>

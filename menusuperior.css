@@ -1,0 +1,37 @@
+.menu {
+    background-color: white;
+    max-width: 1024px;
+    margin: 0 auto; /* Centramos horizontalmente la div .menu */
+    padding: 10px;
+    display: flex;
+}
+
+.menu-image {
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s ease; /* Añadimos una transición suave para el cambio de color */
+}
+
+.menu-image:hover {
+    background-color: #f2f2f2; /* Cambia el color de fondo cuando el mouse está sobre la imagen */
+}
+
+.menu-image.active {
+    background-color: #663366; /* Cambia el color de fondo cuando la imagen está activa (pulsada) */
+    color: white; /* Cambia el color del texto si es necesario */
+}
+
+
+/* Si deseas limitar el ancho máximo del menú */
+/* .menu {
+    max-width: 1024px;
+} */
+
+
+
+/*.content-div {
+    display: none;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 20px;
+}*/

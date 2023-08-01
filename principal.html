@@ -86,13 +86,17 @@
 	</div>
 
 	<div class="menu">
-		<div class="contenidomenu">
-        	<img src="fecha-limite.png" alt="Calendario" class="menu-image" width="25"+ height="25" onclick="toggleDiv('calendario')">
-       		<img src="calculadora.png" alt="Semana" class="menu-image" width="25"+ height="25" onclick="toggleDiv('Semana')">
-        	<img src="calculador.png" alt="Imagen 3" class="menu-image" width="25"+ height="25" onclick="toggleDiv('calcula')">
-		</div>
-	
-		</div>
+        <div class="contenidomenu">
+            <div class="image-container">
+                <img src="fecha-limite.png" alt="Calendario" class="menu-image" width="25" height="25" onclick="toggleDiv('calendario'); toggleColor(this);">
+            </div>
+            <div class="image-container">
+                <img src="calculadora.png" alt="Semana" class="menu-image" width="25" height="25" onclick="toggleDiv('Semana'); toggleColor(this);">
+            </div>
+            <div class="image-container">
+                <img src="calculador.png" alt="Comprobar" class="menu-image" width="25" height="25" onclick="toggleDiv('calcula'); toggleColor(this);">
+            </div>
+        </div>
     </div>
 	  
 
@@ -228,11 +232,6 @@
   	
 		</div>
     
-	
-	</div>
-
-	<div id="calcula">
-	
 		<div id="Horasdia">
 
 			<div class="timers">
@@ -292,6 +291,11 @@
 
 		</div>	
 	
+	</div>
+
+	<div id="calcula">
+	
+		
 		<div id="horasdinero">
 
 		

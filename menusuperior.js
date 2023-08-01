@@ -1,13 +1,21 @@
 function toggleDiv(divId) {
     var div = document.getElementById(divId);
-
-    if (div.style.display === "none") {
-        div.style.display = "block";
-    } else {
-        div.style.display = "none";
-    }
+    div.style.display = div.style.display === "none" ? "block" : "none";
 }
 
 function toggleColor(img) {
-    img.classList.toggle("active");
+    // Verificamos si la imagen tiene la clase "grayscale"
+    var isGrayscale = img.classList.contains("grayscale");
+
+    // Si es escala de grises, la eliminamos; si no, la agregamos
+    if (isGrayscale) {
+        img.classList.remove("grayscale");
+    } else {
+        img.classList.add("grayscale");
+    }
 }
+
+
+
+
+

@@ -294,12 +294,8 @@
 	</div>
 
 	<div id="calcula">
-	
 		
 		<div id="horasdinero">
-
-		
-		
 	
 			<p>Horas semana 
 	
@@ -331,10 +327,10 @@
 		
 						<option value="0">1F</option>
 						<option value="1">1D</option>
-						  <option value="2">1B</option>
-						  <option value="3">1</option>
+						<option value="2">1B</option>
+						<option value="3">1</option>
 				 
-					  </select>
+					</select>
 			
 				</form>
 			
@@ -350,51 +346,60 @@
 		
 			</div>
 
-			<p>Horas mes <span id="horasmes"></span>.</p>
+			<div>
 
-			<p>€ mes <span id="nominames"></span>.</p>
-
-			<p><input type="number" placeholder="nomina" id="nominacobrada" maxlength="7" size="7"> Nomina cobrada en bruto <br>
-
-				<span id="nominadebida"></span> Se nos adeuda
-			</p>
-
-			<p><input type="number" placeholder="Unidades" id="unidadescobrada" maxlength="7" size="7"> Unidades cobradas <span id="unidadesdebida"></span></p>
-
-			<p><input type="number" placeholder="plus nocturnidad" id="nocturnidadcobrada" maxlength="7" size="7"> Nocturnidad € <br>
-
-				<span id="nocturnidadevida"></span> nocturnas a cobrar
 			
-			</p>
+				<p>
+					<span id="horasmes" class="cell"></span> Horas mes.
+					<span id="nominames" class="cell"></span> € mes.
+				</p>
+
+
+			
+				<p><input type="number" placeholder="nomina" id="nominacobrada" maxlength="7" size="7"> Nomina cobrada en bruto <br>
+
+				<span id="nominadebida" class="cell"></span> Se nos adeuda
+			
+				</p>
+
+				<p><input type="number" placeholder="Unidades" id="unidadescobrada" maxlength="7" size="7"> Unidades cobradas <span id="unidadesdebida"class="cell"></span>unidades debidas</p>
+
+				<p><input type="number" placeholder="plus nocturnidad" id="nocturnidadcobrada" maxlength="7" size="7"> Nocturnidad € <br>
+
+				<span id="nocturnidadevida" class="cell"></span> nocturnas a cobrar
+			
+				</p>
 	
-			<p><input type="number" placeholder="plus festividad" id="festividadcobrada" maxlength="7" size="7"> Festividad € <br>
+				<p><input type="number" placeholder="plus festividad" id="festividadcobrada" maxlength="7" size="7"> Festividad € <br>
 		
-				<span id="festividadebida"></span> festivas a cobrar
+				<span id="festividadebida" class="cell"></span> festivas a cobrar
 			
-			</p>
+				</p>
 
-			<p><input type="number" placeholder="plus transportemadrugue" id="transportemadruguecobrada" maxlength="7" size="7"> Transporte madrugue € <br>
+				<p><input type="number" placeholder="plus transportemadrugue" id="transportemadruguecobrada" maxlength="7" size="7"> Transporte madrugue € <br>
 		
-				<span id="madruguedebido"></span> Madrugue por cobrar
+				<span id="madruguedebido" class="cell"></span> Madrugue por cobrar
 		
-			</p>
+				</p>
 
-			<p><input type="number" placeholder="plus transporte" id="transportecobrada" maxlength="7" size="7"> Transporte €<br>
+				<p><input type="number" placeholder="plus transporte" id="transportecobrada" maxlength="7" size="7"> Transporte €<br>
 		
-				<span id="transportedebido"></span> Transporte debido
+				<span id="transportedebido" class="cell"></span> Transporte debido
 			
-			</p>
+				</p>
 
-			<p><input type="number" placeholder="plus dietas" id="dietacobrada" maxlength="7" size="7"> Dietas y desayumos € <span id="dietadebido"></span> y <span id="desayunodebido"></span> </p>
+				<p><input type="number" placeholder="plus dietas" id="dietacobrada" maxlength="7" size="7"> Dietas y desayumos € <span id="dietadebido" class="cell"></span> y <span id="desayunodebido " class="cell"></span> </p>
 
-			<p><input type="number" placeholder="plus dietamadrugue" id="dietamadruguecobrada" maxlength="7" size="7"> Dieta madrugue €<br>
+				<p><input type="number" placeholder="plus dietamadrugue" id="dietamadruguecobrada" maxlength="7" size="7"> Dieta madrugue €<br>
 		
-				<span id="dietadebidomadrugue"> Supermadrugue por cobrar</span>
+				<span id="dietadebidomadrugue" class="cell"> </span>Supermadrugue por cobrar
 			
-			</p>
+				</p>
 
-			<p><input type="number" placeholder="partido 2 horas o menos" id="partido2horasmenos" maxlength="7" size="7"> partido2horasmenos € <span id="partido2horasmenosdebido"></span></p>
+				<p><input type="number" placeholder="partido 2 horas o menos" id="partido2horasmenos" maxlength="7" size="7"> partido2horasmenos € <span id="partido2horasmenosdebido"></span></p>
 	
+			</div>
+
 			<input type="button" value="Comprobar" onclick="comprobarnomina()" />
 
 			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo()" />

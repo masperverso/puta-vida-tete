@@ -191,13 +191,13 @@ function horitas() {
 
 	horasc=horasc + transporte;
 
-	var desglose = "\n"+"<img src=bicicleta-de-reparto.png width=\"25\"+ height=\"25\">";	
+	var desglose = "\n"+"<img src=iconos/bicicleta-de-reparto.png width=\"25\"+ height=\"25\">";	
 
 	if(check_turno_partido.checked ) {
 	
 		if (horai2-horaf1 <= 2) {
 			horasc=horasc+partido1hora;
-			desglose+= "<img src=signo-menos.png width=\"25\"+ height=\"25\">";
+			desglose+= "<img src=iconos/signo-menos.png width=\"25\"+ height=\"25\">";
 			
 			turnopartidosemana [buscadia.value]=1;
 		}
@@ -208,7 +208,7 @@ function horitas() {
 
 		if (horai2-horaf1 <= 3 && horai2-horaf1 > 2 ) {
 			horasc=horasc+partido2hora;
-			desglose+= "<img src=mas.png width=\"25\"+ height=\"25\">";
+			desglose+= "<img src=iconos/mas.png width=\"25\"+ height=\"25\">";
 
 			turnopartidosemana [buscadia.value]=2;
 		}
@@ -220,7 +220,7 @@ function horitas() {
 
 	if (horai1 >= 3 && horai1 < 6) {
    		horasc = horasc + plusupermadrugue;
-		desglose += "<img src=superman3.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/superman3.png width=\"25\"+ height=\"25\">";
 
 		supermadruguesemana[buscadia.value]=1;
 	}
@@ -231,7 +231,7 @@ function horitas() {
 
 	if (horai1>=3 && horai1<7) {
    		horasc = horasc + plusmadrugue;
- 		desglose += "<img src=amanecer.png width=\"25\">";
+ 		desglose += "<img src=iconos/amanecer.png width=\"25\">";
 
 		madruguesemana[buscadia.value]=1;
 	}
@@ -242,28 +242,28 @@ function horitas() {
 
 	if (horai1 <= 13 && horaf1 >= 15.5 && horast >= 5) {
 		horasc = horasc + dietacomida;
-		desglose += "<img src=comiendo.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
 
 		dietasemana [buscadia.value]=1;
 	}
 
 	else if (horai2 <= 13 && horaf2 >= 15.5 && horast >= 5) {
 		horasc = horasc + dietacomida;
-		desglose += "<img src=comiendo.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
 
 		dietasemana [buscadia.value]=1;
 	}
 
 	else if (horai1 <= 20.5 && horaf1 >= 23 && horast >= 5) {
 		horasc = horasc + dietacomida;
-		desglose += "<img src=comiendo.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
 
 		dietasemana [buscadia.value]=1;
 	}
 
 	else if (horai2 <= 20.5 && horaf2 >= 23 && horast >= 5) {
 		horasc = horasc + dietacomida;
-		desglose += "<img src=comiendo.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
 
 		dietasemana [buscadia.value]=1;
 	}
@@ -274,7 +274,7 @@ function horitas() {
 
 	if (horai1 >= 5 && horai1<=6 && horaf1-horai1 >= 5) {
 		horasc = horasc + dietadesayuno;
-		desglose += "<img src=desayuno.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/desayuno.png width=\"25\"+ height=\"25\">";
 
 		dietasemana [buscadia.value]=2;
 	}
@@ -284,31 +284,31 @@ function horitas() {
 
 	if (horai1>=21 && horast <= 9) {
 		horasc = horasc + horast*nocturnas;
-		desglose += "<img src=media-luna.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/media-luna.png width=\"25\"+ height=\"25\">";
 		noche=horast;
 	}
 
 	else if (horaf1 > 21) {
 		horasc = horasc + (horaf1-21)*nocturnas;
-		desglose += "<img src=media-luna.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/media-luna.png width=\"25\"+ height=\"25\">";
 		noche=horaf1-21;
 	}
 
 	else if (horai1<6 && horaf1 <= 6 ) {
 		horasc = horasc + (horaf1-horai1)*nocturnas;
-		desglose += "<img src=media-luna.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/media-luna.png width=\"25\"+ height=\"25\">";
 		noche=horaf1-horai1;
 	}
 
 	else if (horai1<6 && horaf1 >= 6 && (3-horai1) >=0) {
 		horasc = horasc + horast*nocturnas;
-		desglose += "<img src=media-luna.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/media-luna.png width=\"25\"+ height=\"25\">";
 		noche=horast;
 	}
 
 	else if (horai1<6 && horaf1>6 && (3-horai1)<0){
 		horasc = horasc + (6-horai1)*nocturnas;
-		desglose += "<img src=media-luna.png width=\"25\"+ height=\"25\">";
+		desglose += "<img src=iconos/media-luna.png width=\"25\"+ height=\"25\">";
 		noche=6-horai1;
 	}
 
@@ -324,37 +324,37 @@ function horitas() {
 	if (horaf1<horai1+2){
 		alert("horas introducidas incorrectas"+"<br>"+"la hora de inicio deve ser mayor que la hora final y superior a 2 horas");
 		horasc=0;
-		desglose="<img src=calendario.png width=\"25\"+ height=\"25\">";
+		desglose="<img src=iconos/calendario.png width=\"25\"+ height=\"25\">";
 	}
 
 	else if (horast>9){
 		alert("horas introducidas incorrectas"+"<br>"+"El turno deve ser menor de 9 horas");
 		horasc=0;
-		desglose="<img src=calendario.png width=\"25\"+ height=\"25\">";
+		desglose="<img src=iconos/calendario.png width=\"25\"+ height=\"25\">";
 	}
 
 	else if (check_turno_partido.checked && horaf2<horai2+2){
 		alert("horas introducidas incorrectas"+"<br>"+"la hora de reinicio deve ser mayor que la hora final");
 		horasc=0;
-		desglose="<img src=calendario.png width=\"25\"+ height=\"25\">";
+		desglose="<img src=iconos/calendario.png width=\"25\"+ height=\"25\">";
 	}
 
 	else if (check_turno_partido.checked && horai2<=horai1){
 		alert("horas introducidas incorrectas"+"<br>"+"la hora reentrada deve ser mayor que la hora de inicio");
 		horasc=0;
-		desglose="<img src=calendario.png width=\"25\"+ height=\"25\">";
+		desglose="<img src=iconos/calendario.png width=\"25\"+ height=\"25\">";
 	}
 
 	else if (check_turno_partido.checked && horai2<horaf1+1){
 		alert("horas introducidas incorrectas"+"<br>"+"la hora reentrada deve ser mayor que la hora final de inicio");
 		horasc=0;
-		desglose="<img src=calendario.png width=\"25\"+ height=\"25\">";
+		desglose="<img src=iconos/calendario.png width=\"25\"+ height=\"25\">";
 	}
 
 	else if (check_turno_partido.checked && horai2-horaf1>3){
 		alert("horas introducidas incorrectas"+"<br>"+"el partido deve ser de 3 horas o menos");
 		horasc=0;
-		desglose="<img src=calendario.png width=\"25\"+ height=\"25\">";
+		desglose="<img src=iconos/calendario.png width=\"25\"+ height=\"25\">";
 	}
 
 	else {

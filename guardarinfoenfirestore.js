@@ -199,6 +199,118 @@ const colección = collection(firestore, "users", userFolder, "arrays mes");
     });
 }
 
+function guardarTablaEnFirestore() {
+  if (userEmail) {
+    // Referencia a la colección en Firestore donde se guardarán los datos
+    const userFolder = userEmail;
+    const colección = collection(firestore, "users", userFolder, "tablas");
+
+    var tabla = document.getElementById("diasc");
+    var tablaData = [];
+
+    // Recorre las filas de la tabla y guarda los datos en un arreglo plano
+    for (var i = 1; i < tabla.rows.length; i++) {
+      var fila = tabla.rows[i];
+      for (var j = 0; j < fila.cells.length; j++) {
+        // Almacenar el contenido HTML de la celda si existe
+        if (fila.cells[j].innerHTML) {
+          tablaData.push(fila.cells[j].innerHTML);
+        } else {
+          tablaData.push(fila.cells[j].textContent);
+        }
+      }
+    }
+
+    var tit = document.getElementById("titulos").innerHTML;
+    var tablaDocumentData = {
+      titulo: tit,
+      datos: tablaData,
+    };
+
+    // Comprobar si la tabla ya existe en Firestore
+    getDoc(doc(colección, tit))
+      .then((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          // La tabla existe, mostrar mensaje emergente para sobrescribir o cancelar
+          mostrarConfirmacionSobrescritura(() => {
+            // Guardar la tabla en Firestore
+            setDoc(doc(colección, tit), tablaDocumentData)
+              .then(() => {
+                mostrarExito();
+              })
+              .catch((error) => {
+                mostrarError();
+                console.error("Error al guardar los datos: ", error);
+              });
+          });
+        } else {
+          // La tabla no existe, guardar directamente
+          setDoc(doc(colección, tit), tablaDocumentData)
+            .then(() => {
+              mostrarExito();
+            })
+            .catch((error) => {
+              mostrarError();
+              console.error("Error al guardar los datos: ", error);
+            });
+        }
+      })
+      .catch((error) => {
+        mostrarError();
+        console.error("Error al comprobar los datos en Firestore: ", error);
+      });
+  } else {
+    // El correo electrónico no está disponible
+    console.error("Correo electrónico no encontrado en el almacenamiento local.");
+  }
+}
+
+
+function cargarTablaDesdeFirestore() {
+  if (userEmail) {
+    // Referencia a la colección en Firestore donde se encuentran los datos de la tabla
+    const userFolder = userEmail;
+    const colección = collection(firestore, "users", userFolder, "tablas");
+
+    var tit = document.getElementById("titulos").innerHTML;
+
+    // Obtener el documento de la tabla desde Firestore
+    getDoc(doc(colección, tit))
+      .then((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          var tablaDocumentData = docSnapshot.data();
+          var tablaData = tablaDocumentData.datos;
+
+          // Acceder al elemento de la tabla en el HTML
+          var tabla = document.getElementById("diasc");
+
+          // Llenar la tabla con los datos cargados desde Firestore
+          for (var i = 0; i < tablaData.length; i++) {
+            var fila = tabla.rows[Math.floor(i / 7) + 1]; // Filas de la tabla, 1-indexed
+            var celda = fila.cells[i % 7]; // Celdas de cada fila, 0-indexed
+            
+            // Insertar el contenido HTML si es un string válido
+            if (typeof tablaData[i] === 'string') {
+              celda.innerHTML = tablaData[i];
+            } else {
+              celda.textContent = tablaData[i];
+            }
+          }
+
+          console.log("Tabla cargada desde Firestore.");
+        } else {
+          console.log("El documento no existe en Firestore.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al cargar la tabla desde Firestore: ", error);
+      });
+  } else {
+    // El correo electrónico no está disponible
+    console.error("Correo electrónico no encontrado en el almacenamiento local.");
+  }
+}
+
 const miBoton = document.getElementById('guardararray');
 miBoton.addEventListener('click', function() {
   guardarArraysEnFirestore();
@@ -210,7 +322,18 @@ miBoton2.addEventListener('click', function() {
   cargarValoresDesdeFirestore();
 
 });
+
+const miBoton3 = document.getElementById('guardartablaenfirestore');
+miBoton3.addEventListener('click', function() {
+  guardarTablaEnFirestore();
+
+});
    
+const miBotonCargar = document.getElementById('cargarTabla');
+miBotonCargar.addEventListener('click', function() {
+  cargarTablaDesdeFirestore();
+});
+
 
 // Función para comprobar si los arrays existen en Firestore y mostrar el mensaje emergente
 

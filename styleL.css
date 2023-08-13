@@ -203,6 +203,16 @@ text-overflow: ellipsis;
   margin: 10px;
 }
 
+
+#retenciones { background-color: #663366;
+color: #9bf5ff;
+padding: 5px;
+text-align: center;
+max-width: 100%;
+border: 4px double black ;
+
+}
+
 #resultados {
 
   border: 4px double black;
@@ -239,7 +249,7 @@ margin: 0 auto;
 }
 
 #horasdinero input[type="number"] {
-  width: 70px;
+  width: 50px;
   
 }
 
@@ -266,12 +276,7 @@ margin: 0 auto;
     height: 30px; 
     }
 
-    .cell {
-      display: inline-block;
-      border: 1px solid black;
-      padding: 7px;
-      
-    }
+
     
 
 </style>

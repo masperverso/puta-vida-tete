@@ -1,94 +1,57 @@
 <!doctype html>
 <head>
-
 	<meta charset="utf-8">
-
 	<title>puta vida tete</title>
-
 	<link rel="stylesheet" type="text/css" href="styleL.css">
 	<link rel="stylesheet" type="text/css" href="estilos.css">
 	<script src="script.js"></script>
-
 	<link rel="stylesheet" type="text/css" href="select.css">
-
 	<link rel="stylesheet" href="flatpickr.min.css">
 	<script src="flatpickr.js"></script>
 
-	<link rel="stylesheet" href="sweetalert2.min.css">
+	<script>
+		window.addEventListener('DOMContentLoaded', function() {
+  var userToken = localStorage.getItem('userToken');
+  if (userToken) {
+    // El token de sesión existe, realizar acciones necesarias
+  } else {
+    // El token de sesión no existe, redirigir a la página de inicio de sesión
+    window.location.href = 'login.html';
+  }
+});
 
-	<link rel="stylesheet" href="menusuperior.css">
+
+	</script>
+
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+  
+	<script src="firebase-config.js"></script>
 	<br><br>
-
 </head>
+
 
 <body>
 
-	<div class="container">
-		<div class="sidebar">	  
+	<div id="user-indicator"></div>
 
+
+	<div class="container">
+		<div class="sidebar">
 		  <!-- Contenido de la barra lateral -->
 		  	<div class="sidebar-content" id="sidebarContent">
-
 				<br><br>
-
-				<button id="editarperfil">Editar Perfil</button>
-
-				<div id="zonausuario" style="display: none;">
-					<h2>¡Bienvenido!</h2>
-					<form id="user-form">
-					  <label for="name">Nombre:</label>
-					  <input type="text" id="name" required>
-
-					  <br><br>
-					  
-					  <label for="email">Correo electrónico:</label>
-					  <input type="email" id="email" required>
-					  
-					  <button type="submit">Guardar</button>
-					</form>
-
-					<br><br>
-
-					<input type="number"  placeholder="IRPF" id="IRPF" min="2" max="47" size="5">% IRPF 
-
-					<br><br>
-		
-				<form action="#" name="niveles"> Elige nivel
-		
-					<select name="nivelsalarial" id="nivelsalarial">
-		
-						<option value="0">1F</option>
-						<option value="1">1D</option>
-						<option value="2">1B</option>
-						<option value="3">1</option>
-				 
-					</select>
-			
-				</form>
-
-				<br>
-			
-				Trienios
-			
-				<select name="numerodetrienios" id="trienios">
-			
-					<option value="0">0</option>
-					  <option value="1">1</option>
-					  <option value="2">2</option>
-			  
-				</select>		
-				  </div>
-				<br><br>
-				<img id="iconotransporte" src=iconos/bicicleta-de-reparto.png width="25"+ height="25" title="">Transporte <br>
-				<img id="iconomadrugador" src=iconos/madrugador.png width="25"+ height="25" title="">Transporte Madrugue<br>
-				<img id="iconoamanecer" src=iconos/amanecer.png width="25"+ height="25" title="">Madrugue<br>
-				<img id="iconosuperman3" src=iconos/superman3.png width="25"+ height="25" title="">SuperMadrugue<br>
-				<img id="iconomedia-luna" src=iconos/media-luna.png width="25"+ height="25" title="">Nocturnidad<br>
-				<img id="iconosigno-menos" src=iconos/signo-menos.png width="25"+ height="25" title="">Partido de 2 o menos horas<br>
-				<img id="iconomas" src=iconos/mas.png width="25"+ height="25" title="">Partido de mas de 2 horas<br>
-				<img id="iconodesayuno" src=iconos/desayuno.png width="25"+ height="25" title="">Dieta desayuno<br>
-				<img id="iconocomiendo" src=iconos/comiendo.png width="25"+ height="25" title="">Dieta comida o cena<br>
-				<img id="iconocalendario" src=iconos/calendario.png width="25"+ height="25" title="">Error horas introducidas<br>
+				<img id="iconotransporte" src=bicicleta-de-reparto.png width="25"+ height="25" title="">Transporte <br>
+				<img id="iconomadrugador" src=madrugador.png width="25"+ height="25" title="">Transporte Madrugue<br>
+				<img id="iconoamanecer" src=amanecer.png width="25"+ height="25" title="">Madrugue<br>
+				<img id="iconosuperman3" src=superman3.png width="25"+ height="25" title="">SuperMadrugue<br>
+				<img id="iconomedia-luna" src=media-luna.png width="25"+ height="25" title="">Nocturnidad<br>
+				<img id="iconosigno-menos" src=signo-menos.png width="25"+ height="25" title="">Partido de 2 o menos horas<br>
+				<img id="iconomas" src=mas.png width="25"+ height="25" title="">Partido de mas de 2 horas<br>
+				<img id="iconodesayuno" src=desayuno.png width="25"+ height="25" title="">Dieta desayuno<br>
+				<img id="iconocomiendo" src=comiendo.png width="25"+ height="25" title="">Dieta comida o cena<br>
+				<img id="iconocalendario" src=calendario.png width="25"+ height="25" title="">Error horas introducidas<br>
 			</div>
 		</div>
 
@@ -96,41 +59,17 @@
 		  <!-- Contenido principal -->
 		 	<div class="main-content" id="mainContent">
 			
-				<span><img id="siberiaico" src="iconos/siberia.png" width="25" height="25" title="" style="vertical-align: middle;"> ¡Hola <span id="usuario">!</span></span>
-
-
-
+				<h4><img id="siberiaico" src=siberia.png width="25"+ height="25" title="">Siberia Now Leticia</h4>
 
 		 	</div>
 		</div>
 	</div>
 
-	<div id="cabecerapp">
-
-		<div class="top-bar">
-			<button class="toggle-button" onclick="toggleSidebar()">
-			  <span></span>
-			  <span></span>
-			  <span></span>
-			</button>
-			<h1 class="title">Siberia Now</h1>
-		  </div>
-		  
-	</div>
-
-	<div class="menu">
-        <div class="contenidomenu">
-            <div class="image-container">
-                <img src="iconos/fecha-limite.png" alt="Calendario" class="menu-image" width="25" height="25" onclick="toggleDiv('calendario'); toggleColor(this);">
-            </div>
-            <div class="image-container">
-                <img src="iconos/calculadora.png" alt="Semana" class="menu-image" width="25" height="25" onclick="toggleDiv('Semana'); toggleColor(this);">
-            </div>
-            <div class="image-container">
-                <img src="iconos/calculador.png" alt="Comprobar" class="menu-image" width="25" height="25" onclick="toggleDiv('calcula'); toggleColor(this);">
-            </div>
-        </div>
-    </div>
+	<button class="toggle-button" onclick="toggleSidebar()">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
 	  
 
 	<div id="calendario">
@@ -144,23 +83,23 @@
 
 	  		<tr id="fila9"><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
 	  		<tr id="fila10"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>	  
-	  		<tr id="fila11"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-	  		<tr id="fila30"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+	  		<tr id="fila11"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila30"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 	  		<tr id="fila12"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-	  		<tr id="fila13"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-	  		<tr id="fila31"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+	  		<tr id="fila13"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila31"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 	  		<tr id="fila14"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-	  		<tr id="fila15"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-	  		<tr id="fila32"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+	  		<tr id="fila15"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila32"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 	  		<tr id="fila16"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-	  		<tr id="fila17"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-	  		<tr id="fila33"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+	  		<tr id="fila17"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila33"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 	  		<tr id="fila18"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-	  		<tr id="fila19"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-	  		<tr id="fila34"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+	  		<tr id="fila19"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila34"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 	  		<tr id="fila20"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-	  		<tr id="fila21"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-	  		<tr id="fila35"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+	  		<tr id="fila21"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	  		<tr id="fila35"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 
 		</table>
 
@@ -200,6 +139,14 @@
 					...
 		
 					<button id="guardarTabla">Guardar Tabla</button>
+
+					<button onclick="cargarTablaDesdeHTML()">Cargar desde HTML</button>
+
+					<button id="guardarTablaenfirestore">Guardar Tabla en firestore</button>
+
+					<button onclick="cargarTablaDesdeFirestore()">Cargar desde Firestore</button>
+
+
 		
 				</p>
 		
@@ -265,6 +212,11 @@
   	
 		</div>
     
+	
+	</div>
+
+	<div id="calcula">
+	
 		<div id="Horasdia">
 
 			<div class="timers">
@@ -324,11 +276,10 @@
 
 		</div>	
 	
-	</div>
-
-	<div id="calcula">
-		
 		<div id="horasdinero">
+
+		
+		
 	
 			<p>Horas semana 
 	
@@ -350,76 +301,98 @@
 	
 			</p>
 
-			<div>
-
-			
-				<p>
-					<span id="horasmes" class="cell"></span> Horas mes.
-					<span id="nominames" class="cell"></span> € mes.
-				</p>
-
-
-			
-				<p><input type="number" placeholder="nomina" id="nominacobrada" maxlength="7" size="7"> Nomina cobrada en bruto <br>
-
-				<span id="nominadebida" class="cell"></span> Se nos adeuda
-			
-				</p>
-
-				<p><input type="number" placeholder="Unidades" id="unidadescobrada" maxlength="7" size="7"> Unidades cobradas <span id="unidadesdebida"class="cell"></span>unidades debidas</p>
-
-				<p><input type="number" placeholder="plus nocturnidad" id="nocturnidadcobrada" maxlength="7" size="7"> Nocturnidad € <br>
-
-				<span id="nocturnidadevida" class="cell"></span> nocturnas a cobrar
-			
-				</p>
+			<div id="retenciones">
 	
-				<p><input type="number" placeholder="plus festividad" id="festividadcobrada" maxlength="7" size="7"> Festividad € <br>
+				<input type="number"  placeholder="IRPF" id="IRPF" min="2" max="47" size="5">% IRPF 
 		
-				<span id="festividadebida" class="cell"></span> festivas a cobrar
+				<form action="#" name="niveles"> Elige nivel
+		
+					<select name="nivelsalarial" id="nivelsalarial">
+		
+						<option value="0">1F</option>
+						<option value="1">1D</option>
+						  <option value="2">1B</option>
+						  <option value="3">1</option>
+				 
+					  </select>
 			
-				</p>
-
-				<p><input type="number" placeholder="plus transportemadrugue" id="transportemadruguecobrada" maxlength="7" size="7"> Transporte madrugue € <br>
-		
-				<span id="madruguedebido" class="cell"></span> Madrugue por cobrar
-		
-				</p>
-
-				<p><input type="number" placeholder="plus transporte" id="transportecobrada" maxlength="7" size="7"> Transporte €<br>
-		
-				<span id="transportedebido" class="cell"></span> Transporte debido
+				</form>
 			
-				</p>
-
-				<p><input type="number" placeholder="plus dietas" id="dietacobrada" maxlength="7" size="7"> Dietas y desayumos € <span id="dietadebido" class="cell"></span> y <span id="desayunodebido " class="cell"></span> </p>
-
-				<p><input type="number" placeholder="plus dietamadrugue" id="dietamadruguecobrada" maxlength="7" size="7"> Dieta madrugue €<br>
-		
-				<span id="dietadebidomadrugue" class="cell"> </span>Supermadrugue por cobrar
+				Trienios
 			
-				</p>
-
-				<p><input type="number" placeholder="partido 2 horas o menos" id="partido2horasmenos" maxlength="7" size="7"> partido2horasmenos € <span id="partido2horasmenosdebido"></span></p>
-	
+				<select name="numerodetrienios" id="trienios">
+			
+					<option value="0">0</option>
+					  <option value="1">1</option>
+					  <option value="2">2</option>
+			  
+				</select>		
+		
 			</div>
 
+			<p>Horas mes <span id="horasmes"></span>.</p>
+
+			<p>€ mes <span id="nominames"></span>.</p>
+
+			<p><input type="number" placeholder="nomina" id="nominacobrada" maxlength="7" size="7"> Nomina cobrada en bruto <br>
+
+				<span id="nominadebida"></span> Se nos adeuda
+			</p>
+
+			<p><input type="number" placeholder="Unidades" id="unidadescobrada" maxlength="7" size="7"> Unidades cobradas <span id="unidadesdebida"></span></p>
+
+			<p><input type="number" placeholder="plus nocturnidad" id="nocturnidadcobrada" maxlength="7" size="7"> Nocturnidad € <br>
+
+				<span id="nocturnidadevida"></span> nocturnas a cobrar
+			
+			</p>
+	
+			<p><input type="number" placeholder="plus festividad" id="festividadcobrada" maxlength="7" size="7"> Festividad € <br>
+		
+				<span id="festividadebida"></span> festivas a cobrar
+			
+			</p>
+
+			<p><input type="number" placeholder="plus transportemadrugue" id="transportemadruguecobrada" maxlength="7" size="7"> Transporte madrugue € <br>
+		
+				<span id="madruguedebido"></span> Madrugue por cobrar
+		
+			</p>
+
+			<p><input type="number" placeholder="plus transporte" id="transportecobrada" maxlength="7" size="7"> Transporte €<br>
+		
+				<span id="transportedebido"></span> Transporte debido
+			
+			</p>
+
+			<p><input type="number" placeholder="plus dietas" id="dietacobrada" maxlength="7" size="7"> Dietas y desayumos € <span id="dietadebido"></span> y <span id="desayunodebido"></span> </p>
+
+			<p><input type="number" placeholder="plus dietamadrugue" id="dietamadruguecobrada" maxlength="7" size="7"> Dieta madrugue €<br>
+		
+				<span id="dietadebidomadrugue"> Supermadrugue por cobrar</span>
+			
+			</p>
+
+			<p><input type="number" placeholder="partido 2 horas o menos" id="partido2horasmenos" maxlength="7" size="7"> partido2horasmenos € <span id="partido2horasmenosdebido"></span></p>
+	
+			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
+			
 			<input type="button" value="Comprobar" onclick="comprobarnomina()" />
 
-			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo()" />
+			<input type="button" name="guardararray" value="descargar arrays" onclick="guardarArraysEnArchivo();">
 
-			<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
+			<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo();" />
 
-			<input type="button" name="descargararray" value="guardar arrays " onclick="guardarArraysEnArchivo();">
+			<input type="button" name="guardararrayfirestore" value="guardar arrays en Firestore" onclick="guardarArraysEnFirestore();">
 
-			<button id="guardararray">guardar arrays en firestore</button>
+			<button onclick="cargarValoresDesdeFirestore()">Cargar desde Firestore</button>
 
-			<button id="cargararray">cargar arrays de firestore</button>
+			
 
-			<button id="guardartablaenfirestore">guardar tabla en firestore</button>
+			
 
-			<button id="cargarTabla">cargar tabla de firestore</button>
-
+			
+	
 		</div>
 
 	</div>
@@ -448,13 +421,11 @@
 
 	<script type="text/javascript" Languaje="javascript" SRC="flatpickr.js"></script>
 
-	<script type="module" Languaje="javascript" SRC="guardarinfoenfirestore.js"></script>
+	<script type="text/javascript" Languaje="javascript" SRC="checklogin.js"></script>
 
-	<script type="text/javascript" Languaje="javascript" SRC="sweetalert2.all.min.js"></script>
+	<script type="text/javascript" Languaje="javascript" SRC="guardarinfofirestore.js"></script>
 
-	<script type="text/javascript" Languaje="javascript" SRC="alertpersonales.js"></script>
-
-	<script type="text/javascript" Languaje="javascript" SRC="menusuperior.js"></script>
+	<script type="text/javascript" Languaje="javascript" SRC="guardartablaenfirestore.js"></script>
 
 </body>
 </html>

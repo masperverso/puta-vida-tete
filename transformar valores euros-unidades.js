@@ -7,7 +7,7 @@ const transportemadrugueInput1 = document.getElementById('transportemadrugue');
 const transportemadrugueInput2 = document.getElementById('transportemadrugueeuros');
 
 const transporteInput1 = document.getElementById('transportecobrada');
-const transporteInput2 = document.getElementById('transportemadrugueeuros');
+const transporteInput2 = document.getElementById('transporteeuros');
 
 const nocturnidadInput1 = document.getElementById('nocturnidadcobrada');
 const nocturnidadInput2 = document.getElementById('nocturnidadcobradaeuros');

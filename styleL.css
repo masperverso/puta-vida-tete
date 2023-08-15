@@ -292,4 +292,11 @@ margin: 0 auto;
       height: 30px;
     }
 
+    #comprobaciones {
+
+      background-color: #fffafa;
+      border: 4px double black ;
+      text-align: center;
+    }
+
 </style>

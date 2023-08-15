@@ -84,6 +84,7 @@
 				<img id="iconoamanecer" src=iconos/amanecer.png width="25"+ height="25" title="">Madrugue<br>
 				<img id="iconosuperman3" src=iconos/superman3.png width="25"+ height="25" title="">SuperMadrugue<br>
 				<img id="iconomedia-luna" src=iconos/media-luna.png width="25"+ height="25" title="">Nocturnidad<br>
+				<img id="iconofeswtiva" src=iconos/papel-picado.png width="25"+ height="25" title="">Festivas<br>
 				<img id="iconosigno-menos" src=iconos/signo-menos.png width="25"+ height="25" title="">Partido de 2 o menos horas<br>
 				<img id="iconomas" src=iconos/mas.png width="25"+ height="25" title="">Partido de mas de 2 horas<br>
 				<img id="iconodesayuno" src=iconos/desayuno.png width="25"+ height="25" title="">Dieta desayuno<br>
@@ -364,7 +365,7 @@
 				</tr>
 				<tr>
 					<th>Nomina en bruto</th>
-					<td><input type="number" placeholder="nomina" id="nominacobrada" maxlength="7" size="7"> </td>
+					<td><input type="number" placeholder="nomina" id="nominacobrada" maxlength="7" size="7"></td>
 					<td><input type="number" id="atrasosnomina" value="0" maxlength="7" size="7"></td>
 					<td><span id="nominadebida"></span></td>           
 				</tr>
@@ -373,28 +374,36 @@
 		
 				<tr>
 					<th>Festivas</th>
-					<td><input type="number" placeholder="festivas" id="festividadcobrada" maxlength="7" size="7"></td>
+					<td><input type="number" placeholder="Horas" id="festividadcobrada" maxlength="2" size="2" oninput="convertirHorasAEuros()">horas
+						<input type="number" placeholder="€uros" id="festividadcobradaeuros" maxlength="7" size="7" oninput="convertirEurosAHoras()">€
+					</td>
 					<td><input type="number" id="atrasosfestivas" value="0" maxlength="7" size="7"></td>
 					<td><span id="festividadebida"></span></td>           
 				</tr>
 		
 				<tr>
 					<th>Madrugue</th>
-					<td><input type="number" placeholder="transportemadrugue" id="transportemadruguecobrada" maxlength="7" size="7"></td>
+					<td><input type="number" placeholder="Horas" id="transportemadrugue" maxlength="5" size="5" oninput="convertirHorasAEuros2()">dias
+						<input type="number" placeholder="€uros" id="transportemadrugueeuros" maxlength="7" size="7" oninput="convertirEurosAHoras2()">€
+					</td>
 					<td><input type="number" id="atrasosmadrugue" value="0" maxlength="7" size="7"></td>
 					<td><span id="madruguedebido"></span></td>           
 				</tr>
 		
 				<tr>
 					<th>Transporte</th>
-					<td><input type="number" placeholder="transporte" id="transportecobrada" maxlength="7" size="7"></td>
+					<td><input type="number" placeholder="Horas" id="transportecobrada" maxlength="5" size="5" oninput="convertirHorasAEuros3()">dias
+						<input type="number" placeholder="€uros" id="transporteeuros" maxlength="7" size="7" oninput="convertirEurosAHoras3()">€
+					</td>					
 					<td><input type="number" id="atrasostransporte" value="0" maxlength="7" size="7"></td>
 					<td><span id="transportedebido"></span></td>           
 				</tr>
 		
 				<tr>
 					<th>Nocturnidad</th>
-					<td><input type="number" placeholder="nocturnidad" id="nocturnidadcobrada" maxlength="7" size="7"></td>
+					<td><input type="number" placeholder="Horas" id="nocturnidadcobrada" maxlength="2" size="2" oninput="convertirHorasAEuros4()">horas
+						<input type="number" placeholder="€uros" id="nocturnidadcobradaeuros" maxlength="7" size="7" oninput="convertirEurosAHoras4()">€
+					</td>
 					<td><input type="number" id="atrasosnocturnidad" value="0" maxlength="7" size="7"></td>
 					<td><span id="nocturnidadevida"></span></td>           
 				</tr>
@@ -408,14 +417,27 @@
 		
 				<tr>
 					<th>Dieta madrugue</th>
-					<td><input type="number" placeholder="dietamadrugue" id="dietamadruguecobrada" maxlength="7" size="7"></td>
+					<td><input type="number" placeholder="Horas" id="dietamadruguecobrada" maxlength="5" size="5" oninput="convertirHorasAEuros5()">dias
+						<input type="number" placeholder="€uros" id="dietamadruguecobradaeuros" maxlength="7" size="7" oninput="convertirEurosAHoras5()">€
+					</td>
 					<td><input type="number" id="atrasossupermadrugue" value="0" maxlength="7" size="7"></td>
 					<td><span id="dietadebidomadrugue"></span></td>           
 				</tr>
 		
 				<tr>
 					<th>Partido 2 horas menos €</th>
-					<td><input type="number" placeholder="partido >2 horas" id="partido2horasmenos" maxlength="7" size="7"><br></td>
+					<td><input type="number" placeholder="Horas" id="partido2horasmenos" maxlength="5" size="5" oninput="convertirHorasAEuros6()">dias
+						<input type="number" placeholder="€uros" id="partido2horasmenoseuros" maxlength="7" size="7" oninput="convertirEurosAHoras6()">€
+					</td>
+					<td><input type="number" id="atrasospartido2horasmenos" value="0" maxlength="7" size="7"></td>
+					<td><span id="partido2horasmenosdebido"></span></td>           
+				</tr>
+
+				<tr>
+					<th>Partido mas de 2 horas €</th>
+					<td><input type="number" placeholder="Horas" id="partidomasde2horas" maxlength="5" size="5" oninput="convertirHorasAEuros7()">dias
+						<input type="number" placeholder="€uros" id="partidomasde2horaseuros" maxlength="7" size="7" oninput="convertirEurosAHoras7()">€
+					</td>
 					<td><input type="number" id="atrasospartido2horasmenos" value="0" maxlength="7" size="7"></td>
 					<td><span id="partido2horasmenosdebido"></span></td>           
 				</tr>
@@ -447,7 +469,7 @@
 
 </body>
 
-<body onload = "funcion_inicial();nocheyfiesta();">
+<body onload = "funcion_inicial();">
 
 	<script type="text/javascript" Languaje="javascript" SRC="calendario.js"></script>
 
@@ -476,6 +498,8 @@
 	<script type="text/javascript" Languaje="javascript" SRC="alertpersonales.js"></script>
 
 	<script type="text/javascript" Languaje="javascript" SRC="menusuperior.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="transformar valores euros-unidades.js"></script>
 
 </body>
 </html>

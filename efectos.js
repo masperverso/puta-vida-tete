@@ -34,6 +34,10 @@
     this.title = dietacomida.toString();
   });
 
+  document.getElementById("iconofeswtiva").addEventListener("mouseover", function() {
+    this.title = festivas.toString();
+  });
+
   editarperfil.addEventListener('click', () => {
     zonausuario.style.display = 'block';
   });

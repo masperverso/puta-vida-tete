@@ -67,10 +67,13 @@ var unidadesmes=0;
 var	nochesmestotal=0;
 var supermadruguestotal=0;
 var festivasmestotal=0;
+var nocturnas = 0;
+var festivas = 0;
 
 primeralinea();
 
 ultimalinea();
+
 
 
 function primeralinea() {
@@ -100,10 +103,35 @@ function funcion_inicial(){
 	}
 }
 
+function nocheyfiesta () {
+
+	for(i=0;i<4;i++) {
+				
+		if (nivelsalarial.value==i){
+
+			for (j=0;j<4;j++){
+
+				if (trienios.value==j){
+
+					nocturnas=(horabase[i]+(trieniohorabase[j]*j))*40/100;
+					nocturnas=nocturnas+nocturnas*86.45/100;
+					nocturnas=parseFloat(nocturnas.toFixed(2));
+
+            		festivas=(horabase[i]+(trieniohorabase[j]*j))*134.75/100;
+            		festivas=parseFloat(festivas.toFixed(2));
+			
+				}
+			}
+		}
+	}
+}
+
+
+
 function horitas() {
     
 // variables en funcion rango salarial
-    var nocturnas = 0;
+    //var nocturnas = 0;
     var festivas = 0;
     var sb001=0;	
     var pp033=0;
@@ -317,7 +345,10 @@ function horitas() {
 	if (buscadia.value==6) {
 
 	horasc = horasc + horast*festivas;
+
+	desglose+= "<img src=iconos/papel-picado.png width=\"25\"+ height=\"25\">";
 	}
+
 
 // error horas introducidas
 

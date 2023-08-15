@@ -156,9 +156,11 @@ function comprobarnomina (){
 	
 
 	let unidadesmeslimpio = unidadesdiarias.filter(function (element) {
-		return element != null;
+		return element !== 0;
 		  }
 		);
+
+		alert ("unidades mes limpio"+unidadesmeslimpio);
 
 	let diastrabajados=unidadesmeslimpio.length;
 	

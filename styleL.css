@@ -203,16 +203,6 @@ text-overflow: ellipsis;
   margin: 10px;
 }
 
-
-#retenciones { background-color: #663366;
-color: #9bf5ff;
-padding: 5px;
-text-align: center;
-max-width: 100%;
-border: 4px double black ;
-
-}
-
 #resultados {
 
   border: 4px double black;
@@ -249,7 +239,7 @@ margin: 0 auto;
 }
 
 #horasdinero input[type="number"] {
-  width: 50px;
+  width: 70px;
   
 }
 
@@ -276,7 +266,30 @@ margin: 0 auto;
     height: 30px; 
     }
 
+    .cell {
+      display: inline-block;
+      border: 1px solid black;
+      padding: 7px;
+      
+    }
 
+    #comprobarnomina th {
+      font: normal 1.4em arial;
+      width: 14%;
+      height: 30px;
+    }
     
+    #comprobarnomina th {
+      color: #990099;
+      background-color: #5ecdec;
+    }
+    
+    #comprobarnomina td {
+      color: #492736;
+      background-color: #9bf5ff;
+      font: normal 14px arial;
+      width: 7%;
+      height: 30px;
+    }
 
 </style>

@@ -149,6 +149,11 @@ text-overflow: ellipsis;
     max-width: 100%;
   }
   
+  #calcula {
+    max-width: 100%;
+    border-width: 2px;
+    font-size: 14px;
+}
   #comprobaciones {
     max-width: 100%;
   }
@@ -315,5 +320,30 @@ margin: 0 auto;
       border: 4px double black ;
       text-align: center;
     }
+
+    /* Otras reglas de estilo... */
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+  /* Resto de las reglas de estilo */
+
+  #comprobaciones {
+    /* Otras propiedades... */
+    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
+  }
+
+  #comprobarnomina th {
+    font-size: 12px; /* Ajusta el tamaño de fuente según sea necesario */
+    width: 12em;
+    height: 30px;
+  }
+
+  #comprobarnomina td {
+    font-size: 12px; /* Ajusta el tamaño de fuente según sea necesario */
+    width: 12em;
+    height: 30px;
+  }
+}
+
 
 </style>

@@ -149,6 +149,23 @@ text-overflow: ellipsis;
     max-width: 100%;
   }
   
+  #comprobaciones {
+    max-width: 100%;
+  }
+
+  #comprobarnomina th {
+    font-size: 10px;
+    width: 12em;
+    height: 30px;
+  }
+  
+  #comprobarnomina td {
+    
+    font-size: 10px;
+    width: 12em;
+    height: 30px;
+  }
+
   #diassemana th {
     font-size: 10px;
     width: 12em;

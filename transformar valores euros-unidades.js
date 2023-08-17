@@ -3,7 +3,7 @@ nocheyfiesta();
 const festividadInput1 = document.getElementById('festividadcobrada');
 const festividadInput2 = document.getElementById('festividadcobradaeuros');
 
-const transportemadrugueInput1 = document.getElementById('transportemadrugue');
+const transportemadrugueInput1 = document.getElementById('transportemadruguecobrada');
 const transportemadrugueInput2 = document.getElementById('transportemadrugueeuros');
 
 const transporteInput1 = document.getElementById('transportecobrada');

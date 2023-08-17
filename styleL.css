@@ -166,9 +166,11 @@ text-overflow: ellipsis;
   
   #comprobarnomina td {
     
-    font-size: 10px;
-    width: 12em;
-    height: 30px;
+    color: #492736;
+  background-color: #9bf5ff;
+  font: normal 1.4em arial;
+  width: 7%;
+  height: 30px;
   }
 
   #diassemana th {
@@ -338,22 +340,17 @@ margin: 0 auto;
     font-size: 10px; /* Ajusta el tamaño de fuente según sea necesario */
   }
 
-  #comprobarnomina th {
-    font-size: 10px; /* Ajusta el tamaño de fuente según sea necesario */
-    width: 12em;
-    height: 30px;
-  }
-
+  #comprobarnomina th,
   #comprobarnomina td {
-    font-size: 10px; /* Ajusta el tamaño de fuente según sea necesario */
-    width: 12em;
-    height: 30px;
+    font-size: 10px; /* Adjust font size as needed */
+    width: auto; /* Allow cells to adjust width automatically */
+    max-width: none; /* Reset max-width property */
   }
 
   #comprobarnomina input[type="number"] {
-    font-size: 10px; /* Ajusta el tamaño de fuente según sea necesario */
-    max-width: 35%; /* Asegura que el input ocupe el ancho completo del td */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    width: 100%; /* Make input fields full width */
+    max-width: none; /* Reset max-width property */
+    box-sizing: border-box; /* Include padding in width */
   }
 }
 

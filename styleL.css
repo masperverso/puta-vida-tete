@@ -317,9 +317,15 @@ margin: 0 auto;
     #comprobarnomina td {
       color: #492736;
       background-color: #9bf5ff;
-      font: normal 1.4em arial;
+      font: normal 1.2em arial;
       width: 7%;
       height: 30px;
+    }
+
+    #comprobarnomina input[type="number"] {
+      width: 100%; /* Make input fields full width */
+      max-width: 35%; /* Reset max-width property */
+      box-sizing: border-box; /* Include padding in width */
     }
 
     #comprobaciones {

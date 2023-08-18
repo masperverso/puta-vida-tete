@@ -110,6 +110,7 @@ function mesantes() {
          annocal=nuevomes.getFullYear()
          cabecera() //llamada a funcion de cambio de cabecera
          escribirdias() //llamada a funcion de cambio de tabla.
+         
          }
 //ver mes posterior
 function mesdespues() {

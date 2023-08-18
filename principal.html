@@ -413,8 +413,11 @@
 			</tr>
 	
 			<tr>
-				<th>Dietas y desayunos</th>
-				<td><input type="number" placeholder="dietas" id="dietacobrada" maxlength="7" size="7"></td>
+				<th>Desayunos y dietas</th>
+				<td><input type="number" placeholder="desayuno" id="desayunosdias" maxlength="3" size="3" oninput="canviar()">dias
+					<input type="number" placeholder="comidas" id="comidasdias" maxlength="3" size="3" oninput="canviar()"><br>
+					<input type="number" placeholder="dietas" id="dietacobrada" maxlength="7" size="7">€
+					</td>
 				<td><input type="number" id="atrasosdieta" value="0" maxlength="3" size="5"></td>
 				<td><span id="dietadebido"></span></td>           
 			</tr>

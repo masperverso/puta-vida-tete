@@ -317,8 +317,14 @@ miBoton.addEventListener('click', function() {
 
 });
 
-const miBoton2 = document.getElementById('cargararray');
+const miBoton2 = document.getElementById('anterior');
 miBoton2.addEventListener('click', function() {
+  cargarValoresDesdeFirestore();
+
+});
+
+const miBoton22 = document.getElementById('posterior');
+miBoton22.addEventListener('click', function() {
   cargarValoresDesdeFirestore();
 
 });
@@ -329,11 +335,15 @@ miBoton3.addEventListener('click', function() {
 
 });
    
-const miBotonCargar = document.getElementById('cargarTabla');
+const miBotonCargar = document.getElementById('anterior');
 miBotonCargar.addEventListener('click', function() {
   cargarTablaDesdeFirestore();
 });
 
+const miBotonCargar2 = document.getElementById('posterior');
+miBotonCargar2.addEventListener('click', function() {
+  cargarTablaDesdeFirestore();
+});
 
 // Función para comprobar si los arrays existen en Firestore y mostrar el mensaje emergente
 

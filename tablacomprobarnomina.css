@@ -7,3 +7,7 @@ table#comprobarnomina td.positivo {
 table#comprobarnomina td.negativo {
   color: rgb(1, 92, 1);
 }
+
+table#comprobarnomina td.zero {
+  color: #663366;
+}

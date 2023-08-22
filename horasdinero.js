@@ -146,12 +146,24 @@ function cuentapluses () {
 function comprobarnomina (){
 
 	var nominacobrada1=parseInt(document.getElementById('nominacobrada').value);
+	var atrasosnomina=parseInt(document.getElementById('atrasosnomina').value);
+
 	var transportec=parseInt(document.getElementById('transportecobrada').value);
+	var atrasostransporte=parseInt(document.getElementById('atrasostransporte').value);
+
 	var transportemadruguec=parseInt(document.getElementById('transportemadruguecobrada').value);
+	var atrasostransportemadrugue=parseInt(document.getElementById('atrasosmadrugue').value);
+
 	var nocturnidadc=parseInt(document.getElementById('nocturnidadcobrada').value);
+	var atrasosnocturnidad=parseInt(document.getElementById('atrasosnocturnidad').value);
+
 	var festividadc=parseInt(document.getElementById('festividadcobrada').value);
+	var atrasosfestividad=parseInt(document.getElementById('atrasosfestivas').value);
+
 	var dietacobrada1=parseInt(document.getElementById('dietacobrada').value);
+
 	var dietamadruguec=parseInt(document.getElementById('dietamadruguecobrada').value);
+	var atrasosdietamadrugue=parseInt(document.getElementById('atrasossupermadrugue').value);
 
 	
 
@@ -232,12 +244,12 @@ function comprobarnomina (){
 		console.log ("transportes mensuales",transportestotales);
 		console.log ("supermadrugues mensuales",supermadruguestotal);
 
-		var nominadebida=nominamensual-nominacobrada1;
-		var transportedebido=transportestotales-transportec;
-		var transportemadruguedebido=madruguestotales-transportemadruguec;
-		var nocturnidadebido=nochesmestotal-nocturnidadc;
-		var festividadebido=festivasmestotal-festividadc;
-		var supermadruguedebido=supermadruguestotal-dietamadruguec;
+		var nominadebida=nominamensual-nominacobrada1-atrasosnomina;
+		var transportedebido=transportestotales-transportec-atrasostransporte;
+		var transportemadruguedebido=madruguestotales-transportemadruguec-atrasostransportemadrugue;
+		var nocturnidadebido=nochesmestotal-nocturnidadc-atrasosnocturnidad;
+		var festividadebido=festivasmestotal-festividadc-atrasosfestividad;
+		var supermadruguedebido=supermadruguestotal-dietamadruguec-atrasosdietamadrugue;
 	
 		document.getElementById('nominadebida').innerHTML = nominadebida.toFixed(2);
 		//document.getElementById('unidadesdebida').innerHTML = unidadesmes.toFixed(2);

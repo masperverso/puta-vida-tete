@@ -9,6 +9,9 @@ function aplicarColores() {
       } else if (valor < 0) {
         celda.classList.add("negativo");
       }
+    else if (valor==0) {
+      celda.classList.add("zero");
+    }
     });
   }
   

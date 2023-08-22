@@ -18,6 +18,7 @@ window.onload = function() {
 	annohoy=hoy.getFullYear(); //año actual
 // Elementos del DOM: en cabecera de calendario 
 	tit=document.getElementById("titulos"); //cabecera del calendario
+   tit2=document.getElementById("titulo comprobar");
 	ant=document.getElementById("anterior"); //mes anterior
 	pos=document.getElementById("posterior"); //mes posterior
 // Elementos del DOM en primera fila
@@ -43,6 +44,7 @@ window.onload = function() {
 //cabecera del calendario
 function cabecera() {
          tit.innerHTML=meses[mescal]+" de "+annocal;
+         tit2.innerHTML=tit.innerHTML;
          mesant=mescal-1; //mes anterior
          mespos=mescal+1; //mes posterior
          if (mesant<0) {mesant=11;}

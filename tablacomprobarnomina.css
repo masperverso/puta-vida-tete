@@ -1,0 +1,9 @@
+/* Estilos para valores positivos */
+table#comprobarnomina td.positivo {
+  color: #f11445;
+}
+
+/* Estilos para valores negativos */
+table#comprobarnomina td.negativo {
+  color: rgb(1, 92, 1);
+}

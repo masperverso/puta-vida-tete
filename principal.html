@@ -17,7 +17,11 @@
 	<link rel="stylesheet" href="sweetalert2.min.css">
 
 	<link rel="stylesheet" href="menusuperior.css">
+
+	<link rel="stylesheet" href="tablacomprobarnomina.css">
 	<br><br>
+
+
 
 </head>
 
@@ -351,18 +355,16 @@
 	
 			</p>
 
-			<p>Horas mes <span id="horasmes" class="cell"></span> € mes <span id="nominames" class="cell"></span></p>
-
-			
-
-			
+			<p>Horas mes <span id="horasmes" class="cell"></span> € mes 
+				<span id="nominames" class="cell"></span>
+				  <input type="button" name="mensualidad" value="total nomina" onclick="salario();"></p>	
 
 		</div>
 
 		<div id="comprobaciones">
 			<table id="comprobarnomina">
 			<tr>
-				<th></th>
+				<th style="background-color: #fffafa; border: 2px solid #663366;" ><span id="titulo comprobar"></span></th>
 				<th>Valor Cobrado</th>
 				<th>Atrasos</th>
 				<th>Valor Adeudado</th>
@@ -454,11 +456,11 @@
 
 
 
-		<input type="button" value="Comprobar" onclick="comprobarnomina()" />
+		<input type="button" value="Comprobar" onclick="salario();comprobarnomina();aplicarColores()" />
 
 		<input type="button" value="cargar arrays" onclick="cargarValoresDesdeArchivo()" />
 
-		<input type="button" name="mensualidad" value="total nomina" onclick="salario();">
+		
 
 		<input type="button" name="descargararray" value="guardar arrays " onclick="guardarArraysEnArchivo();">
 
@@ -505,6 +507,8 @@
 	<script type="text/javascript" Languaje="javascript" SRC="menusuperior.js"></script>
 
 	<script type="text/javascript" Languaje="javascript" SRC="transformar valores euros-unidades.js"></script>
+
+	<script type="text/javascript" Languaje="javascript" SRC="efectostablacomprobarnomina.js"></script>
 
 </body>
 </html>

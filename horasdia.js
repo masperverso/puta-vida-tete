@@ -230,11 +230,9 @@ function horitas() {
 			turnopartidosemana [buscadia.value]=1;
 		}
 
-		else {
-			turnopartidosemana [buscadia.value]=0;
-		}
+		
 
-		if (horai2-horaf1 <= 3 && horai2-horaf1 > 2 ) {
+		else if (horai2-horaf1 <= 3 && horai2-horaf1 > 2 ) {
 			horasc=horasc+partido2hora;
 			desglose+= "<img src=iconos/mas.png width=\"25\"+ height=\"25\">";
 
@@ -244,6 +242,10 @@ function horitas() {
 		else {
 			turnopartidosemana [buscadia.value]=0;
 		}
+	}
+
+	else {
+		turnopartidosemana [buscadia.value]=0;
 	}
 
 	if (horai1 >= 3 && horai1 < 6) {

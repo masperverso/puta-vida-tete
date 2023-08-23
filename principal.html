@@ -394,7 +394,9 @@
 				<td><input type="number" placeholder="Horas" id="transportemadruguecobrada" maxlength="5" size="5" oninput="convertirUnidades(this, transportemadrugueeuros, plusmadrugue)">dias
 					<input type="number" placeholder="€uros" id="transportemadrugueeuros" maxlength="7" size="7" oninput="convertirUnidadesInverso(transportemadruguecobrada, this, plusmadrugue)">€
 				</td>
-				<td><input type="number" id="atrasosmadrugue" value="0" maxlength="3" size="5"></td>
+				<td><input type="number" id="atrasosmadrugue" value="0" maxlength="3" size="5" oninput="convertirUnidades(this, atrasostransportemadrugueeuros, plusmadrugue)"> dias
+					<input type="number" placeholder="€uros" id="atrasostransportemadrugueeuros" maxlength="5" size="3" oninput="convertirUnidadesInverso(atrasostransportemadrugue, this, plusmadrugue)"> €
+				</td>
 				<td><span id="madruguedebido"></span></td>           
 			</tr>
 	
@@ -403,7 +405,9 @@
 				<td><input type="number" placeholder="Horas" id="transportecobrada" maxlength="5" size="5" oninput="convertirUnidades(this, transporteeuros, transporte)">dias
 					<input type="number" placeholder="€uros" id="transporteeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(transportemadruguecobrada, this, transporte)">€
 				</td>					
-				<td><input type="number" id="atrasostransporte" value="0" maxlength="3" size="5"></td>
+				<td><input type="number" id="atrasostransporte" value="0" maxlength="3" size="5"oninput="convertirUnidades(this, atrasostransporteeuros, transporte)">dias
+					<input type="number" placeholder="€uros" id="atrasostransporteeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(atrasostransporte, this, transporte)">€
+				</td>
 				<td><span id="transportedebido"></span></td>           
 			</tr>
 	
@@ -412,7 +416,8 @@
 				<td><input type="number" placeholder="Horas" id="nocturnidadcobrada" maxlength="2" size="2" oninput="convertirUnidades(this, nocturnidadcobradaeuros, nocturnas)">horas
 					<input type="number" placeholder="€uros" id="nocturnidadcobradaeuros" maxlength="3" size="3" oninput="convertirUnidadesInverso(nocturnidadcobrada, this, nocturnas)">€
 				</td>
-				<td><input type="number" id="atrasosnocturnidad" value="0" maxlength="3" size="5"></td>
+				<td><input type="number" id="atrasosnocturnidad" value="0" maxlength="3" size="5" oninput="convertirUnidades(this, atrasosnocturnidadcobradaeuros, nocturnas)">horas
+					<input type="number" placeholder="€uros" id="atrasosnocturnidadcobradaeuros" maxlength="3" size="3" oninput="convertirUnidadesInverso(atrasosnocturnidad, this, nocturnas)">€</td>
 				<td><span id="nocturnidadevida"></span></td>           
 			</tr>
 	
@@ -431,7 +436,8 @@
 				<td><input type="number" placeholder="Horas" id="dietamadruguecobrada" maxlength="5" size="5" oninput="convertirUnidades(this, dietamadruguecobradaeuros, plusupermadrugue)">dias
 					<input type="number" placeholder="€uros" id="dietamadruguecobradaeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(dietamadruguecobrada, this, plusupermadrugue)">€
 				</td>
-				<td><input type="number" id="atrasossupermadrugue" value="0" maxlength="3" size="5"></td>
+				<td><input type="number" id="atrasossupermadrugue" value="0" maxlength="3" size="5" oninput="convertirUnidades(this, atrasosdietamadruguecobradaeuros, plusupermadrugue)">dias
+					<input type="number" placeholder="€uros" id="atrasosdietamadruguecobradaeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(atrasossupermadrugue, this, plusupermadrugue)">€</td>
 				<td><span id="dietadebidomadrugue"></span></td>           
 			</tr>
 	
@@ -440,7 +446,8 @@
 				<td><input type="number" placeholder="Horas" id="partido2horasmenos" maxlength="5" size="5" oninput="convertirUnidades(this, partido2horasmenoseuros, partido1hora)">dias
 					<input type="number" placeholder="€uros" id="partido2horasmenoseuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(partido2horasmenos, this, partido1hora)">€
 				</td>
-				<td><input type="number" id="atrasospartido2horasmenos" value="0" maxlength="3" size="5"></td>
+				<td><input type="number" id="atrasospartido2horasmenos" value="0" maxlength="3" size="5" oninput="convertirUnidades(this, atrasospartido2horasmenoseuros, partido1hora)">dias
+					<input type="number" placeholder="€uros" id="atrasospartido2horasmenoseuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(atrasospartido2horasmenos, this, partido1hora)">€</td>
 				<td><span id="partido2horasmenosdebido"></span></td>           
 			</tr>
 
@@ -449,8 +456,9 @@
 				<td><input type="number" placeholder="Horas" id="partidomasde2horas" maxlength="5" size="5" oninput="convertirUnidades(this, partidomasde2horaseuros, partido2hora)">dias
 					<input type="number" placeholder="€uros" id="partidomasde2horaseuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(partidomasde2horas, this, partido2hora)">€
 				</td>
-				<td><input type="number" id="atrasospartido2horasmenos" value="0" maxlength="3" size="5"></td>
-				<td><span id="partido2horasmenosdebido"></span></td>           
+				<td><input type="number" id="atrasospartido2horasmas" value="0" maxlength="3" size="5" oninput="convertirUnidades(this, atrasospartidomasde2horaseuros, partido2hora)">dias
+					<input type="number" placeholder="€uros" id="atrasospartidomasde2horaseuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(atrasospartido2horasmas, this, partido2hora)">€</td>
+				<td><span id="partido2horasmasdebido"></span></td>           
 			</tr>
 	
 			</table>

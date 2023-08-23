@@ -165,6 +165,12 @@ function comprobarnomina (){
 	var dietamadruguec=parseInt(document.getElementById('dietamadruguecobrada').value);
 	var atrasosdietamadrugue=parseInt(document.getElementById('atrasossupermadrugue').value);
 
+	var partido2horasmenosc=parseInt(document.getElementById('partido2horasmenos').value);
+	var atrasospartidomenosde2horas=parseInt(document.getElementById('atrasospartido2horasmenos').value);
+
+	var partido2horasmasc=parseInt(document.getElementById('partidomasde2horas').value);
+	var atrasospartidomasde2horas=parseInt(document.getElementById('atrasospartido2horasmas').value);
+
 	
 
 	let unidadesmeslimpio = unidadesdiarias.filter(function (element) {
@@ -187,6 +193,8 @@ function comprobarnomina (){
 		var madruguestotales=0;
 		var transportestotales=0;
 		var supermadruguestotal=0;
+		var partidosmenos2horastotal=0;
+		var partidomas2horastotal=0;
 
 		for (i=0;i<unidadesmeslimpio.length; i++) {
 			unidadesmes +=parseFloat(unidadesmeslimpio[i]);
@@ -236,6 +244,24 @@ function comprobarnomina (){
 		for (i=0;i<supermadruguemeslimpio.length; i++) {
 			supermadruguestotal += supermadruguemeslimpio[i];
 		}
+
+		let partidosmenos2horastotallimpio = turnopartidomes.filter(function (element) {
+			return element !== 2;
+			  }
+		);
+
+		for (i=0;i<partidosmenos2horastotallimpio.length; i++) {
+			partidosmenos2horastotal += partidosmenos2horastotallimpio[i];
+		}
+
+		let partidosmas2horastotallimpio = turnopartidomes.filter(function (element) {
+			return element !== 1;
+			  }
+		);
+
+		for (i=0;i<partidosmas2horastotallimpio.length; i++) {
+			partidomas2horastotal += (partidosmenos2horastotallimpio[i]/2);
+		}
 	
 		console.log ("unidades mensuales",unidadesmes);
 		console.log ("nocturnidades mensuales",nochesmestotal);
@@ -243,6 +269,8 @@ function comprobarnomina (){
 		console.log ("madrugues mensuales",madruguestotales);
 		console.log ("transportes mensuales",transportestotales);
 		console.log ("supermadrugues mensuales",supermadruguestotal);
+		console.log ("partidos menos de 2 horas",partidosmenos2horastotal);
+		console.log ("partidos mas de 2 horas",partidomas2horastotal);
 
 		var nominadebida=nominamensual-nominacobrada1-atrasosnomina;
 		var transportedebido=transportestotales-transportec-atrasostransporte;
@@ -250,6 +278,8 @@ function comprobarnomina (){
 		var nocturnidadebido=nochesmestotal-nocturnidadc-atrasosnocturnidad;
 		var festividadebido=festivasmestotal-festividadc-atrasosfestividad;
 		var supermadruguedebido=supermadruguestotal-dietamadruguec-atrasosdietamadrugue;
+		var partidosmenos2horasdebido=partidosmenos2horastotal-partido2horasmenosc-atrasospartidomenosde2horas;
+		var partidomas2horasdebido=partidomas2horastotal-partido2horasmasc-atrasospartidomasde2horas;
 	
 		document.getElementById('nominadebida').innerHTML = nominadebida.toFixed(2);
 		//document.getElementById('unidadesdebida').innerHTML = unidadesmes.toFixed(2);
@@ -258,6 +288,8 @@ function comprobarnomina (){
 		document.getElementById('madruguedebido').innerHTML = transportemadruguedebido.toFixed(2);
 		document.getElementById('transportedebido').innerHTML = transportedebido.toFixed(2);
 		document.getElementById('dietadebidomadrugue').innerHTML = supermadruguedebido.toFixed(2);
+		document.getElementById('partido2horasmenosdebido').innerHTML = partidosmenos2horasdebido.toFixed(2);
+		document.getElementById('partido2horasmasdebido').innerHTML = partidomas2horasdebido.toFixed(2);
 
 	}
 

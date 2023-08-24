@@ -217,9 +217,9 @@ function horitas() {
 		}
 	}
 
-	horasc=horasc + transporte;
-
-	var desglose = "\n"+"<img src=iconos/bicicleta-de-reparto.png width=\"25\"+ height=\"25\">";	
+	
+	var desglose = "\n"
+		
 
 	if(check_turno_partido.checked ) {
 	
@@ -270,44 +270,8 @@ function horitas() {
 		madruguesemana[buscadia.value]=0;
 	}
 
-	if (horai1 <= 13 && horaf1 >= 15.5 && horast >= 5) {
-		horasc = horasc + dietacomida;
-		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
+	
 
-		dietasemana [buscadia.value]=1;
-	}
-
-	else if (horai2 <= 13 && horaf2 >= 15.5 && horast >= 5) {
-		horasc = horasc + dietacomida;
-		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
-
-		dietasemana [buscadia.value]=1;
-	}
-
-	else if (horai1 <= 20.5 && horaf1 >= 23 && horast >= 5) {
-		horasc = horasc + dietacomida;
-		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
-
-		dietasemana [buscadia.value]=1;
-	}
-
-	else if (horai2 <= 20.5 && horaf2 >= 23 && horast >= 5) {
-		horasc = horasc + dietacomida;
-		desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
-
-		dietasemana [buscadia.value]=1;
-	}
-
-	else {
-		dietasemana [buscadia.value]=0;
-	}
-
-	if (horai1 >= 5 && horai1<=6 && horaf1-horai1 >= 5) {
-		horasc = horasc + dietadesayuno;
-		desglose += "<img src=iconos/desayuno.png width=\"25\"+ height=\"25\">";
-
-		dietasemana [buscadia.value]=2;
-	}
 
 // nocturnidad
 	var noche=0;
@@ -351,6 +315,76 @@ function horitas() {
 	desglose+= "<img src=iconos/papel-picado.png width=\"25\"+ height=\"25\">";
 	}
 
+	for(i=0;i<6;i++) {
+
+		if(check_festivo.checked && buscadia.value==i) {
+
+			horasc = horasc + horast*festivas;
+
+			desglose+= "<img src=iconos/papel-picado.png width=\"25\"+ height=\"25\">";
+		}
+	}
+
+//vacaciones
+
+	
+
+	if(check_vacaciones.checked) {
+
+		desglose+= "<img src=iconos/vacaciones-de-verano.png width=\"25\"+ height=\"25\">";
+	
+	}
+
+	else {
+
+		horasc=horasc + transporte;
+		desglose +="<img src=iconos/bicicleta-de-reparto.png width=\"25\"+ height=\"25\">";
+
+		if (horai1 <= 13 && horaf1 >= 15.5 && horast >= 5) {
+
+			horasc = horasc + dietacomida;
+			desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
+		
+			dietasemana [buscadia.value]=1;
+		}
+		
+		else if (horai2 <= 13 && horaf2 >= 15.5 && horast >= 5) {
+
+			horasc = horasc + dietacomida;
+			desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
+		
+			dietasemana [buscadia.value]=1;
+		}
+		
+		else if (horai1 <= 20.5 && horaf1 >= 23 && horast >= 5) {
+			horasc = horasc + dietacomida;
+			desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
+		
+			dietasemana [buscadia.value]=1;
+		
+		}
+		
+		else if (horai2 <= 20.5 && horaf2 >= 23 && horast >= 5) {
+			horasc = horasc + dietacomida;
+			desglose += "<img src=iconos/comiendo.png width=\"25\"+ height=\"25\">";
+		
+			dietasemana [buscadia.value]=1;
+
+		}
+		
+		else {
+				dietasemana [buscadia.value]=0;
+		}
+
+		if (horai1 >= 5 && horai1<=6 && horaf1-horai1 >= 5) {
+			horasc = horasc + dietadesayuno;
+			desglose += "<img src=iconos/desayuno.png width=\"25\"+ height=\"25\">";
+	
+			dietasemana [buscadia.value]=2;
+		}
+	
+	}
+	
 
 // error horas introducidas
 

@@ -49,6 +49,9 @@ var unidadesdiarias=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 var festivasmes=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var transportemes=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
+var festivassemana=[0,0,0,0,0,0,0];
+var transportessemana=[0,0,0,0,0,0,0];
+
 var madruguesemana=[0,0,0,0,0,0,0];
 var supermadruguesemana=[0,0,0,0,0,0,0];
 
@@ -73,8 +76,6 @@ var festivas = 0;
 primeralinea();
 
 ultimalinea();
-
-
 
 function primeralinea() {
 	for (i=0;i<8;i++) {
@@ -125,8 +126,6 @@ function nocheyfiesta () {
 		}
 	}
 }
-
-
 
 function horitas() {
     
@@ -228,9 +227,7 @@ function horitas() {
 			desglose+= "<img src=iconos/signo-menos.png width=\"25\"+ height=\"25\">";
 			
 			turnopartidosemana [buscadia.value]=1;
-		}
-
-		
+		}	
 
 		else if (horai2-horaf1 <= 3 && horai2-horaf1 > 2 ) {
 			horasc=horasc+partido2hora;
@@ -269,9 +266,6 @@ function horitas() {
 	else {
 		madruguesemana[buscadia.value]=0;
 	}
-
-	
-
 
 // nocturnidad
 	var noche=0;
@@ -312,6 +306,8 @@ function horitas() {
 
 	horasc = horasc + horast*festivas;
 
+	festivassemana [6]=horast*festivas;
+
 	desglose+= "<img src=iconos/papel-picado.png width=\"25\"+ height=\"25\">";
 	}
 
@@ -322,12 +318,12 @@ function horitas() {
 			horasc = horasc + horast*festivas;
 
 			desglose+= "<img src=iconos/papel-picado.png width=\"25\"+ height=\"25\">";
+
+			festivassemana [i]=horast*festivas;
 		}
 	}
 
-//vacaciones
-
-	
+//vacaciones	
 
 	if(check_vacaciones.checked) {
 
@@ -381,10 +377,8 @@ function horitas() {
 			desglose += "<img src=iconos/desayuno.png width=\"25\"+ height=\"25\">";
 	
 			dietasemana [buscadia.value]=2;
-		}
-	
+		}	
 	}
-	
 
 // error horas introducidas
 
@@ -488,6 +482,19 @@ function horitas() {
 			else {
 			celda4.innerHTML=selecthoraf2 + ":" + mint2;
 			}	
+
+			if (check_vacaciones.checked){
+
+				transportessemana [i]=0;
+
+			}
+
+			else {
+
+				transportessemana [i]=1;
+			}
+			
+
 		}
 	}
 }
@@ -602,6 +609,9 @@ function eurosemana () {
 			console.log ("totalhorassemana en tabla",totalhorasemanatabla);
 			console.log ("totaleurossemana en tabla",totaleurosemanatabla);
 
+			console.log ("festivas semana",festivassemana);
+			console.log ("transportes semana",transportessemana);
+
 
 			alert (selectsemana.value);
 			// primera semana de nomina desde dia 1
@@ -632,18 +642,24 @@ function eurosemana () {
 							unidadesdiarias[h-j]=celdaunidades.innerHTML;
 
 							// cuento horas festivas
+
+							if (festivassemana[h]>0){
+
+								festivasmes[j]=celda5.innerHTML;
+							}
+
 							if (h==6){
 
 								festivasmes[6]=celda5.innerHTML;
 							}
 							
-							if (celda5.innerHTML>0){
+							if (celda5.innerHTML>0 || transportessemana[j]>0){
 
 								transportemes[h-j]=1;
 
 							}
 
-							if (celda5.innerHTML==0){
+							if (celda5.innerHTML==0 || transportessemana[j]==0){
 
 								transportemes[h-j]=0;
 
@@ -813,6 +829,12 @@ function ponerdl () {
 		if (buscadia.value==i){
 			celdaunidades=filaunidades.getElementsByTagName("td")[i];
 			celdaunidades.innerHTML="0";
+		}
+
+		if (buscadia.value==i){
+			
+			transportessemana [i]=0;
+			festivassemana [i]=0;
 		}
 	}
 }

@@ -395,7 +395,7 @@
 			</tr>
 	
 			<tr>
-				<th>Madrugue</th>
+				<th>Dieta Madrugue</th>
 				<td><input type="number" placeholder="Horas" id="transportemadruguecobrada" maxlength="5" size="5" oninput="convertirUnidades(this, transportemadrugueeuros, plusmadrugue)">dias
 					<input type="number" placeholder="€uros" id="transportemadrugueeuros" maxlength="7" size="7" oninput="convertirUnidadesInverso(transportemadruguecobrada, this, plusmadrugue)">€
 				</td>
@@ -408,7 +408,7 @@
 			<tr>
 				<th>Transporte</th>
 				<td><input type="number" placeholder="Horas" id="transportecobrada" maxlength="5" size="5" oninput="convertirUnidades(this, transporteeuros, transporte)">dias
-					<input type="number" placeholder="€uros" id="transporteeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(transportemadruguecobrada, this, transporte)">€
+					<input type="number" placeholder="€uros" id="transporteeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(transportecobrada, this, transporte)">€
 				</td>					
 				<td><input type="number" id="atrasostransporte" value="0" maxlength="3" size="5"oninput="convertirUnidades(this, atrasostransporteeuros, transporte)">dias
 					<input type="number" placeholder="€uros" id="atrasostransporteeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(atrasostransporte, this, transporte)">€
@@ -437,7 +437,7 @@
 			</tr>
 	
 			<tr>
-				<th>Dieta madrugue</th>
+				<th>Transporte madrugue</th>
 				<td><input type="number" placeholder="Horas" id="dietamadruguecobrada" maxlength="5" size="5" oninput="convertirUnidades(this, dietamadruguecobradaeuros, plusupermadrugue)">dias
 					<input type="number" placeholder="€uros" id="dietamadruguecobradaeuros" maxlength="3" size="5" oninput="convertirUnidadesInverso(dietamadruguecobrada, this, plusupermadrugue)">€
 				</td>
